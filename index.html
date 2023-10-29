@@ -24,9 +24,39 @@ a {
 a:hover {
     color: #cc8929;
     text-decoration-color: #cc8929;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript">$(window).on('sm.passage.showing', function (e, data)
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">const deepLinkQueryParam = 'passage'
+
+$(window).on('sm.story.started', function (e, data)
 {
-    window.story.checkpoint(data.passage.name);
+  // Check to see if there's a deep link reference when starting the
+  // story. If so, navigate straight there instead of starting at
+  // the beginning of the story
+  if (window.location.search) {
+    const queryParams = new URLSearchParams(window.location.search)
+    const deepLinkedPassageName = queryParams.get(deepLinkQueryParam)
+    if (deepLinkedPassageName) {
+      const deepLinkedPassage = window.story.passages.find((passage) => passage?.name === deepLinkedPassageName)
+      if (deepLinkedPassage) {
+        window.story.startPassage = deepLinkedPassage.id
+      } else {
+      window.alert(`No passage available with the name ${deepLinkedPassageName}; please check the URL and try again`);
+      }
+    }
+  }
+});
+
+$(window).on('sm.passage.showing', function (e, data)
+{
+  // add passage to the story history when it is viewed, so that the
+  // back button works correctly
+  window.story.checkpoint(data.passage.name);
+  
+  // Make sure the current passage name is included in the URL as a
+  // query param (for deep linking)
+  const currentUrl = new URL(window.location.href);
+  currentUrl.searchParams.set(deepLinkQueryParam, data.passage.name);
+  window.history.replaceState(window.history.state, '', currentUrl.toString());
+
 });</script><tw-tag name="startup" color="red"></tw-tag><tw-tag name="footer" color="red"></tw-tag><tw-passagedata pid="1" name="Announce a job guarantee" tags="" position="300,325" size="100,100">Yes! This scheme would provide good jobs for everyone in the UK, instantly bringing millions out of poverty and precarious work. 
 
 Having a Job Guarantee policy in place provides a backstop that will enable our economy to instantly react to crises - like during Covid, we could have used it to mobilise people to work on socially-distanced outdoor nature restoration projects, or to deliver groceries to the disabled or elderly, instead of furloughing and further isolating society.
