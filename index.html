@@ -24,6 +24,43 @@ a {
 a:hover {
     color: #cc8929;
     text-decoration-color: #cc8929;
+}
+
+.passage > p:nth-child(1) {
+  animation: fadeIn 2s;
+}
+.passage > p:nth-child(2) {
+  animation: fadeIn 4s;
+}
+.passage > p:nth-child(3) {
+  animation: fadeIn 6s;
+}
+.passage > p:nth-child(4) {
+  animation: fadeIn 8s;
+}
+.passage > p:nth-child(5) {
+  animation: fadeIn 10s;
+}
+.passage > p:nth-child(6) {
+  animation: fadeIn 12s;
+}
+.passage > p:nth-child(7) {
+  animation: fadeIn 14s;
+}
+.passage > p:nth-child(8) {
+  animation: fadeIn 16s;
+}
+.passage > p:nth-child(9) {
+  animation: fadeIn 18s;
+}
+.passage > p:nth-child(10) {
+  animation: fadeIn 20s;
+}
+
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">const deepLinkQueryParam = 'passage'
 
 $(window).on('sm.story.started', function (e, data)
@@ -61,17 +98,17 @@ $(window).on('sm.passage.showing', function (e, data)
 
 Having a Job Guarantee policy in place provides a backstop that will enable our economy to instantly react to crises - like during Covid, we could have used it to mobilise people to work on socially-distanced outdoor nature restoration projects, or to deliver groceries to the disabled or elderly, instead of furloughing and further isolating society.
 
-[[Keep going, this is a great start -&gt; Inflation]]
+[[Keep going, this is a great start -&gt;Inflation]]
 </tw-passagedata><tw-passagedata pid="2" name="Express regret" tags="" position="500,200" size="100,100">You’ve fallen into the mainstream economics trap 🙅🏻‍♀️ 
 
-Back when you used to be able to exchange UK pounds for gold (in the days of the gold standard), it’s true that you would have to find more gold to back the additional spending that you want to do. Otherwise you would run the risk of people wanting to convert those new pounds into gold at the agreed exchange rate, and you wouldn&#39;t have enough to pay them all.
+Back when you used to be able to exchange UK pounds for gold (in the days of the gold standard), it’s true that you would have to find more gold to back the additional spending that you want to do. Otherwise you would run the risk of people wanting to convert those new pounds into gold at the agreed exchange rate, and you wouldn&#39;t have enough to pay them all&lt;sup&gt;1&lt;/sup&gt;.
 
-But since the 1970s we’ve had a fiat currency, which means that the government has control over how much money is available to our economy. This means that like Keynes said, &quot;Anything we can actually do, we can afford&quot;.
+But since the 1970s we’ve had a fiat currency, which means that the government has control over how much money is available to our economy&lt;sup&gt;2&lt;/sup&gt;. This means that like Keynes said, &quot;Anything we can actually do, we can afford&quot;.
 
 [[Go back-&gt;Start of journey]] and let&#39;s see how we can use this insight to build a better economy.
 
 &lt;%
-s.footnotes = [&quot;New footnote&quot;, &quot;And another&quot;]
+s.footnotes = [&quot;Example footnote&quot;, &quot;Second example footnote&quot;]
 %&gt;
 &lt;%= window.story.render(&quot;Footnotes&quot;) %&gt;</tw-passagedata><tw-passagedata pid="3" name="Raise interest rates" tags="" position="500,450" size="100,100">You’ve fallen into the mainstream economics trap 🙅🏻‍♀️ 
 
@@ -97,7 +134,7 @@ Building out renewable energy will take a while though. What can you do in the m
 
 It’d be nice if things really worked that way, but there’s no practical evidence to suggest that prices are set according to some rational supply and demand curve. If a business believes it&#39;ll make more money producing less and selling it on at a higher price, it&#39;ll do that.
 
-Go back for some better ideas on how to approach this.</tw-passagedata><tw-passagedata pid="8" name=" Inflation" tags="" position="350,475" size="100,100">Over time, inflation starts to creep up in your country. What do you do? 
+Go back for some better ideas on how to approach this.</tw-passagedata><tw-passagedata pid="8" name="Inflation" tags="" position="350,475" size="100,100">Over time, inflation starts to creep up in your country. What do you do? 
 
 Tell your economists to [[find out more about where the inflation is coming from]] before taking action
 
@@ -117,18 +154,19 @@ if (s.footnotes &amp;&amp; s.footnotes.length &gt; 0) {
 		%&gt;&lt;%=i+1%&gt;. &lt;%=s.footnotes[i]%&gt;&lt;br/&gt;
 	&lt;%}
     }
-%&gt;</tw-passagedata><tw-passagedata pid="12" name="Welcome" tags="" position="75,200" size="100,100">Welcome! Over the course of this game&lt;sup&gt;1&lt;/sup&gt;, you will be shown two different ways to manage the economy - the mainstream way, and the degrowth way. You&#39;ll learn about why the mainstream way is causing the various crises we find ourselves living in today, and how degrowth could result in a better world. 
+%&gt;</tw-passagedata><tw-passagedata pid="12" name="Welcome" tags="" position="75,200" size="100,100">Welcome! 
 
-First things first - to move forward in this game, you&#39;ll need to choose which blue link&lt;sup&gt;2&lt;/sup&gt; to click on.
+Over the course of this game, you will be shown two different ways to manage the economy - the mainstream way, and an alternative. 
+
+You&#39;ll learn about why the mainstream way is causing the various crises we find ourselves living in today, and how these alternatives can move us to a fairer society, living within the means of the planet. 
+
+First things first - to move forward in this game, you&#39;ll need to choose which blue link to click on.
 
 Choose between [[this one-&gt;Navigation Instructions]]
 
 Or [[this one-&gt;Navigation Instructions]]
 
-&lt;%
-s.footnotes = [&quot;Footnote one&quot;, &quot;Footnote two&quot;]
-%&gt;
-&lt;%= window.story.render(&quot;Footnotes&quot;) %&gt;</tw-passagedata><tw-passagedata pid="13" name="Navigation Instructions" tags="" position="225,200" size="100,100">Nice! We cheated here, both of those links went to the same place 🤣 but in future you&#39;ll see how different choices lead to different outcomes.
+</tw-passagedata><tw-passagedata pid="13" name="Navigation Instructions" tags="" position="225,200" size="100,100">Nice! We cheated here, both of those links went to the same place 🤣 but in future you&#39;ll see how different choices lead to different outcomes.
 
 Let&#39;s [[keep going-&gt;Start of journey]]!</tw-passagedata></tw-storydata>
 		<script>

@@ -1,0 +1,233 @@
+:: StoryTitle
+Anything we can actually do, we can afford
+
+
+:: StoryData
+{
+  "ifid": "5AF69E4F-8A91-4AC1-AE94-CA1801C7B04A",
+  "format": "Snowman",
+  "format-version": "2.0.2",
+  "start": "Welcome",
+  "tag-colors": {
+    "startup": "red",
+    "footer": "red"
+  },
+  "zoom": 0.6
+}
+
+
+:: Announce a job guarantee {"position":"300,325","size":"100,100"}
+Yes! This scheme would provide good jobs for everyone in the UK, instantly bringing millions out of poverty and precarious work. 
+
+Having a Job Guarantee policy in place provides a backstop that will enable our economy to instantly react to crises - like during Covid, we could have used it to mobilise people to work on socially-distanced outdoor nature restoration projects, or to deliver groceries to the disabled or elderly, instead of furloughing and further isolating society.
+
+[[Keep going, this is a great start ->Inflation]]
+
+
+
+:: Build out a large-scale, publicly owned renewable energy program {"position":"350,900","size":"100,100"}
+Awesome 🎉
+
+This would definitely help to bring down prices, because you’re increasing the productive capacity of your nation and increasing its energy sovereignty (i.e. making your country self-reliant for energy). And publicly owned utilities mean you don’t need profits…
+
+Building out renewable energy will take a while though. What can you do in the meantime?
+
+[[Price caps on energy]]
+
+
+:: Express regret {"position":"500,200","size":"100,100"}
+You’ve fallen into the mainstream economics trap 🙅🏻‍♀️ 
+
+Back when you used to be able to exchange UK pounds for gold (in the days of the gold standard), it’s true that you would have to find more gold to back the additional spending that you want to do. Otherwise you would run the risk of people wanting to convert those new pounds into gold at the agreed exchange rate, and you wouldn't have enough to pay them all<sup>1</sup>.
+
+But since the 1970s we’ve had a fiat currency, which means that the government has control over how much money is available to our economy<sup>2</sup>. This means that like Keynes said, "Anything we can actually do, we can afford".
+
+[[Go back->Start of journey]] and let's see how we can use this insight to build a better economy.
+
+<%
+s.footnotes = ["Example footnote", "Second example footnote"]
+%>
+<%= window.story.render("Footnotes") %>
+
+
+:: Footnotes [footer] {"position":"0,400","size":"100,100"}
+<% // this passage can be included as a footer wherever footnotes are needed %>
+<hr>
+<%
+if (s.footnotes && s.footnotes.length > 0) {
+	for (var i = 0; i < s.footnotes.length; i++){
+		%><%=i+1%>. <%=s.footnotes[i]%><br/>
+	<%}
+    }
+%>
+
+
+:: Hope that the market realises that there’s extra demand {"position":"550,800","size":"100,100"}
+You’ve fallen into the mainstream economics trap 🙅🏻‍♀️ 
+
+It’d be nice if things really worked that way, but there’s no practical evidence to suggest that prices are set according to some rational supply and demand curve. If a business believes it'll make more money producing less and selling it on at a higher price, it'll do that.
+
+Go back for some better ideas on how to approach this.
+
+
+:: Inflation {"position":"350,475","size":"100,100"}
+Over time, inflation starts to creep up in your country. What do you do? 
+
+Tell your economists to [[find out more about where the inflation is coming from]] before taking action
+
+[[Raise interest rates]]
+
+
+:: Navigation Instructions {"position":"225,200","size":"100,100"}
+Nice! We cheated here, both of those links went to the same place 🤣 but in future you'll see how different choices lead to different outcomes.
+
+Let's [[keep going->Start of journey]]!
+
+
+:: Price caps on energy {"position":"350,1050","size":"100,100"}
+
+
+
+:: Raise interest rates {"position":"500,450","size":"100,100"}
+You’ve fallen into the mainstream economics trap 🙅🏻‍♀️ 
+
+Raising interest rates is supposed to make unemployment go up because businesses can’t afford to borrow money to hire more people any more. The idea is that this would weaken wages and worker power, because there would be fewer jobs to go around.
+
+However this is an incredibly untargeted approach and rarely if ever has the desired effect. It is a cruel policy to intentially target unemployment, and causes incredible stress for renters and homeowners who are now suddently facing large increases in their monthly housing payments.
+
+And furthermore, because at the moment there's lots of money in the economy, it actually creates the opposite effect - the stock market has been going up since the interest rate increases, because higher interest rates funnel money to people who already have money, enabling them to invest even more and further widening inequality.
+
+Interest rate increases are untargeted and ineffective, and should not be used to control inflation. Go back to see how we could be doing all of this differently.
+
+
+:: Start of journey {"position":"350,200","size":"100,100"}
+It’s your party’s first day in charge of running the UK. The climate and cost of living crises are devastating the country and the world. What’s your first step?
+
+[[Express regret]] that the size of the country’s national debt leaves you incapable of spending money on anything that would help until the economy starts growing again
+
+[[Announce a job guarantee]] where the government will ensure everyone in the country is employed at a living wage
+
+
+:: Welcome {"position":"75,200","size":"100,100"}
+Welcome! 
+
+Over the course of this game, you will be shown two different ways to manage the economy - the mainstream way, and an alternative. 
+
+You'll learn about why the mainstream way is causing the various crises we find ourselves living in today, and how these alternatives can move us to a fairer society, living within the means of the planet. 
+
+First things first - to move forward in this game, you'll need to choose which blue link to click on.
+
+Choose between [[this one->Navigation Instructions]]
+
+Or [[this one->Navigation Instructions]]
+
+
+
+
+:: find out more about where the inflation is coming from {"position":"350,625","size":"100,100"}
+This is the right call! There’s two main kinds of inflation - cost push and demand pull. The methods to fight these are different.
+
+For demand pull, this is the traditional "too much money chasing too few goods and services" situation that economists traditionally try to cool with interest rate hikes. This rarely happens, but if does, then a more targeted approach would be to try to reduce demand on the sector causing the increase (e.g. if it's petrol prices, make public transport free or low cost). 
+
+For cost push, interest rate hikes don't work at all. You have to target the actual issues causing the costs to increase - for example, when the economy picked up again a few months into the Covid pandemic, there were bottlenecks in the supply chain where ports weren't processing containers quickly enough because they were making so much money having increased prices for each container so much. The US imposed a tax for containers sitting empty on the docks, which caused them to increase the rate of processing again, and improving supply of goods to the economy.
+
+So let's find out more about the [[source of the inflation]]
+
+
+:: source of the inflation {"position":"350,750","size":"100,100"}
+The economist team tells you that most inflation is are coming from high energy prices
+
+[[Hope that the market realises that there’s extra demand]], and so production will increase and prices will fall
+
+[[Build out a large-scale, publicly owned renewable energy program]] in your country
+
+
+:: StoryScript [script]
+const deepLinkQueryParam = 'passage'
+
+$(window).on('sm.story.started', function (e, data)
+{
+  // Check to see if there's a deep link reference when starting the
+  // story. If so, navigate straight there instead of starting at
+  // the beginning of the story
+  if (window.location.search) {
+    const queryParams = new URLSearchParams(window.location.search)
+    const deepLinkedPassageName = queryParams.get(deepLinkQueryParam)
+    if (deepLinkedPassageName) {
+      const deepLinkedPassage = window.story.passages.find((passage) => passage?.name === deepLinkedPassageName)
+      if (deepLinkedPassage) {
+        window.story.startPassage = deepLinkedPassage.id
+      } else {
+      window.alert(`No passage available with the name ${deepLinkedPassageName}; please check the URL and try again`);
+      }
+    }
+  }
+});
+
+$(window).on('sm.passage.showing', function (e, data)
+{
+  // add passage to the story history when it is viewed, so that the
+  // back button works correctly
+  window.story.checkpoint(data.passage.name);
+  
+  // Make sure the current passage name is included in the URL as a
+  // query param (for deep linking)
+  const currentUrl = new URL(window.location.href);
+  currentUrl.searchParams.set(deepLinkQueryParam, data.passage.name);
+  window.history.replaceState(window.history.state, '', currentUrl.toString());
+
+});
+
+:: StoryStylesheet [stylesheet]
+body {
+    background-color: #222;
+    color: #eee;
+}
+
+a {
+    background-color: transparent;
+    color: #7d86f1;
+    text-decoration-color: #7d86f1;
+}
+
+a:hover {
+    color: #cc8929;
+    text-decoration-color: #cc8929;
+}
+
+.passage > p:nth-child(1) {
+  animation: fadeIn 2s;
+}
+.passage > p:nth-child(2) {
+  animation: fadeIn 4s;
+}
+.passage > p:nth-child(3) {
+  animation: fadeIn 6s;
+}
+.passage > p:nth-child(4) {
+  animation: fadeIn 8s;
+}
+.passage > p:nth-child(5) {
+  animation: fadeIn 10s;
+}
+.passage > p:nth-child(6) {
+  animation: fadeIn 12s;
+}
+.passage > p:nth-child(7) {
+  animation: fadeIn 14s;
+}
+.passage > p:nth-child(8) {
+  animation: fadeIn 16s;
+}
+.passage > p:nth-child(9) {
+  animation: fadeIn 18s;
+}
+.passage > p:nth-child(10) {
+  animation: fadeIn 20s;
+}
+
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
