@@ -7,18 +7,19 @@ Anything we can actually do, we can afford
   "ifid": "5AF69E4F-8A91-4AC1-AE94-CA1801C7B04A",
   "format": "Snowman",
   "format-version": "2.0.2",
-  "start": "Welcome",
+  "start": "Welcome to the Story",
   "tag-colors": {
     "startup": "red",
     "footer": "purple",
     "happy_mmt_return": "yellow",
-    "mmt_sad_return": "red"
+    "mmt_sad_return": "red",
+    "mmt_traditional_return": "orange"
   },
   "zoom": 0.6
 }
 
 
-:: <%= s.mmt_return ?? 'Start of journey' %> {"position":"875,350","size":"100,100"}
+:: <%= s.mmt_return ?? 'Start of journey' %> {"position":"925,275","size":"100,100"}
 
 
 
@@ -64,16 +65,16 @@ You’ve fallen into the traditional economics trap 🙅🏻‍♀️
 
 Back when you used to be able to exchange UK pounds for gold (in the days of the gold standard), it’s true that you would have to find more gold to back the additional spending that you want to do. Otherwise you would run the risk of people wanting to convert those new pounds you created into gold at the agreed exchange rate, and you wouldn't have enough to pay them all.
 
-But since the 1930s we’ve had a fiat currency<sup>1</sup>, which means that the currency isn’t convertible to any commodity, and the government has more flexibility over how much money is available to our economy. This means that like Keynes said: "Anything we can actually do, we can afford". For more information, follow [[this little side quest->Modern Monetary Theory Side Quest]] to learn all about Modern Monetary Theory.
+But since the 1970s we’ve had a fiat currency<sup>1</sup>, which means that the currency isn’t convertible to any commodity, and the government has more flexibility over how much money is available to our economy. This means that like Keynes said: "Anything we can actually do, we can afford". For more information, follow [[this little side quest->Modern Monetary Theory Side Quest]] to learn all about Modern Monetary Theory.
 
 [[Go back->Start of journey]] and let's see how we can use this insight to build a better economy.
 
 <%
-s.footnotes = [{href:"https://en.wikipedia.org/wiki/Pound_sterling#:~:text=Since%20the%20suspension%20of%20the,the%20national%20and%20international%20economy.", text: "Pound sterling, Wikipedia"}]
+s.footnotes = [{href:"https://en.wikipedia.org/wiki/Pound_sterling#Free-floating_pound", text: "Pound sterling, Wikipedia"}]
 %>
 <%= window.story.render("Footnotes") %>
 
-<% s.mmt_return = window.story.passages.find((passage) => passage?.tags.includes('mmt_sad_return')).name %>
+<% s.mmt_return = window.story.passages.find((passage) => passage?.tags.includes('mmt_traditional_return')).name %>
 
 
 :: Footnotes [footer] {"position":"0,400","size":"100,100"}
@@ -120,7 +121,7 @@ This is definitely not the only way to run an economy - perhaps in an ideal worl
 Let’s get [[back into the game -><%= s.mmt_return ?? 'Start of journey' %>]]!
 
 
-:: Navigation Instructions {"position":"250,50","size":"100,100"}
+:: Navigation Instructions {"position":"225,50","size":"100,100"}
 Nice! We cheated here, both of those links went to the same place 🤣 but in future you'll see how different choices lead to different outcomes.
 
 Let's [[keep going->Start of journey]]!
@@ -154,7 +155,7 @@ Otherwise if you’re all up to speed on that, let’s start using this insight 
 <% s.mmt_return = window.story.passages.find((passage) => passage?.tags.includes('mmt_happy_return')).name %>
 
 
-:: Start of journey [mmt_sad_return] {"position":"400,50","size":"100,100"}
+:: Start of journey [mmt_traditional_return] {"position":"400,50","size":"100,100"}
 Imagine you’re part of the government, and it’s your first day in charge of running the UK. The climate and cost-of-living crises are devastating the country and the world, and the people of your country are demanding change. What’s your first step?
 
 [[Express regret]] that the your hands are tied by the last government - they borrowed too much, so you can’t spend money on anything that would help until the economy starts growing again
@@ -162,7 +163,7 @@ Imagine you’re part of the government, and it’s your first day in charge of 
 Acknowledge that because all UK currency comes from the government (other than money created by banks, which has to be paid back with interest) you can always [[spend as much money as you need->Spend as much money as you need]], so long as the real resources are there to be bought with that money
 
 
-:: Welcome {"position":"75,50","size":"100,100"}
+:: Welcome to the Story {"position":"75,50","size":"100,100"}
 Welcome!
 
 Have you ever found yourself frustrated with the constant political narratives insisting that there's no money left to fund essential services like the NHS or build much-needed social housing?

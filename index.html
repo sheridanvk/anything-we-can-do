@@ -10,7 +10,7 @@
 	</head>
 	<body>
 		<tw-story tags></tw-story>
-		<tw-storydata name="Anything we can actually do, we can afford" startnode="8" creator="Twine" creator-version="2.8.0" format="Snowman" format-version="2.0.2" ifid="5AF69E4F-8A91-4AC1-AE94-CA1801C7B04A" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body {
+		<tw-storydata name="Anything we can actually do, we can afford" startnode="25" creator="Twine" creator-version="2.8.0" format="Snowman" format-version="2.0.2" ifid="5AF69E4F-8A91-4AC1-AE94-CA1801C7B04A" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body {
     background-color: #222;
     color: #eee;
 }
@@ -106,20 +106,20 @@ $(window).on('sm.passage.shown', function (e, data)
     passageHTML = `<p>${passageHTML.replace('<p></p>','</p>')}`
   }
   passageEl.innerHTML = passageHTML
-});</script><tw-tag name="startup" color="red"></tw-tag><tw-tag name="footer" color="purple"></tw-tag><tw-tag name="happy_mmt_return" color="yellow"></tw-tag><tw-tag name="mmt_sad_return" color="red"></tw-tag><tw-passagedata pid="1" name="Express regret" tags="footer" position="650,50" size="100,100">You’ve fallen into the traditional economics trap 🙅🏻‍♀️ 
+});</script><tw-tag name="startup" color="red"></tw-tag><tw-tag name="footer" color="purple"></tw-tag><tw-tag name="happy_mmt_return" color="yellow"></tw-tag><tw-tag name="mmt_sad_return" color="red"></tw-tag><tw-tag name="mmt_traditional_return" color="orange"></tw-tag><tw-passagedata pid="1" name="Express regret" tags="footer" position="650,50" size="100,100">You’ve fallen into the traditional economics trap 🙅🏻‍♀️ 
 
 Back when you used to be able to exchange UK pounds for gold (in the days of the gold standard), it’s true that you would have to find more gold to back the additional spending that you want to do. Otherwise you would run the risk of people wanting to convert those new pounds you created into gold at the agreed exchange rate, and you wouldn&#39;t have enough to pay them all.
 
-But since the 1930s we’ve had a fiat currency&lt;sup&gt;1&lt;/sup&gt;, which means that the currency isn’t convertible to any commodity, and the government has more flexibility over how much money is available to our economy. This means that like Keynes said: &quot;Anything we can actually do, we can afford&quot;. For more information, follow [[this little side quest-&gt;Modern Monetary Theory Side Quest]] to learn all about Modern Monetary Theory.
+But since the 1970s we’ve had a fiat currency&lt;sup&gt;1&lt;/sup&gt;, which means that the currency isn’t convertible to any commodity, and the government has more flexibility over how much money is available to our economy. This means that like Keynes said: &quot;Anything we can actually do, we can afford&quot;. For more information, follow [[this little side quest-&gt;Modern Monetary Theory Side Quest]] to learn all about Modern Monetary Theory.
 
 [[Go back-&gt;Start of journey]] and let&#39;s see how we can use this insight to build a better economy.
 
 &lt;%
-s.footnotes = [{href:&quot;https://en.wikipedia.org/wiki/Pound_sterling#:~:text=Since%20the%20suspension%20of%20the,the%20national%20and%20international%20economy.&quot;, text: &quot;Pound sterling, Wikipedia&quot;}]
+s.footnotes = [{href:&quot;https://en.wikipedia.org/wiki/Pound_sterling#Free-floating_pound&quot;, text: &quot;Pound sterling, Wikipedia&quot;}]
 %&gt;
 &lt;%= window.story.render(&quot;Footnotes&quot;) %&gt;
 
-&lt;% s.mmt_return = window.story.passages.find((passage) =&gt; passage?.tags.includes(&#39;mmt_sad_return&#39;)).name %&gt;</tw-passagedata><tw-passagedata pid="2" name="Raise interest rates" tags="" position="675,625" size="100,100">You’ve fallen into the traditional economics trap 🙅🏻‍♀️ 
+&lt;% s.mmt_return = window.story.passages.find((passage) =&gt; passage?.tags.includes(&#39;mmt_traditional_return&#39;)).name %&gt;</tw-passagedata><tw-passagedata pid="2" name="Raise interest rates" tags="" position="675,625" size="100,100">You’ve fallen into the traditional economics trap 🙅🏻‍♀️ 
 
 Raising interest rates is supposed to make unemployment go up because businesses can’t afford to borrow money to hire more people any more. The idea is that this would weaken wages and worker power, because there would be fewer jobs to go around.
 
@@ -141,11 +141,7 @@ Tell your economists to [[find out more about where the inflation is coming from
 
 Launch a [[national energy guarantee]], providing everyone’s essential energy needs for free and ramping up costs for any excessive usage over that
 
-Implement a [[windfall tax on the energy providers]]</tw-passagedata><tw-passagedata pid="6" name="Start of journey" tags="mmt_sad_return" position="400,50" size="100,100">Imagine you’re part of the government, and it’s your first day in charge of running the UK. The climate and cost-of-living crises are devastating the country and the world, and the people of your country are demanding change. What’s your first step?
-
-[[Express regret]] that the your hands are tied by the last government - they borrowed too much, so you can’t spend money on anything that would help until the economy starts growing again
-
-Acknowledge that because all UK currency comes from the government (other than money created by banks, which has to be paid back with interest) you can always [[spend as much money as you need-&gt;Spend as much money as you need]], so long as the real resources are there to be bought with that money</tw-passagedata><tw-passagedata pid="7" name="Footnotes" tags="footer" position="0,400" size="100,100">&lt;% // this passage can be included as a footer wherever footnotes are needed %&gt;
+Implement a [[windfall tax on the energy providers]]</tw-passagedata><tw-passagedata pid="6" name="Footnotes" tags="footer" position="0,400" size="100,100">&lt;% // this passage can be included as a footer wherever footnotes are needed %&gt;
 &lt;hr&gt;
 &lt;%
 if (s.footnotes &amp;&amp; s.footnotes.length &gt; 0) {
@@ -159,29 +155,13 @@ if (s.footnotes &amp;&amp; s.footnotes.length &gt; 0) {
     &lt;/ol&gt;
     &lt;%
     }
-%&gt;</tw-passagedata><tw-passagedata pid="8" name="Welcome" tags="" position="75,50" size="100,100">Welcome!
-
-Have you ever found yourself frustrated with the constant political narratives insisting that there&#39;s no money left to fund essential services like the NHS or build much-needed social housing?
-
-It may surprise you to learn that the vast majority of people making decisions about our economy are operating on outdated information, and the government doesn’t have to balance its budgets in the same way that you or I need to.
-
-Over the course of this game, you will be given a choice of two different ways to manage the economy - the traditional wisdom, and an alternative vision. 
-
-You&#39;ll learn about why the traditional way is causing the various crises we find ourselves living in today, and how these alternatives can move us to a fairer society, living within the means of the planet. 
-
-First things first - to move forward in this game, you&#39;ll need to choose which blue link to click on.
-
-Choose between [[this one-&gt;Navigation Instructions]], or [[this one-&gt;Navigation Instructions]]
-
-</tw-passagedata><tw-passagedata pid="9" name="Navigation Instructions" tags="" position="250,50" size="100,100">Nice! We cheated here, both of those links went to the same place 🤣 but in future you&#39;ll see how different choices lead to different outcomes.
-
-Let&#39;s [[keep going-&gt;Start of journey]]!</tw-passagedata><tw-passagedata pid="10" name="Spend as much money as you need" tags="" position="400,200" size="100,100">Yes! and honestly it’s refreshing to see politicians who aren’t being held back by outdated ways of thinking.
+%&gt;</tw-passagedata><tw-passagedata pid="7" name="Spend as much money as you need" tags="" position="400,200" size="100,100">Yes! and honestly it’s refreshing to see politicians who aren’t being held back by outdated ways of thinking.
 
 If you picked this option because it felt right, but you need an explainer on why, follow [[this little side quest-&gt;Modern Monetary Theory Side Quest]] to learn all about Modern Monetary Theory.
 
 Otherwise if you’re all up to speed on that, let’s start using this insight to help the people of the UK and the whole planet and [[deciding what to do first]].
 
-&lt;% s.mmt_return = window.story.passages.find((passage) =&gt; passage?.tags.includes(&#39;mmt_happy_return&#39;)).name %&gt;</tw-passagedata><tw-passagedata pid="11" name="Modern Monetary Theory Side Quest" tags="" position="750,225" size="100,100">Money&#39;s origin isn&#39;t rooted in widespread barter as commonly believed. Societies historically pooled resources, with people contributing based on ability and receiving based on needs. 
+&lt;% s.mmt_return = window.story.passages.find((passage) =&gt; passage?.tags.includes(&#39;mmt_happy_return&#39;)).name %&gt;</tw-passagedata><tw-passagedata pid="8" name="Modern Monetary Theory Side Quest" tags="" position="750,225" size="100,100">Money&#39;s origin isn&#39;t rooted in widespread barter as commonly believed. Societies historically pooled resources, with people contributing based on ability and receiving based on needs. 
 
 Money emerged to incentivise larger and less well-acquainted groups of people to do things - for example, when kings sent their armies on long campaigns, rather than having to bring all their supplies with them, they imposed taxes on the people living in the land through which they passed. 
 
@@ -195,19 +175,19 @@ One other important thing is that this only works if you have monetary sovereign
 
 This is definitely not the only way to run an economy - perhaps in an ideal world, we wouldn’t need money at all. But for now it’s what we have, so it’s important to know the rules and make sure everyone can thrive in this system.
 
-Let’s get [[back into the game -&gt;&lt;%= s.mmt_return ?? &#39;Start of journey&#39; %&gt;]]!</tw-passagedata><tw-passagedata pid="12" name="&lt;%= s.mmt_return ?? &#39;Start of journey&#39; %&gt;" tags="" position="875,350" size="100,100"></tw-passagedata><tw-passagedata pid="13" name="deciding what to do first" tags="mmt_happy_return" position="450,325" size="100,100">So now that it’s clear that money isn’t the main obstacle here, how do you decide what to do first?
+Let’s get [[back into the game -&gt;&lt;%= s.mmt_return ?? &#39;Start of journey&#39; %&gt;]]!</tw-passagedata><tw-passagedata pid="9" name="&lt;%= s.mmt_return ?? &#39;Start of journey&#39; %&gt;" tags="" position="925,275" size="100,100"></tw-passagedata><tw-passagedata pid="10" name="deciding what to do first" tags="mmt_happy_return" position="450,325" size="100,100">So now that it’s clear that money isn’t the main obstacle here, how do you decide what to do first?
 
 Set up [[Citizen’s Assembly networks]] to ensure that communities who are currently bearing the brunt of the crisis are key stakeholders in how to solve them
 
-Start with the [[biggest issue that the tabloid newspapers]] keep shouting about</tw-passagedata><tw-passagedata pid="14" name="Citizen’s Assembly networks" tags="" position="450,475" size="100,100">You have the right instincts - by making our democracy more participatory, we’ll encourage people to be more in control of their lives and avoid knee-jerk reactionary politics.
+Start with the [[biggest issue that the tabloid newspapers]] keep shouting about</tw-passagedata><tw-passagedata pid="11" name="Citizen’s Assembly networks" tags="" position="450,475" size="100,100">You have the right instincts - by making our democracy more participatory, we’ll encourage people to be more in control of their lives and avoid knee-jerk reactionary politics.
 
 We could set these up via sortition (so any adult in the country could be selected), setting terms for a period of several years. It would also be important to train and pay people to participate, so any inequalities up until now are not exacerbated in this process, as well as minimising financial hardship from not working.
 
-From here on in, let’s assume that the choices you’re making are on policy areas that the public are raising as those that need to be addressed, and that they’ve had a chance to input their thoughts into what the solutions should be ✨let’s [[keep going-&gt;Inflation]]!</tw-passagedata><tw-passagedata pid="15" name="biggest issue that the tabloid newspapers" tags="" position="750,400" size="100,100">You’ve fallen into the traditional politican&#39;s trap 🙅🏻‍♀️ 
+From here on in, let’s assume that the choices you’re making are on policy areas that the public are raising as those that need to be addressed, and that they’ve had a chance to input their thoughts into what the solutions should be ✨let’s [[keep going-&gt;Inflation]]!</tw-passagedata><tw-passagedata pid="12" name="biggest issue that the tabloid newspapers" tags="" position="750,400" size="100,100">You’ve fallen into the traditional politican&#39;s trap 🙅🏻‍♀️ 
 
 It’s important to keep an eye on, but not let yourself get swayed by billionaire-run media. Their interests align with keeping everything the way they are, and they’re going to fight tooth and nail for themselves and the rest of the 1%.
 
-By showing that you’re empowering working people and helping them make positive change (and with good social media and other coverage of that change!) you’ll be able to drown out their manipulation. Let’s [[go back-&gt;deciding what to do first]] and see what the other approach would have given us.</tw-passagedata><tw-passagedata pid="16" name="national energy guarantee" tags="footer" position="475,1025" size="100,100">Yes! This is an exciting option already proposed by many, including the New Economics Foundation&lt;sup&gt;1&lt;/sup&gt;. The reference goes into the specifics of the scheme in much more detail, but this would treat energy provision more like the NHS, as a basic need for all. 
+By showing that you’re empowering working people and helping them make positive change (and with good social media and other coverage of that change!) you’ll be able to drown out their manipulation. Let’s [[go back-&gt;deciding what to do first]] and see what the other approach would have given us.</tw-passagedata><tw-passagedata pid="13" name="national energy guarantee" tags="footer" position="475,1025" size="100,100">Yes! This is an exciting option already proposed by many, including the New Economics Foundation&lt;sup&gt;1&lt;/sup&gt;. The reference goes into the specifics of the scheme in much more detail, but this would treat energy provision more like the NHS, as a basic need for all. 
 
 It would also incentivise reductions in usage for richer households that are using more power (and should include social tariffs/subsidies for poorer households that lose out with the higher prices).
 
@@ -216,13 +196,13 @@ Let&#39;s [[move on-&gt;Energy Efficiency]]!
 &lt;%
 s.footnotes = [{href:&quot;https://neweconomics.org/2023/04/the-national-energy-guarantee&quot;, text: &quot;National Energy Guarantee, New Economics Foundation&quot;}]
 %&gt;
-&lt;%= window.story.render(&quot;Footnotes&quot;) %&gt;</tw-passagedata><tw-passagedata pid="17" name="windfall tax on the energy providers" tags="" position="700,875" size="100,100">You’ve fallen into the traditional economics trap 🙅🏻‍♀️ 
+&lt;%= window.story.render(&quot;Footnotes&quot;) %&gt;</tw-passagedata><tw-passagedata pid="14" name="windfall tax on the energy providers" tags="" position="700,875" size="100,100">You’ve fallen into the traditional economics trap 🙅🏻‍♀️ 
 
 Yes this reduces their profits, and also has the effect of reducing the amount of money they can redistribute to their shareholders, but nothing will change regarding the soaring amounts of money that people have to pay for their energy.
 
 And as we know from Modern Monetary Theory, taxes don’t subsequently fund spending, so all that will happen is that this money will disappear from circulation.
 
-[[Go back-&gt;source of the inflation]] and try something more adventurous!</tw-passagedata><tw-passagedata pid="18" name="retrofitting and heat pump rollout" tags="footer" position="500,1300" size="100,100">This is exactly the kind of ambition we need in the UK. Our historical responsibility for climate change over our “fair share” (based on our population size) is 7%, the 4th largest in the world&lt;sup&gt;1&lt;/sup&gt;. We have to decarbonise as fast as we can in order to give space for poorer countries, who have historically contributed very little to the climate crisis and may need to grow their emissions before they can decarbonise.
+[[Go back-&gt;source of the inflation]] and try something more adventurous!</tw-passagedata><tw-passagedata pid="15" name="retrofitting and heat pump rollout" tags="footer" position="500,1300" size="100,100">This is exactly the kind of ambition we need in the UK. Our historical responsibility for climate change over our “fair share” (based on our population size) is 7%, the 4th largest in the world&lt;sup&gt;1&lt;/sup&gt;. We have to decarbonise as fast as we can in order to give space for poorer countries, who have historically contributed very little to the climate crisis and may need to grow their emissions before they can decarbonise.
 
 But that expense shouldn’t fall on individuals, which is why we must provide grants to make this happen (and as you now know, this is something the government can absolutely do). It’s true that we’ll be giving grants to the wealthy here too, but we have other plans to address their wealth (and these grants are a drop in the ocean).
 
@@ -233,7 +213,7 @@ Let&#39;s [[keep going-&gt;Decarbonising the grid]]
 &lt;%
 s.footnotes = [{href:&quot;https://www.sciencedirect.com/science/article/pii/S2542519620301960&quot;, text: &quot;Jason Hickel, Quantifying national responsibility for climate breakdown&quot;}]
 %&gt;
-&lt;%= window.story.render(&quot;Footnotes&quot;) %&gt;</tw-passagedata><tw-passagedata pid="19" name="nationalised renewable energy provider" tags="footer" position="500,1550" size="100,100">Excellent choice! If the state owns the generation capability, it doesn’t need it to make a profit - it can invest what’s needed in this essential productive capacity, and then the UK population gets the benefit of the cheaper energy. That said, the cost of raw materials for renewables has skyrocketed recently, so the government should also explore ways to get alternative, post-growth supply chains for what it needs.
+&lt;%= window.story.render(&quot;Footnotes&quot;) %&gt;</tw-passagedata><tw-passagedata pid="16" name="nationalised renewable energy provider" tags="footer" position="500,1550" size="100,100">Excellent choice! If the state owns the generation capability, it doesn’t need it to make a profit - it can invest what’s needed in this essential productive capacity, and then the UK population gets the benefit of the cheaper energy. That said, the cost of raw materials for renewables has skyrocketed recently, so the government should also explore ways to get alternative, post-growth supply chains for what it needs.
 
 The 2024 example of Tata Steel pulling out of Port Talbot in Wales&lt;sup&gt;1&lt;/sup&gt; is a prime example of how the government could pivot ventures that private companies think are unprofitable into nationalised post-growth companies that would prioritise green steel manufacturing, only to meet the actual needs of the energy transition (and other non-planet-destroying ventures).
 
@@ -242,7 +222,7 @@ Let&#39;s move onto considering [[overall energy needs]]
 &lt;%
 s.footnotes = [{href:&quot;https://www.unitetheunion.org/news-events/news/2024/january/unite-statement-port-talbot-tata-steel&quot;, text: &quot;Unite statement Port Talbot - Tata Steel&quot;}]
 %&gt;
-&lt;%= window.story.render(&quot;Footnotes&quot;) %&gt;</tw-passagedata><tw-passagedata pid="20" name="fossil fuel companies are investing in renewables" tags="footer" position="750,1425" size="100,100">You’ve fallen into the traditional economics trap 🙅🏻‍♀️ 
+&lt;%= window.story.render(&quot;Footnotes&quot;) %&gt;</tw-passagedata><tw-passagedata pid="17" name="fossil fuel companies are investing in renewables" tags="footer" position="750,1425" size="100,100">You’ve fallen into the traditional economics trap 🙅🏻‍♀️ 
 
 Be honest, do you really believe the fossil fuel companies are going to switch to renewables ;) ? The financial returns from renewables are so much lower than fossil fuels, because once you’ve set up the site, then the fuel that powers the generation (wind and sun) is literally free. Fossil fuels (and nuclear/hydrogen) cost far more to run because you’re constantly paying for more fuel.
 
@@ -253,27 +233,47 @@ Let&#39;s try [[something different-&gt;Decarbonising the grid]]
 &lt;%
 s.footnotes = [{href:&quot;https://www.theguardian.com/environment/2023/sep/08/what-went-wrong-at-uk-governments-offshore-wind-auction&quot;, text: &quot;Guardian, What went wrong at UK government’s offshore wind auction?&quot;}]
 %&gt;
-&lt;%= window.story.render(&quot;Footnotes&quot;) %&gt;</tw-passagedata><tw-passagedata pid="21" name="Reduce demand by making local public transportation free" tags="" position="500,1900" size="100,100">TBC ([[back-&gt;overall energy needs]])
+&lt;%= window.story.render(&quot;Footnotes&quot;) %&gt;</tw-passagedata><tw-passagedata pid="18" name="Reduce demand by making local public transportation free" tags="" position="500,1900" size="100,100">TBC ([[back-&gt;overall energy needs]])
 
-Preview of what the [[End]] will look like</tw-passagedata><tw-passagedata pid="22" name="Decarbonising the grid" tags="" position="500,1425" size="100,100">So this is all great news, but we haven’t fully decarbonised our electrical grid yet, so the electricity that people are using is powered by fossil fuels and that’s where the government’s money is going. Can we do better?
+Preview of what the [[End]] will look like</tw-passagedata><tw-passagedata pid="19" name="Decarbonising the grid" tags="" position="500,1425" size="100,100">So this is all great news, but we haven’t fully decarbonised our electrical grid yet, so the electricity that people are using is powered by fossil fuels and that’s where the government’s money is going. Can we do better?
 
 Build out a [[nationalised renewable energy provider]], using government funds to build new generation and transmission infrastructure.
 
-No need, the [[fossil fuel companies are investing in renewables]] so our money helps them to help us decarbonise</tw-passagedata><tw-passagedata pid="23" name="overall energy needs" tags="" position="500,1700" size="100,100">So now that people can afford their energy needs, aggregate energy demand in the UK has gone up. What should you do?
+No need, the [[fossil fuel companies are investing in renewables]] so our money helps them to help us decarbonise</tw-passagedata><tw-passagedata pid="20" name="overall energy needs" tags="" position="500,1700" size="100,100">So now that people can afford their energy needs, aggregate energy demand in the UK has gone up. What should you do?
 
 [[Reduce demand by making local public transportation free]], and by massively upgrading the network all across the UK.
 
 [[Build more energy capacity]] to meet the growing need
-</tw-passagedata><tw-passagedata pid="24" name="Build more energy capacity" tags="" position="775,1700" size="100,100">TBC ([[back-&gt;overall energy needs]])</tw-passagedata><tw-passagedata pid="25" name="Energy Efficiency" tags="" position="500,1150" size="100,100">Speaking of reductions, many UK homes leak a lot of heat, resulting in high bills that aren’t covered by the energy guarantee. What can you do to help here?
+</tw-passagedata><tw-passagedata pid="21" name="Build more energy capacity" tags="" position="775,1700" size="100,100">TBC ([[back-&gt;overall energy needs]])</tw-passagedata><tw-passagedata pid="22" name="Energy Efficiency" tags="" position="500,1150" size="100,100">Speaking of reductions, many UK homes leak a lot of heat, resulting in high bills that aren’t covered by the energy guarantee. What can you do to help here?
 
 Publish a [[list of energy saving measures]]
 
-Massive [[retrofitting and heat pump rollout]], with fully-paid grants to incentivise households to carry out the work, and apprenticeships/paid training programs to build up skilled workforce</tw-passagedata><tw-passagedata pid="26" name="list of energy saving measures" tags="" position="725,1125" size="100,100">This isn’t necessarily bad, but it’s just not ambitious enough on the level that we need. Go back and see what could happen if we [[dreamed big-&gt;Energy Efficiency]].</tw-passagedata><tw-passagedata pid="27" name="End" tags="" position="500,2025" size="100,100">Congratulations on putting the UK onto a more sustainable path, while making sure that everyone’s quality of life is now above a minimum threshold! 
+Massive [[retrofitting and heat pump rollout]], with fully-paid grants to incentivise households to carry out the work, and apprenticeships/paid training programs to build up skilled workforce</tw-passagedata><tw-passagedata pid="23" name="list of energy saving measures" tags="" position="725,1125" size="100,100">This isn’t necessarily bad, but it’s just not ambitious enough on the level that we need. Go back and see what could happen if we [[dreamed big-&gt;Energy Efficiency]].</tw-passagedata><tw-passagedata pid="24" name="End" tags="" position="500,2025" size="100,100">Congratulations on putting the UK onto a more sustainable path, while making sure that everyone’s quality of life is now above a minimum threshold! 
 
 There’s no real end to this game, because we’ll keep facing new challenges, but the democratic foundations and better understanding of the economy you’ve helped to put in place should help the people and wider natural world of the UK overcome whatever comes their way in the future.
 
 Join the conversation on &lt;a href=&quot;https://github.com/sheridanvk/anything-we-can-do/discussions/5&quot;&gt;Github&lt;/a&gt; if you think anything in here needs tweaking or enhancing! We’d love to get your feedback :)
-</tw-passagedata></tw-storydata>
+</tw-passagedata><tw-passagedata pid="25" name="Welcome to the Story" tags="" position="75,50" size="100,100">Welcome!
+
+Have you ever found yourself frustrated with the constant political narratives insisting that there&#39;s no money left to fund essential services like the NHS or build much-needed social housing?
+
+It may surprise you to learn that the vast majority of people making decisions about our economy are operating on outdated information, and the government doesn’t have to balance its budgets in the same way that you or I need to.
+
+Over the course of this game, you will be given a choice of two different ways to manage the economy - the traditional wisdom, and an alternative vision. 
+
+You&#39;ll learn about why the traditional way is causing the various crises we find ourselves living in today, and how these alternatives can move us to a fairer society, living within the means of the planet. 
+
+First things first - to move forward in this game, you&#39;ll need to choose which blue link to click on.
+
+Choose between [[this one-&gt;Navigation Instructions]], or [[this one-&gt;Navigation Instructions]]
+
+</tw-passagedata><tw-passagedata pid="26" name="Navigation Instructions" tags="" position="225,50" size="100,100">Nice! We cheated here, both of those links went to the same place 🤣 but in future you&#39;ll see how different choices lead to different outcomes.
+
+Let&#39;s [[keep going-&gt;Start of journey]]!</tw-passagedata><tw-passagedata pid="27" name="Start of journey" tags="mmt_traditional_return" position="400,50" size="100,100">Imagine you’re part of the government, and it’s your first day in charge of running the UK. The climate and cost-of-living crises are devastating the country and the world, and the people of your country are demanding change. What’s your first step?
+
+[[Express regret]] that the your hands are tied by the last government - they borrowed too much, so you can’t spend money on anything that would help until the economy starts growing again
+
+Acknowledge that because all UK currency comes from the government (other than money created by banks, which has to be paid back with interest) you can always [[spend as much money as you need-&gt;Spend as much money as you need]], so long as the real resources are there to be bought with that money</tw-passagedata></tw-storydata>
 		<script>
 		(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 "use strict";window.either=function(){for(var n=[],t=0;t<arguments.length;t++)if(arguments[t]instanceof Array)for(var r=0;r<arguments[t].length;r++)n.push(arguments[t][r]);else n.push(arguments[t]);return n[_.random(n.length-1)]},window.hasVisited=function(){var n=null;if(1==arguments.length)return null!=(n=window.story.passage(arguments[0]))&&window.story.history.includes(n.id);for(var t=0;t<arguments.length;t++)if(null==(n=window.story.passage(arguments[t]))||0==window.story.history.includes(n.id))return!1;return!0},window.visited=function(){for(var n=[],t=[],r=0;r<arguments.length;r++){var e=window.story.passage(arguments[r]);null!=e&&(t=window.story.history.filter(function(n){return n==e.id})),n.push(t.length)}return Math.min.apply(Math,n)},window.renderToSelector=function(n,t){var r=window.story.passage(t);null!=r&&$(n).html(r.render())},window.getStyles=function(){return $.when.apply($,$.map(arguments,function(n){return $.get(n,function(n){$("<style>"+n+"</style>").appendTo("head")})}))};
