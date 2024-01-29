@@ -16,7 +16,7 @@ Anything we can actually do, we can afford
     "mmt_traditional_return": "orange",
     "mmt_informed_return": "green"
   },
-  "zoom": 0.3
+  "zoom": 0.6
 }
 
 
@@ -35,7 +35,7 @@ We must consider the impact of our energy needs on the whole world, and make sur
 
 
 :: Carbon emissions from flying {"position":"500,3750","size":"100,100"}
-The UK is one of the worst-offending countries in the world for carbon emissions from flying. Per-head, we emit more than 800kg per year, but it’s even worse when you take into account that 15% of people in the UK take 70% of all flights, while nearly half of our population do not fly at all in a given year. How should we address this?
+The UK is one of the worst-offending countries in the world for carbon emissions from flying. Per-head, we emit more than 800kg per year, but it’s even worse when you take into account that 15% of people in the UK take 70% of all flights, while nearly half of our population does not fly at all in a given year. How should we address this?
 
 [[Stop subsidising air travel]], implement a Frequent Flyer Levy, and make up for this with significantly cheaper long-distance train services.
 
@@ -43,17 +43,19 @@ Nothing, we'll [[rely on new technologies]] (like Sustainable Aviation Fuel) to 
 
 
 :: Citizen’s Assembly networks {"position":"450,475","size":"100,100"}
-You have the right instincts - by making our democracy more participatory, we’ll encourage people to be more in control of their lives and avoid knee-jerk reactionary politics.
+You have the right instincts - our current system of representative politics doesn't result in popular policies (such as the re-nationalisation of our public services) becoming reality. By making our democracy more participatory, we’ll make sure that these important policies are prioritised by government, while ensuring people feel more connected to their communities and more in control of their lives.
 
-We could set these up via sortition (so any adult in the country could be selected), setting terms for a period of several years. It would also be important to train and pay people to participate, so any inequalities up until now are not exacerbated in this process, as well as minimising financial hardship from not working.
+We could set these up via sortition (so any adult in the country could be selected to be part of the assembly), setting terms for a period of several years. It would also be important to train and pay people to participate, so any inequalities up until now are not exacerbated in this process, as well as minimising financial hardship from not working.
 
-From here on in, let’s assume that the choices you’re making are on policy areas that the public are raising as those that need to be addressed, and that they’ve had a chance to input their thoughts into what the solutions should be ✨let’s [[keep going->Inflation]]!
+From here on in, let’s assume that the choices you’re making are on policy areas that the public are raising as those that need to be addressed, and that they’ve had a chance to input their thoughts into what the solutions should be ✨ let’s [[keep going->Inflation]]!
 
 
 :: Cut corporation tax {"position":"775,3400","size":"100,100"}
 You’ve fallen into the traditional economics trap 🙅🏻‍♀️ 
 
-It's magical thinking that a policy like this would result in more jobs; corporations are most likely to put the money they're saving into profits and dividends. If you want more jobs, the way to make it happen is to create them in the public sector, for example by increasing public services as we've already covered earlier in the game. [[Go back->access to a good job]] to find out about another incredibly important way that the government can help in this area.
+It's magical thinking that a policy like this would result in more jobs; corporations are most likely to put the money they're saving into profits and dividends. If you want more jobs, the way to make it happen is to create them in the public sector, for example by increasing public services as we've already covered earlier in the game. 
+
+[[Go back->access to a good job]] to find out about another incredibly important way that the government can help in this area.
 
 
 :: Decarbonising the grid {"position":"500,1425","size":"100,100"}
@@ -61,7 +63,7 @@ So this is all great news, but we haven’t fully decarbonised our electrical gr
 
 Build out a [[nationalised renewable energy provider]], using government funds to build new generation and transmission infrastructure.
 
-No need, the [[fossil fuel companies are investing in renewables]] so our money helps them to help us decarbonise
+No need, the [[fossil fuel companies are investing in renewables]] so our money helps them to help us decarbonise.
 
 
 :: Don’t give in [footer] {"position":"675,2325","size":"100,100"}
@@ -101,9 +103,9 @@ Massive [[retrofitting and heat pump rollout]], with fully-paid grants to incent
 :: Express regret [footer] {"position":"650,50","size":"100,100"}
 You’ve fallen into the traditional economics trap 🙅🏻‍♀️ 
 
-Back when you used to be able to exchange UK pounds for gold (in the days of the gold standard), it’s true that you would have to find more gold to back the additional spending that you want to do. Otherwise you would run the risk of people wanting to convert those new pounds you created into gold at the agreed exchange rate, and you wouldn't have enough to pay them all.
+Back when you used to be able to exchange UK pounds for gold (what's commonly known as the gold standard), it’s true that you would have to find more gold to back the additional spending that you want to do. Otherwise you would run the risk of people wanting to convert those new pounds you created into gold at the agreed exchange rate, and you wouldn't have enough to pay them all.
 
-But since the 1970s we’ve had a fiat currency<sup>1</sup>, which means that the currency isn’t convertible to any commodity, and the government has more flexibility over how much money is available to our economy. This means that like Keynes said: "Anything we can actually do, we can afford". For more information, follow [[this little side quest->Modern Monetary Theory Side Quest]] to learn all about Modern Monetary Theory.
+But since the 1970s we’ve had a fiat currency<sup>1</sup>, which means that the currency isn’t convertible at a fixed rate to gold or anything else, and the government has more flexibility over how much money is available to our economy. This means that like Keynes said: "Anything we can actually do, we can afford". For more information, follow [[this little side quest->Modern Monetary Theory Side Quest]] to learn all about Modern Monetary Theory.
 
 [[Go back->Start of journey]] and let's see how we can use this insight to build a better economy.
 
@@ -163,13 +165,13 @@ However, housing is still a huge part of people’s expenditure and often extrem
 Absolutely right - we can implement a wealth tax, but the rich are really good at getting around those, so we'll probably need to implement a suite of taxes that target all the ways in which the wealthy earn and hoard more than their fair share.
 
 Some ideas: 
-<ol>
-  <li>Reform tax laws to ensure that unearned income (dividends, capital gains, etc) is taxed at the same levels as earned income like wages</li>
-  <li>Abolish regressive National Insurance which means that higher rate taxpayers pay a lower proportion of their salary (2% above the higher rate of tax threshold, versus 12% below)</li>
-  <li>Make inheritance tax more progressive</li>
-  <li>Impose a maximum income ratio of 10:1 on all companies, such that the highest-paid worker cannot earn more than 10 times that of the lowest worker (so either you have to increase wages at the bottom, or lower wages at the top</li>
-  <li>Reform council tax bands based on size of property and house prices (once the market has adjusted to housing no longer being a commodity) such that really large houses pay a lot more than smaller ones</li>
-</ol>
+1. Reform tax laws to ensure that unearned income (dividends, capital gains, etc) is taxed at the same levels as earned income like wages
+2. Abolish regressive National Insurance contributions, which mean that higher-rate taxpayers contribute a lower proportion of their salary than those on the lower rate (2% above the higher rate of tax threshold, versus 12% below)
+3. Make inheritance tax more progressive - rather than a flat rate across all income, increase it rapidly above say £10 million
+4. Impose a maximum income ratio of 10:1 on all companies, such that the highest-paid worker cannot earn more than 10 times that of the lowest worker (so either you have to increase wages at the bottom, or lower wages at the top).
+5. Reform council tax bands based on size of property and house prices (once the market has adjusted to lower prices, due to housing no longer being a commodity) such that really large houses pay a lot more than smaller ones
+
+We don't need this money to fund other social programs, but reducing inequality is important so that the rich don't have too much power over others.
 
 Let's think next about making sure that everyone has [[access to a good job]].
 
@@ -187,15 +189,15 @@ People are struggling to afford what they need because inflation is high and the
 
 Tell your economists to [[find out more about where the inflation is coming from]] before taking action
 
-[[Raise interest rates]] to cool demand and therefore reduce rate of price increase
+[[Raise interest rates]] to cool demand and therefore reduce the rate of price increase
 
 
 :: Job guarantee [footer] {"position":"500,3600","size":"100,100"}
 Yes! This is a key part of ensuring that the economy stays stable and that everyone has access to their basic needs. A Job Guarantee scheme would be centrally funded, but locally administered, such that local communities could have influence over the kinds of jobs that their local areas would benefit from.
 
-The main advantage of schemes like this one is that it would provide a good baseline for all working conditions in the economy - the wage would be set at a good living wage, with no zero-hours contracts or unstable working conditions allowed. And it acts as an inflation stabiliser - instead of raising interest rates when inflation increases, which just puts people out of work to reduce demand in the economy, people are provided with an inflation-linked living wage such that they can still afford their bills when the economy is struggling.
+The main advantage of schemes like this one is that it would provide a good baseline for all working conditions in the economy - the wage would be set at a good living wage, with no zero-hours contracts or unstable working conditions allowed. And it acts as an inflation stabiliser - instead of raising interest rates when inflation increases, which just puts people out of work to reduce demand in the economy, people are provided with an inflation-linked living wage such that they can still afford their bills when the private economy is struggling.
 
-Finally this is such a great policy because it ensures that the jobs will be created where the people already are, rather than forcing people to move for opportunities. Informal care jobs like spending time with the elderly or isolated (not professional care jobs, which would be much better remunerated), ecosystem restoration or jobs in non-profits could all be roles in which Job Guarantee roles would be available.
+Finally this is such a great policy because it ensures that the jobs will be created where the people already are, rather than forcing people to move for opportunities. Informal care jobs like spending time with the elderly or isolated (not professional care jobs, which would be highly trained and even better remunerated), ecosystem restoration or jobs in non-profits could all be roles in which Job Guarantee roles would be available.
 
 For more details on Job Guarantees, see Pavlina Tchernova's work<sup>1</sup>. Let's [[see what's next on the agenda->Carbon emissions from flying]]!
 
@@ -208,7 +210,7 @@ s.footnotes = [{href:"https://www.sciencedirect.com/science/article/pii/S2542519
 :: Leave the wealthy alone {"position":"775,3125","size":"100,100"}
 You’ve fallen into the traditional economics trap 🙅🏻‍♀️ 
 
-Nice try, but most innovation doesn’t come from private individuals or businesses. There are countless studies that show us how most innovation is de-risked by government and then private companies/wealthy individuals get to cream off all the benefit. 
+Nice try, but most innovation doesn’t come from private individuals or businesses. There are countless studies that show us how most innovation is de-risked by government funding and then private companies/wealthy individuals get to cream off all the benefit. 
 
 So we don't need these wealthy people, and we most certainly don't need their tax money to run our public services, but if they're going to stay here in the UK then we want to make sure we massively reduce their outsize impact on the climate and on the power their money gives them in our political system.
 
@@ -228,13 +230,13 @@ Let's see what we can do about the [[waves of public sector industrial action->P
 
 
 :: Modern Monetary Theory Side Quest {"position":"750,225","size":"100,100"}
-Money's origin isn't rooted in widespread barter as commonly believed. Societies historically pooled resources, with people contributing based on ability and receiving based on needs. 
+Money's origin isn't rooted in widespread barter as commonly believed. Societies historically pooled resources, with people contributing based on ability and receiving based on needs, so neither barter nor money was used.
 
-Money emerged to incentivise larger and less well-acquainted groups of people to do things - for example, when kings sent their armies on long campaigns, rather than having to bring all their supplies with them, they imposed taxes on the people living in the land through which they passed. 
+Money emerged to incentivise larger and less well-acquainted groups of people to do things - for example, when rulers sent their armies on long campaigns, rather than having to bring all their supplies with them, they imposed taxes on the people living in the land through which they passed. 
 
 To earn the money to pay those taxes, the people could give some of their food to the passing armies, or give them accommodation for the night.
 
-In other words, the state uses its power to impose a tax on the people living in it, thereby creating unemployment and requiring people to work to pay that tax. And in order for the people to be able to earn the currency the state has to create it in the first place - so it must spend money into the economy (i.e. by giving the money to its armies to give to the people who provide them with food and shelter) before it can collect it back in tax.
+In other words, the state uses its power to impose a tax on the people living in it, thereby creating unemployment and requiring people to work to pay that tax. And in order for the people to be able to earn the currency, the state has to create it in the first place - so it must spend money into the economy (i.e. by giving the money to its armies to give to the people who provide them with food and shelter) before it can collect it back in tax.
 
 And if the state spends more than it taxes back (what’s known as a deficit — the opposite would be a surplus), this allows people to save, or to exchange that money with other people for goods and services - in other words, a state deficit is a good thing for us. The only risk comes if the state puts too much money into an area where there’s already a lot of competition for resources - this is what might lead to inflation (which you’ll learn more about in the game).
 
@@ -263,7 +265,7 @@ There’s been disruption all over the UK for many years now because of strikes 
 :: Raise interest rates {"position":"675,625","size":"100,100"}
 You’ve fallen into the traditional economics trap 🙅🏻‍♀️ 
 
-Raising interest rates is supposed to make unemployment go up because businesses can’t afford to borrow money to hire more people any more. The idea is that this would weaken wages and worker power, because there would be fewer jobs to go around.
+Raising interest rates is supposed to help with inflation by making unemployment go up because businesses can’t afford to borrow money to hire more people any more. The idea is that this would weaken wages and worker power, because there would be fewer jobs to go around.
 
 However this is an incredibly untargeted approach and rarely if ever has the desired effect. It is a cruel policy to intentionally target unemployment, and causes incredible stress for renters and homeowners who are now suddenly facing large increases in their monthly housing payments.
 
@@ -272,13 +274,17 @@ And furthermore, because at the moment there's lots of money in the economy, it 
 Interest rate increases are untargeted and ineffective, and should not be used to control inflation. [[Go back->Inflation]] to see how we could be doing all of this differently.
 
 
-:: Reduce Wealth Inequality {"position":"500,3125","size":"100,100"}
-We know that the richest in our society contribute the most to carbon emissions - in Europe, the richest 10% contribute about as much as the entire poorest 50%. What do you do about this?
+:: Reduce Wealth Inequality [footer] {"position":"500,3125","size":"100,100"}
+We know that the richest in our society contribute the most to carbon emissions - in Europe, the richest 10% contribute about as much as the entire poorest 50%<sup>1</sup>. What do you do about this?
 
 [[Implement a suite of taxes targeting wealth and inequality]]. 
 
-[[Leave them alone->Leave the wealthy alone]] - they’re the ones creating wealth for the whole country in jobs and innovation
+[[Leave the wealthy alone]] - they’re the ones creating wealth for the whole country in jobs and innovation
 
+<%
+s.footnotes = [{href:"https://www.cambridge.org/core/journals/global-sustainability/article/unequal-distribution-of-household-carbon-footprints-in-europe-and-its-link-to-sustainability/F1ED4F705AF1C6C1FCAD477398353DC2", text: "Ivanova D, Wood R. The unequal distribution of household carbon footprints in Europe and its link to sustainability. Global Sustainability. 2020."}]
+%>
+<%= window.story.render("Footnotes") %>
 
 
 :: Reduce demand by making local public transportation free {"position":"500,1900","size":"100,100"}
@@ -296,7 +302,7 @@ Imagine you’re part of the government, and it’s your first day in charge of 
 
 [[Express regret]] that your hands are tied by the last government - they borrowed too much, so you can’t spend money on anything that would help until the economy starts growing again
 
-Acknowledge that because all UK currency comes from the UK government<sup>1</sup> you can always [[find whatever money you need->Find whatever money you need]] -so long as the real resources (labour, materials) are there to be bought with that money
+Acknowledge that because all UK currency comes from the UK government<sup>1</sup> you can always [[find whatever money you need->Find whatever money you need]] - so long as the real resources (labour, materials) are there to be bought with that money
 
 <%
 s.footnotes = [{ text: "It's true that private banks can create money too, but only as loans that have to be paid back with interest"}]
@@ -307,9 +313,9 @@ s.footnotes = [{ text: "It's true that private banks can create money too, but o
 :: Stop subsidising air travel {"position":"500,3925","size":"100,100"}
 Exactly right - while the aviation industry isn't the most polluting one overall (causing "only" 5.9% of human contributions to global heating up until now<sup>1</sup>), it's both one of the fastest-growing ones and one of the hardest to decarbonise.
 
-Airline travel is so mind-bogglingly cheap right now due to the subsidies and tax relief it receives from governments around the world. We could end all this in the UK by properly taxing kerosene, and adding a carbon tax on top of that of at least £100/tonne (so a return flight London to NYC would have about £100 added)<sup>1</sup>.
+Airline travel is so mind-bogglingly cheap right now due to the subsidies and tax relief it receives from governments around the world. We could end all this in the UK by properly taxing airline fuel, and adding a carbon tax on top of that of at least £100/tonne (so a return flight London to NYC would have about £100 added)<sup>1</sup>.
 
-Additionally to make sure that the richest travel less without too heavily penalising lower-income people, we should implement a Frequent Flyer levy - the first flight per person per year would not have a charge, but after that a charge would be applied, doubling for each additional flight.
+Additionally to make sure that the richest travel less without too-heavily penalising lower-income people, we should implement a Frequent Flyer levy - the first flight per person per year would not have a charge, but after that a charge would be applied, doubling for each additional flight.
 
 Alongside that, we should heavily subsidise long-distance train travel, re-nationalising the whole service and improving the infrastructure (e.g. completing the new HS2 rail project to free up capacity for services to the North, better service that doesn't require connections through London, increasing the number of cross-Channel trains, etc). It's understanable that people fly instead of taking the train right now, due to how much cheaper it is, so we have to make the choice to take the train much easier.
 
@@ -334,7 +340,7 @@ Quickly [[wind down high-carbon sectors]] like the aviation, finance and tourism
 :: Universal Care Service {"position":"500,3000","size":"100,100"}
 This is a great choice - you'll pay really good wages for these jobs, and ensure that the hours aren't too onerous for what can be very demanding work, so that you can easily attract workers away from the existing private care sector and relieve the incredibly overloaded social workers who provide these kinds of services already. 
 
-You can even offer to buy existing private care homes up so that you have ready-made care facilities, and again could consider putting these into Community Wealth Funds such that the people would decide their future, and they can't be sold off to private firms in the future.
+You can even offer to buy existing private care homes up so that you have ready-made care facilities, and again could consider putting all of these new assets into Community Wealth Funds such that the people would decide their future, so they can't be sold off to private firms by a future government.
 
 Without the need to hoard homes as assets for retirement, you'll further reduce demand on the private housing market as these homes get transferred into community hands.
 
@@ -364,7 +370,7 @@ You’ve fallen into the traditional politician's trap 🙅🏻‍♀️
 
 This is a tired and inaccurate excuse. China is actually one of the world leaders in decarbonisation, with its emissions set to peak in 2024 due to rapid rollouts of renewable energy sources. 
 
-Our historical responsibility for climate change over our “fair share” (based on our population size) is 7%, the 4th largest in the world<sup>1</sup>. China hasn't even reached its fair share of emissions yet (although it is rapidly approaching it and it right to be rapidly decarbonising). We need to do our part, and quickly.
+Our historical responsibility for climate change over our “fair share” (based on our population size) is 7%, the 4th largest in the world<sup>1</sup>. China hasn't even reached its fair share of emissions yet (although it is rapidly approaching it and is right to be rapidly decarbonising). We need to do our part, and quickly.
 
 [[Go back->UK decarbonisation]] to see how we'll do it.
 
@@ -381,7 +387,7 @@ The cost of the strikes to the wellbeing and health of the country is not worth 
 
 You can implement automatic stabilisers like automatically-adjusting tax bands based on any excessive wage growth over inflation to proactively address any demand pull inflation that might come in as a result, but there's very little risk of this happening based on historical drivers to inflation.
 
-[[UK decarbonisation]]!
+Let's [[see what's next->UK decarbonisation]]!
 
 
 :: access to a good job {"position":"500,3400","size":"100,100"}
@@ -405,7 +411,7 @@ By showing that you’re empowering working people and helping them make positiv
 :: caring for our older members of society {"position":"500,2850","size":"100,100"}
 By making housing less profitable and taking lots of it off the private market, you’re taking away a source of wealth that many people in the UK are currently using to fund retirement. How do you address this issue?
 
-Provide more [[tax breaks for people to save money in their pensions]]
+Provide more [[tax breaks for people to save money in their pensions]].
 
 Establish a [[Universal Care Service]] where everyone will either be able to stay in their homes with the care they need, or live in assisted housing.
 
@@ -414,15 +420,15 @@ Establish a [[Universal Care Service]] where everyone will either be able to sta
 :: decide what to do first [mmt_informed_return] {"position":"450,325","size":"100,100"}
 So now that it’s clear that money isn’t the main obstacle here, how do you decide what to do first?
 
-Set up [[Citizen’s Assembly networks]] to ensure that communities who are currently bearing the brunt of the crisis are key stakeholders in how to solve them
+Set up [[Citizen’s Assembly networks]] to ensure that communities who are currently bearing the brunt of the crisis are key stakeholders in how to solve them.
 
-Start with the [[biggest issue that the tabloid newspapers]] keep shouting about
+Start with the [[biggest issue that the tabloid newspapers]] keep shouting about.
 
 
 :: find out more about where the inflation is coming from {"position":"450,750","size":"100,100"}
 This is the right call! There’s two main kinds of inflation - cost push and demand pull. The methods to fight these are different.
 
-For demand pull, this is the traditional "too much money chasing too few goods and services" situation that economists traditionally try to cool with interest rate hikes. This rarely happens, but if it does, then a more targeted approach would be to try to reduce demand on the sector causing the increase (e.g. if it's petrol prices, make public transport free or low cost). 
+For demand pull, this is the traditional "too much money chasing too few goods and services" situation that economists often try to cool with interest rate hikes. This type of inflation rarely happens, but if it does, then a more targeted approach would be to try to reduce demand on the specific sector causing the increase (e.g. if it's petrol prices, make public transport free or low cost). 
 
 For cost push, interest rate hikes don't work at all. You have to target the actual issues causing the costs to increase - for example, when the economy picked up again a few months into the Covid pandemic, there were bottlenecks in the supply chain where ports weren't processing containers quickly enough because they were making so much money having increased prices for each container so much. The US imposed a tax for containers sitting empty on the docks, which caused them to increase the rate of processing again, and improved supply of goods to the economy.
 
@@ -434,7 +440,7 @@ You’ve fallen into the traditional economics trap 🙅🏻‍♀️
 
 Be honest, do you really believe the fossil fuel companies are going to switch to renewables ;) ? The financial returns from renewables are so much lower than fossil fuels, because once you’ve set up the site, then the fuel that powers the generation (wind and sun) is literally free. Fossil fuels (and nuclear/hydrogen) cost far more to run because you’re constantly paying for more fuel.
 
-Governments literally have to guarantee prices far higher for renewables than they would actually cost to run, to make it worth the while for private companies to decide to bid for renewable energy contracts (and if set the maximum bids too low, this has resulted in no private companies wanting to make offers). A public energy provider would not have to make a profit - its only goal would be to make sure the UK meets its decarbonisation goals and provides cheaper energy.
+Governments literally have to guarantee prices far higher for renewables than they would actually cost to run, to make it worth the while for private companies to decide to bid for renewable energy contracts (and if set the maximum bids too low, this has resulted in no private companies wanting to make offers<sup>1</sup>). A public energy provider would not have to make a profit - its only goal would be to make sure the UK meets its decarbonisation goals and provides cheaper energy.
 
 Let's try [[something different->Decarbonising the grid]]
 
@@ -445,13 +451,15 @@ s.footnotes = [{href:"https://www.theguardian.com/environment/2023/sep/08/what-w
 
 
 :: list of energy saving measures {"position":"725,1125","size":"100,100"}
-This isn’t necessarily bad, but it’s just not ambitious enough on the level that we need. Go back and see what could happen if we [[dreamed big->Energy Efficiency]].
+This isn’t necessarily bad, but it’s just not ambitious enough on the level that we need. 
+
+Go back and see what could happen if we [[dreamed big->Energy Efficiency]].
 
 
 :: national energy guarantee [footer] {"position":"475,1025","size":"100,100"}
 Yes! This is an exciting option already proposed by many, including the New Economics Foundation<sup>1</sup>. The reference goes into the specifics of the scheme in much more detail, but this would treat energy provision more like the NHS, as a basic need for all. 
 
-It would also incentivise reductions in usage for richer households that are using more power (and should include social tariffs/subsidies for poorer households that lose out with the higher prices).
+By providing everyone's basic needs for free, and then increasing costs progressively as energy usage rises, it would also incentivise reductions in usage for richer households that are using more power (and should include social tariffs/subsidies for any poorer households that lose out with the higher prices).
 
 Let's [[move on->Energy Efficiency]]!
 
@@ -479,8 +487,7 @@ So now that people can afford their energy needs, aggregate energy demand in the
 
 [[Reduce demand by making local public transportation free]], and by massively upgrading the network all across the UK.
 
-[[Build more renewable energy capacity]] to meet the growing need
-
+[[Build more renewable energy capacity]] to meet the growing need.
 
 
 :: rely on new technologies [footer] {"position":"775,3750","size":"100,100"}
@@ -490,7 +497,7 @@ We’re a long way away from any feasible technology that will significantly red
 
 Unproven technologies like this can't be our solution for the biggest crisis facing our planet - we need to cut our emissions by about half between here and 2030<sup>1</sup>, so there's no time. And SAF doesn't even completely cut emissions; it reduces them to about 80% of what they are now.
 
-On top of that, other the Jevons paradox<sup>2</sup> shows that when a new techonology is developed that reduces emissions, the rebound effect from lower prices and people feeling like they can now use that new technology without worrying means that we will constantly be trying to reach the finish line.
+On top of that, other the Jevons paradox<sup>2</sup> shows that when a new techonology is developed that reduces emissions, the rebound effect from lower prices and people feeling like they can now use that new technology without worrying means that we will constantly be trying to reach a finish line that's moving away from us.
 
 See the excellent factsheets<sup>3<sup> at Stay Grounded for more details on why the airline industry is so dangerous for our planet, and why the greenwashing from airline industries must be disregarded.
 
@@ -506,9 +513,9 @@ s.footnotes = [{href: "https://www.ipcc.ch/2022/04/04/ipcc-ar6-wgiii-pressreleas
 :: retrofitting and heat pump rollout [footer] {"position":"500,1300","size":"100,100"}
 This is exactly the kind of ambition we need in the UK. Our historical responsibility for climate change over our “fair share” (based on our population size) is 7%, the 4th largest in the world<sup>1</sup>. We have to decarbonise as fast as we can in order to give space for poorer countries, who have historically contributed very little to the climate crisis and may need to grow their emissions before they can decarbonise.
 
-But that expense shouldn’t fall on individuals, which is why we must provide grants to make this happen (and as you now know, this is something the government can absolutely do). It’s true that we’ll be giving grants to the wealthy here too, but we have other plans to address their wealth (and these grants are a drop in the ocean).
+But that expense shouldn’t fall on individuals, which is why we must provide grants to make this happen (and as you now know, this is something the government can absolutely afford). It’s true that we’ll be giving grants to the wealthy here too, but we have other plans to address their wealth (and these grants are a drop in the ocean for them).
 
-Finally to keep an eye on inflation, we’ll need to make sure we have enough labour for this project, and that we can produce enough of the heat pumps and retrofitting materials (or import them). The fully-paid training programs will attract workers from precarious gig work and the armed forces. If there’s competition for these actual materials in say the industrial sector, with the potential to drive up inflation, we can enact emergency powers to ensure that the government gets first right of refusal on those goods, at the price before the program was announced.
+Finally to keep an eye on inflation, we’ll need to make sure we have enough labour for this project, and that we can produce enough of the heat pumps and retrofitting materials (or import them). The training programs (offering a good salary from the very start) will attract workers from precarious gig work and the armed forces. If there’s competition for the actual materials required from the private sector, with the potential to drive up inflation, we can enact emergency powers to ramp up production, or ensure that the government gets first right of refusal on those goods, at the price before the program was announced.
 
 Let's [[keep going->Decarbonising the grid]]
 
@@ -519,19 +526,19 @@ s.footnotes = [{href:"https://www.sciencedirect.com/science/article/pii/S2542519
 
 
 :: source of the inflation {"position":"450,875","size":"100,100"}
-The economist team tells you that the biggest contributor to inflation right now is coming from high energy prices.
+The economist team tells you that the biggest contributor to inflation right now is coming from high energy prices. How will you respond?
 
-Launch a [[national energy guarantee]], providing everyone’s essential energy needs for free and ramping up costs for any excessive usage over that
+Launch a [[national energy guarantee]], providing everyone’s essential energy needs for free and ramping up costs for any excessive usage over that.
 
-Implement a [[windfall tax on the energy providers]]
+Implement a [[windfall tax on the energy providers]].
 
 
 :: tax breaks for people to save money in their pensions {"position":"750,2875","size":"100,100"}
 You’ve fallen into the traditional economics trap 🙅🏻‍♀️ 
 
-This would keep care in the private market, which is primarily trying to make a profit and therefore is not prioritising the best service for the country, and furthermore only rewards people who already have money and can invest some of that in the stock market.
+Firstly this only rewards people who already have money and can invest some of that in the stock market. And secondly, this would keep care in the private market, which is primarily trying to make a profit and therefore is not prioritising the best service for the country.
 
-Relying on savings growing in the private markets also keeps us entrenched in the cycle of growth - people don't get the money they need unless the stock market grows, and if there's a crash like the one in 2008, people's ability to live off their pensions will be hugely dimished.
+Relying on savings growing in the private markets also keeps us entrenched in the cycle of growth - people don't get the money they need unless the stock market grows, and if there's a crash like the one in 2008, people's ability to live off their pensions will be hugely diminished.
 
 We need a kinder, fairer system that doesn't exacerbate the existing inequalities in our country, so let's [[try again->caring for our older members of society]].
 
@@ -540,17 +547,22 @@ We need a kinder, fairer system that doesn't exacerbate the existing inequalitie
 :: wind down high-carbon sectors [footer] {"position":"500,2725","size":"100,100"}
 Yes, exactly! These industries either do very little to add to the real economy of our country (even suppressing it in the case of finance<sup>1</sup>), or cause a huge amount of fossil fuel emissions. Tourism also increases the need for us to grow or import more food to support high numbers of visitors to the country each year.
 
-Workers would be transitioned to good jobs in decarbonisation, like the retrofitting schemes we discussed earlier, or in the industries that we need to ramp up quickly. Paid training would be provided for all of these areas where needed.
+Workers would be given opportunities to train (fully-paid!) for good jobs in decarbonisation, like the retrofitting schemes we discussed earlier, or in the other industries that we need to ramp up quickly.
 
 Let's move onto [[caring for our older members of society]] next.
+
+<%
+s.footnotes = [{href: "https://taxjustice.net/press/press-release-city-of-london-costs-uk-4-5tn-in-lost-economic-growth/#", text:"City of London costs UK £4.5tn in lost economic growth"}"}]
+%>
+<%= window.story.render("Footnotes") %>
 
 
 :: windfall tax on the energy providers {"position":"700,875","size":"100,100"}
 You’ve fallen into the traditional economics trap 🙅🏻‍♀️ 
 
-Yes this reduces their profits, and also has the effect of reducing the amount of money they can redistribute to their shareholders, but nothing will change regarding the soaring amounts of money that people have to pay for their energy.
+Yes this reduces the energy providers' profits, and also has the effect of reducing the amount of money they can redistribute to their shareholders, but nothing will change regarding the soaring amounts of money that people have to pay for their energy.
 
-And as we know from Modern Monetary Theory, taxes don’t subsequently fund spending, so all that will happen is that this money will disappear from circulation.
+As we know from Modern Monetary Theory, taxes don’t subsequently fund spending, so all that will happen is that this money will disappear from circulation.
 
 [[Go back->source of the inflation]] and try something more adventurous!
 
