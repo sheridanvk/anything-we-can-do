@@ -113,6 +113,12 @@ $(window).on('sm.passage.shown', async function (e, data)
   }
   passageEl.innerHTML = passageHTML
   
+  // Put the carousel around the passage
+  // TODO: only do this on mobile
+  
+  passageEl.wrap('<div class="added-html"></div>');
+});
+  
   // If this passage was the non-traditional answer, shoot confetti
   if (data.passage.tags.includes('correct-answer')) {
     function randomInRange(min, max) {
