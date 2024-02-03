@@ -117,15 +117,13 @@ $(window).on('sm.passage.shown', async function (e, data)
   // Fix any incorrectly-parsed first paragraphs (i.e. move <p> tag to front of sentence, instead of having an empty tag).
   const passageEl = $(e.target)
   let passageHTML = passageEl.html()
-  debugger;
   if (passageHTML.includes('<p></p>')) {
     passageHTML = `<p>${passageHTML.replace('<p></p>','</p>')}`
   }
   passageEl.html(passageHTML)
   
-  // Put the carousel around the passage
+  // TODO: Put carousel around the passage
   // TODO: only do this on mobile
-  passageEl.wrap('<div class="added-html"></div>');
   
   // If this passage was the non-traditional answer, shoot confetti
   if (data.passage.tags.includes('correct-answer')) {
