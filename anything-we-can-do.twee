@@ -571,14 +571,22 @@ As we know from Modern Monetary Theory, taxes don’t subsequently fund spending
 :: StoryScript [script]
 const deepLinkQueryParam = 'passage'
 
-$(function() {
-  $.getScript("https://cdn.jsdelivr.net/npm/canvas-confetti@1.2.0/dist/confetti.browser.min.js", function (data, textStatus, jqxhr) {
-    console.log('confetti loaded')
+function loadJS(url) {
+  return new Promise((resolve, reject) => {
+    $.getScript(url, resolve).fail(reject);
   });
-});
+}
 
-$(window).on('sm.story.started', function (e, data)
+$(window).on('sm.story.started', async function (e, data)
 {
+  // Load external files
+  $('<link/>', {
+   rel: 'stylesheet',
+   type: 'text/css',
+   href: 'https://fonts.googleapis.com/css2?family=Merriweather'
+}).appendTo('head');
+  await loadJS("https://cdn.jsdelivr.net/npm/canvas-confetti@1.2.0/dist/confetti.browser.min.js")
+  
   // Check to see if there's a deep link reference when starting the
   // story. If so, navigate straight there instead of starting at
   // the beginning of the story
@@ -612,12 +620,15 @@ $(window).on('sm.passage.showing', function (e, data)
 $(window).on('sm.passage.shown', async function (e, data)
 {
   // Fix any incorrectly-parsed first paragraphs (i.e. move <p> tag to front of sentence, instead of having an empty tag).
-  const passageEl = document.getElementsByTagName('tw-passage')[0]
-  let passageHTML = passageEl.innerHTML
+  const passageEl = $(e.target)
+  let passageHTML = passageEl.html()
   if (passageHTML.includes('<p></p>')) {
     passageHTML = `<p>${passageHTML.replace('<p></p>','</p>')}`
   }
-  passageEl.innerHTML = passageHTML
+  passageEl.html(passageHTML)
+  
+  // TODO: Put carousel around the passage
+  // TODO: only do this on mobile
   
   // If this passage was the non-traditional answer, shoot confetti
   if (data.passage.tags.includes('correct-answer')) {
@@ -645,6 +656,7 @@ $(window).on('sm.passage.shown', async function (e, data)
 body {
     background-color: #222;
     color: #eee;
+  	font-family: 'Merriweather';
 }
 
 a {
