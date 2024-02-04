@@ -591,20 +591,22 @@ function deepLinkToPassage() {
 
 $(window).on('sm.story.started', function (e, data)
 {  
-  // Load external files
+  // Load external CSS
   $('<link/>', {
    rel: 'stylesheet',
    type: 'text/css',
    href: 'https://fonts.googleapis.com/css2?family=Merriweather'
 }).appendTo('head');
+  
+  deepLinkToPassage()
+  
+  // Load external confetti script
   $.getScript("https://cdn.jsdelivr.net/npm/canvas-confetti@1.2.0/dist/confetti.browser.min.js")
     .done(() => {
   	console.log("successfully loaded confetti library")
-    deepLinkToPassage()
   })
     .fail(() => {
   	console.log("failed to load confetti library")
-    deepLinkToPassage()
   });
   
 });
