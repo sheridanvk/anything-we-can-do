@@ -14,6 +14,7 @@
     background-color: #222;
     color: #eee;
   	font-family: 'Merriweather';
+  	font-size: 16px;
 }
 
 a {
@@ -81,7 +82,10 @@ $(window).on('sm.story.started', async function (e, data)
    href: 'https://fonts.googleapis.com/css2?family=Merriweather'
 }).appendTo('head');
   await loadJS("https://cdn.jsdelivr.net/npm/canvas-confetti@1.2.0/dist/confetti.browser.min.js")
-  
+})
+
+$(window).on('sm.story.started', function (e, data)
+{  
   // Check to see if there's a deep link reference when starting the
   // story. If so, navigate straight there instead of starting at
   // the beginning of the story
@@ -112,7 +116,7 @@ $(window).on('sm.passage.showing', function (e, data)
   window.history.replaceState(window.history.state, '', currentUrl.toString());
 });
 
-$(window).on('sm.passage.shown', async function (e, data)
+$(window).on('sm.passage.shown', function (e, data)
 {
   // Fix any incorrectly-parsed first paragraphs (i.e. move <p> tag to front of sentence, instead of having an empty tag).
   const passageEl = $(e.target)
