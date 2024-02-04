@@ -553,7 +553,7 @@ Workers would be given opportunities to train (fully-paid!) for good jobs in dec
 Let's move onto [[caring for our older members of society]] next.
 
 <%
-s.footnotes = [{href: "https://taxjustice.net/press/press-release-city-of-london-costs-uk-4-5tn-in-lost-economic-growth/#", text:"City of London costs UK £4.5tn in lost economic growth"}"}]
+s.footnotes = [{href: "https://taxjustice.net/press/press-release-city-of-london-costs-uk-4-5tn-in-lost-economic-growth/#", text:"City of London costs UK £4.5tn in lost economic growth"}]
 %>
 <%= window.story.render("Footnotes") %>
 
