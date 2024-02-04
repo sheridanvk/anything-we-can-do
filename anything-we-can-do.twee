@@ -163,14 +163,17 @@ However, housing is still a huge part of people’s expenditure and often extrem
 
 
 :: Implement a suite of taxes targeting wealth and inequality [correct-answer] {"position":"500,3275","size":"100,100"}
-Absolutely right - we can implement a wealth tax, but the rich are really good at getting around those, so we'll probably need to implement a suite of taxes that target all the ways in which the wealthy earn and hoard more than their fair share.
+Absolutely right - we can implement a wealth tax, but the rich are really good at getting around those, so we'll probably need to implement a suite of taxes that target all the ways in which the wealthy earn and hoard more than their fair share. The following are an incomplete list of ideas that we could implement:
 
-Some ideas: 
-1. Reform tax laws to ensure that unearned income (dividends, capital gains, etc) is taxed at the same levels as earned income like wages
-2. Abolish regressive National Insurance contributions, which mean that higher-rate taxpayers contribute a lower proportion of their salary than those on the lower rate (2% above the higher rate of tax threshold, versus 12% below)
-3. Make inheritance tax more progressive - rather than a flat rate across all income, increase it rapidly above say £10 million
-4. Impose a maximum income ratio of 10:1 on all companies, such that the highest-paid worker cannot earn more than 10 times that of the lowest worker (so either you have to increase wages at the bottom, or lower wages at the top).
-5. Reform council tax bands based on size of property and house prices (once the market has adjusted to lower prices, due to housing no longer being a commodity) such that really large houses pay a lot more than smaller ones
+Reform tax laws to ensure that unearned income (dividends, capital gains, etc) is taxed at the same levels as earned income like wages
+
+Abolish regressive National Insurance contributions, which mean that higher-rate taxpayers contribute a lower proportion of their salary than those on the lower rate (2% above the higher rate of tax threshold, versus 12% below)
+
+Make inheritance tax more progressive - rather than a flat rate across all income, increase it rapidly above say £10 million
+
+Impose a maximum income ratio of 10:1 on all companies, such that the highest-paid worker cannot earn more than 10 times that of the lowest worker (so either you have to increase wages at the bottom, or lower wages at the top).
+
+Reform council tax bands based on size of property and house prices (once the market has adjusted to lower prices, due to housing no longer being a commodity) such that really large houses pay a lot more than smaller ones
 
 We don't need this money to fund other social programs, but reducing inequality is important so that the rich don't have too much power over others.
 
@@ -314,17 +317,16 @@ s.footnotes = [{ text: "It's true that private banks can create money too, but o
 :: Stop subsidising air travel [correct-answer] {"position":"500,3925","size":"100,100"}
 Exactly right - while the aviation industry isn't the most polluting one overall (causing "only" 5.9% of human contributions to global heating up until now<sup>1</sup>), it's both one of the fastest-growing ones and one of the hardest to decarbonise.
 
-Airline travel is so mind-bogglingly cheap right now due to the subsidies and tax relief it receives from governments around the world. We could end all this in the UK by properly taxing airline fuel, and adding a carbon tax on top of that of at least £100/tonne (so a return flight London to NYC would have about £100 added)<sup>1</sup>.
+Airline travel is so mind-bogglingly cheap right now due to the subsidies and tax relief it receives from governments around the world. We could end all this in the UK by properly taxing airline fuel, and adding a carbon tax on top of that of at least £100/tonne (so a return flight London to NYC would have about £100 added)<sup>2</sup>.
 
-Additionally to make sure that the richest travel less without too-heavily penalising lower-income people, we should implement a Frequent Flyer levy - the first flight per person per year would not have a charge, but after that a charge would be applied, doubling for each additional flight.
+Additionally to make sure that the richest travel less without too-heavily penalising lower-income people, we should implement a Frequent Flyer levy - the first flight per person per year would not have a charge, but after that a charge would be applied, doubling for each additional flight<sup>3</sup>.
 
 Alongside that, we should heavily subsidise long-distance train travel, re-nationalising the whole service and improving the infrastructure (e.g. completing the new HS2 rail project to free up capacity for services to the North, better service that doesn't require connections through London, increasing the number of cross-Channel trains, etc). It's understanable that people fly instead of taking the train right now, due to how much cheaper it is, so we have to make the choice to take the train much easier.
 
 Well done, let's [[see what's next->End]].
 
 <%
-s.footnotes = [{href: "https://stay-grounded.org/get-information/#injustice", text:"The Injustice of Flying"}, {href: "https://stay-grounded.org/eliminating-tax-exemptions/", text:"Stay Grounded, Eliminating Tax Exemptions"}, {href:"https://stay-grounded.org/wp-content/uploads/2019/12/Degrowth-Of-Aviation_2019.pdf
-", text: "The Degrowth of Aviation (downloads pdf)"}]
+s.footnotes = [{href: "https://stay-grounded.org/wp-content/uploads/2020/10/SG_Factsheet_Non-CO2_2020.pdf", text:"It's about more than just CO2, Stay Grounded Factsheet (pdf)"}, {href: "https://stay-grounded.org/eliminating-tax-exemptions/", text:"Stay Grounded, Eliminating Tax Exemptions"}, {href:"https://stay-grounded.org/wp-content/uploads/2019/12/Degrowth-Of-Aviation_2019.pdf", text: "The Degrowth of Aviation (pdf)"}]
 %>
 <%= window.story.render("Footnotes") %>
 
