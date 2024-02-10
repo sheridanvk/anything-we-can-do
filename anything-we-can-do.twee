@@ -758,12 +758,13 @@ $(window).on('sm.story.started', function (e, data)
 $(window).on('sm.passage.showing', function (e, data)
 {
   // clear any confetti that isn't finished yet
-  // try {
-  // 	confetti.reset()
-  //   clearTimeout() 
-  // } catch {
-  // 	console.error("couldn't reset confetti")
- //  }
+  try {
+    clearTimeout(window.story.confettiTimeout) 
+   	confetti.reset()
+    console.log('cleared confetti and timeouts')
+  } catch {
+  	console.error("couldn't reset confetti")
+  }
   
   
   // add passage to the story history when it is viewed, so that the
@@ -852,14 +853,13 @@ $(window).on('sm.passage.shown', function (e, data)
             angle: randomInRange(55, 125),
             spread: randomInRange(50, 70),
             particleCount: randomInRange(50, 100),
-            origin: { y: 0.6 },
-            disableForReducedMotion: True
+            origin: { y: 0.6 }
           });
           count--
-          setTimeout(fireConfetti, 1000)
+          window.story.confettiTimeout = setTimeout(fireConfetti, 1000)
         } catch {
           console.log("confetti function not yet loaded")
-          setTimeout(fireConfetti, 1000)
+          window.story.confettiTimeout = setTimeout(fireConfetti, 1000)
         }
       }
     }
