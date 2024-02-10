@@ -757,6 +757,15 @@ $(window).on('sm.story.started', function (e, data)
 
 $(window).on('sm.passage.showing', function (e, data)
 {
+  // clear any confetti that isn't finished yet
+  // try {
+  // 	confetti.reset()
+  //   clearTimeout() 
+  // } catch {
+  // 	console.error("couldn't reset confetti")
+ //  }
+  
+  
   // add passage to the story history when it is viewed, so that the
   // back button works correctly
   window.story.checkpoint(data.passage.name);
@@ -843,7 +852,8 @@ $(window).on('sm.passage.shown', function (e, data)
             angle: randomInRange(55, 125),
             spread: randomInRange(50, 70),
             particleCount: randomInRange(50, 100),
-            origin: { y: 0.6 }
+            origin: { y: 0.6 },
+            disableForReducedMotion: True
           });
           count--
           setTimeout(fireConfetti, 1000)
@@ -870,6 +880,38 @@ body {
   	font-size: 16px;
 }
 
+/* header */
+#menu {
+	display: flex;
+  	justify-content: space-between;
+  	align-items: baseline;
+}
+
+#title {
+	margin-right: auto;
+	margin-left: auto;
+  	font-family: 'Lato';
+  	line-height: normal;
+}
+
+.mmt-explainer {
+    border: #eee solid;
+    border-radius: 8px;
+}
+
+/* story passage */
+#passage-container {
+	display: grid;
+  	padding: 8px;
+}
+#passages {
+  	grid-row: 1;
+  	grid-column: 1;
+}
+
+/* carousel */
+
+/* footnotes */
 sup {
   	font-size: 80%;
 }
@@ -889,52 +931,6 @@ a:hover {
     text-decoration-color: none;
 }
 
-#menu {
-	display: flex;
-  	justify-content: space-between;
-  	align-items: baseline;
-}
-
-#title {
-	margin-right: auto;
-	margin-left: auto;
-  	font-family: 'Lato';
-  	line-height: normal;
-}
-
-a[data-passage] {
-  text-decoration: none;
-}
-
-.button-wrapper {
-	display: flex;
-  	justify-content: space-around;
-  	margin: 32px;
-}
-
-.button-wrapper > a {
-	display: flex;
-  	justify-content: space-around;
-}
-
-button.navigation-button {
-  	max-width: 80%;
-    height: 100%;
-	text-wrap: pretty;
-	border-radius: 8px;
-  	padding: 8px;
-  	color: #222;
-  	width: fit-content;
-}
-
-#passage-container {
-	display: grid;
-  	padding: 8px;
-}
-.mmt-explainer {
-    border: #eee solid;
-    border-radius: 8px;
-}
 #footnote-container {
   	grid-row: 1;
   	grid-column: 1;
@@ -957,11 +953,34 @@ button.navigation-button {
   top: 8px;
   right: 8px;
 }
-#passages {
-  	grid-row: 1;
-  	grid-column: 1;
+
+/* buttons */
+a[data-passage] {
+  text-decoration: none;
 }
 
+.button-wrapper {
+	display: flex;
+  	justify-content: space-around;
+  	margin: 32px;
+}
+
+.button-wrapper > a {
+	display: flex;
+  	justify-content: space-around;
+}
+
+a[data-passage] > button {
+  	max-width: 80%;
+    height: 100%;
+	text-wrap: pretty;
+	border-radius: 8px;
+  	padding: 8px;
+  	color: #222;
+  	width: fit-content;
+}
+
+/* mobile specific tweaks */
 @media only screen and (max-width: 767px) {
   .button-wrapper {
 	flex-direction: column;
