@@ -64,10 +64,14 @@ a[data-passage] {
   	justify-content: space-around;
 }
 
-.navigation-button {
+a[data-passage] > button {
   	max-width: 80%;
     height: 100%;
 	text-wrap: pretty;
+	border-radius: 8px;
+  	padding: 8px;
+  	color: #222;
+  	width: fit-content;
 }
 
 #passage-container {
@@ -109,9 +113,6 @@ a[data-passage] {
   .button-wrapper {
 	flex-direction: column;
     gap: 16px;
-  }
-  .navigation-button {
-  	width: 80%
   }
   #title {
   	text-align: center

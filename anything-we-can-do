@@ -917,7 +917,7 @@ a[data-passage] {
   	justify-content: space-around;
 }
 
-button.navigation-button {
+a[data-passage] > button {
   	max-width: 80%;
     height: 100%;
 	text-wrap: pretty;
