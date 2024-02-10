@@ -17,6 +17,38 @@
   	font-size: 16px;
 }
 
+/* header */
+#menu {
+	display: flex;
+  	justify-content: space-between;
+  	align-items: baseline;
+}
+
+#title {
+	margin-right: auto;
+	margin-left: auto;
+  	font-family: 'Lato';
+  	line-height: normal;
+}
+
+.mmt-explainer {
+    border: #eee solid;
+    border-radius: 8px;
+}
+
+/* story passage */
+#passage-container {
+	display: grid;
+  	padding: 8px;
+}
+#passages {
+  	grid-row: 1;
+  	grid-column: 1;
+}
+
+/* carousel */
+
+/* footnotes */
 sup {
   	font-size: 80%;
 }
@@ -36,19 +68,30 @@ a:hover {
     text-decoration-color: none;
 }
 
-#menu {
-	display: flex;
-  	justify-content: space-between;
-  	align-items: baseline;
+#footnote-container {
+  	grid-row: 1;
+  	grid-column: 1;
+  	background-color: #222;
+    border-radius: 10px;
+  	z-index: 1;
+	border: #eee solid;
+  	display: none;
+  	position: relative;
+  	padding: 32px;
+}
+#close-footnote {
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  background-color: inherit;
+  color: inherit;
+  border: unset;
+  padding: unset;
+  top: 8px;
+  right: 8px;
 }
 
-#title {
-	margin-right: auto;
-	margin-left: auto;
-  	font-family: 'Lato';
-  	line-height: normal;
-}
-
+/* buttons */
 a[data-passage] {
   text-decoration: none;
 }
@@ -74,41 +117,7 @@ a[data-passage] > button {
   	width: fit-content;
 }
 
-#passage-container {
-	display: grid;
-  	padding: 8px;
-}
-.mmt-explainer {
-    border: #eee solid;
-    border-radius: 8px;
-}
-#footnote-container {
-  	grid-row: 1;
-  	grid-column: 1;
-  	background-color: #222;
-    border-radius: 10px;
-  	z-index: 1;
-	border: #eee solid;
-  	display: none;
-  	position: relative;
-  	padding: 32px;
-}
-#close-footnote {
-  height: 24px;
-  width: 24px;
-  position: absolute;
-  background-color: inherit;
-  color: inherit;
-  border: unset;
-  padding: unset;
-  top: 8px;
-  right: 8px;
-}
-#passages {
-  	grid-row: 1;
-  	grid-column: 1;
-}
-
+/* mobile specific tweaks */
 @media only screen and (max-width: 767px) {
   .button-wrapper {
 	flex-direction: column;
@@ -170,6 +179,16 @@ $(window).on('sm.story.started', function (e, data)
 
 $(window).on('sm.passage.showing', function (e, data)
 {
+  // clear any confetti that isn't finished yet
+  try {
+    clearTimeout(window.story.confettiTimeout) 
+   	confetti.reset()
+    console.log('cleared confetti and timeouts')
+  } catch {
+  	console.error("couldn't reset confetti")
+  }
+  
+  
   // add passage to the story history when it is viewed, so that the
   // back button works correctly
   window.story.checkpoint(data.passage.name);
@@ -259,10 +278,10 @@ $(window).on('sm.passage.shown', function (e, data)
             origin: { y: 0.6 }
           });
           count--
-          setTimeout(fireConfetti, 1000)
+          window.story.confettiTimeout = setTimeout(fireConfetti, 1000)
         } catch {
           console.log("confetti function not yet loaded")
-          setTimeout(fireConfetti, 1000)
+          window.story.confettiTimeout = setTimeout(fireConfetti, 1000)
         }
       }
     }
