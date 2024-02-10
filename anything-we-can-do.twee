@@ -921,18 +921,19 @@ a[data-passage] {
   	max-width: 80%;
     height: 100%;
 	text-wrap: pretty;
-	border-radius: 0.5em;
-  	padding: 0.5em;
+	border-radius: 8px;
+  	padding: 8px;
   	color: #222;
+  width: fit-content;
 }
 
 #passage-container {
 	display: grid;
-  	padding: 0.5em;
+  	padding: 8px;
 }
 .mmt-explainer {
     border: #eee solid;
-    border-radius: 0.5em;
+    border-radius: 8px;
 }
 #footnote-container {
   	grid-row: 1;
@@ -965,9 +966,6 @@ a[data-passage] {
   .button-wrapper {
 	flex-direction: column;
     gap: 16px;
-  }
-  .navigation-button {
-  	width: 80%
   }
   #title {
   	text-align: center
