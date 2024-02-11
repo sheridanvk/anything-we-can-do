@@ -30,7 +30,7 @@ body {
 	display: flex;
   	justify-content: space-between;
   	align-items: baseline;
-  	height: 20%;
+  	height: 10%;
 }
 
 #title {
@@ -65,6 +65,7 @@ a[data-passage] {
 	display: flex;
   	justify-content: space-around;
   	margin: 32px;
+  	gap: 16px
 }
 
 .button-wrapper > a {
@@ -73,7 +74,6 @@ a[data-passage] {
 }
 
 a[data-passage] > button {
-  	max-width: 80%;
     height: 100%;
 	text-wrap: pretty;
 	border-radius: 8px;
@@ -87,7 +87,7 @@ a[data-passage] > button {
   #passage-container {
       display: grid;
       flex-direction: column;
-  	  height: 80%;
+  	  height: 90%;
       align-items: center;
       justify-content: space-around;
       grid-template-columns: 5vw auto 5vw;
@@ -96,9 +96,6 @@ a[data-passage] > button {
   #passages {
       display: flex;
       align-items: center;
-  }
-  a[data-passage] > button {
-  	max-width: unset;
   }
 }
 
@@ -178,7 +175,6 @@ a:hover {
 @media only screen and (max-width: 767px) {
   .button-wrapper {
 	flex-direction: column;
-    gap: 16px;
   }
   #title {
   	text-align: center
@@ -187,201 +183,239 @@ a:hover {
   	text-align: center
   }
 }
-</style><script role="script" id="twine-user-script" type="text/twine-javascript">const deepLinkQueryParam = 'passage'
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">const deepLinkQueryParam = "passage";
 
 function deepLinkToPassage() {
   // Check to see if there's a deep link reference when starting the
   // story. If so, navigate straight there instead of starting at
   // the beginning of the story
   if (window.location.search) {
-    const queryParams = new URLSearchParams(window.location.search)
-    const deepLinkedPassageName = queryParams.get(deepLinkQueryParam)
+    const queryParams = new URLSearchParams(window.location.search);
+    const deepLinkedPassageName = queryParams.get(deepLinkQueryParam);
     if (deepLinkedPassageName) {
-      const deepLinkedPassage = window.story.passages.find((passage) => passage?.name === deepLinkedPassageName)
+      const deepLinkedPassage = window.story.passages.find(
+        (passage) => passage?.name === deepLinkedPassageName
+      );
       if (deepLinkedPassage) {
-        window.story.startPassage = deepLinkedPassage.id
+        window.story.startPassage = deepLinkedPassage.id;
       } else {
-      window.alert(`No passage available with the name ${deepLinkedPassageName}; please check the URL and try again`);
+        window.alert(
+          `No passage available with the name ${deepLinkedPassageName}; please check the URL and try again`
+        );
       }
     }
   }
 }
 
-$(window).on('sm.story.started', function (e, data)
-{  
+$(window).on("sm.story.started", function (e, data) {
   // Load external CSS
-  $('<link/>', {
-   rel: 'stylesheet',
-   type: 'text/css',
-   href: 'https://fonts.googleapis.com/css2?family=Merriweather'
-}).appendTo('head');
-    $('<link/>', {
-   rel: 'stylesheet',
-   type: 'text/css',
-   href: 'https://fonts.googleapis.com/css2?family=Lato'
-}).appendTo('head');
-  
-  deepLinkToPassage()
-  
-  // Load external confetti script
-  $.getScript("https://cdn.jsdelivr.net/npm/canvas-confetti@1.2.0/dist/confetti.browser.min.js")
-    .done(() => {
-  	console.log("successfully loaded confetti library")
-  })
-    .fail(() => {
-  	console.log("failed to load confetti library")
-  });
-  
-  // Load bootstap CSS and JS
-  $('<link/>', {
-   rel: 'stylesheet',
-   type: 'text/css',
-   href: 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css'
-}).appendTo('head');
-  $.getScript("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js")
-    .done(() => {
-  	console.log("successfully loaded bootstrap")
-  })
-    .fail(() => {
-  	console.log("failed to load bootstrap")
-  });
-})
-  
+  $("<link/>", {
+    rel: "stylesheet",
+    type: "text/css",
+    href: "https://fonts.googleapis.com/css2?family=Merriweather",
+  }).appendTo("head");
+  $("<link/>", {
+    rel: "stylesheet",
+    type: "text/css",
+    href: "https://fonts.googleapis.com/css2?family=Lato",
+  }).appendTo("head");
 
-$(window).on('sm.passage.showing', function (e, data)
-{
+  deepLinkToPassage();
+
+  // Load external confetti script
+  $.getScript(
+    "https://cdn.jsdelivr.net/npm/canvas-confetti@1.2.0/dist/confetti.browser.min.js"
+  )
+    .done(() => {
+      console.log("successfully loaded confetti library");
+    })
+    .fail(() => {
+      console.log("failed to load confetti library");
+    });
+
+  // Load bootstap CSS and JS
+  $("<link/>", {
+    rel: "stylesheet",
+    type: "text/css",
+    href: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css",
+  }).appendTo("head");
+  $.getScript(
+    "https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+  )
+    .done(() => {
+      console.log("successfully loaded bootstrap");
+    })
+    .fail(() => {
+      console.log("failed to load bootstrap");
+    });
+});
+
+$(window).on("sm.passage.showing", function (e, data) {
   // clear any confetti that isn't finished yet
   try {
-    clearTimeout(window.story.confettiTimeout) 
-   	confetti.reset()
-    console.log('cleared confetti and timeouts')
+    clearTimeout(window.story.confettiTimeout);
+    confetti.reset();
+    console.log("cleared confetti and timeouts");
   } catch {
-  	console.error("couldn't reset confetti")
+    console.error("couldn't reset confetti");
   }
-  
-  
+
   // add passage to the story history when it is viewed, so that the
   // back button works correctly
   window.story.checkpoint(data.passage.name);
-  
+
   // Make sure the current passage name is included in the URL as a
   // query param (for deep linking)
   const currentUrl = new URL(window.location.href);
   currentUrl.searchParams.set(deepLinkQueryParam, data.passage.name);
-  window.history.replaceState(window.history.state, '', currentUrl.toString());
+  window.history.replaceState(window.history.state, "", currentUrl.toString());
 });
 
-$(window).on('sm.passage.shown', function (e, data)
-{
-  
+$(window).on("sm.passage.shown", function (e, data) {
   // Fix any incorrectly-parsed first paragraphs (i.e. move <p> tag to front of sentence, instead of having an empty tag).
-  const passageEl = $(e.target)
-  let passageHTML = passageEl.html()
-  if (passageHTML.includes('<p></p>')) {
-    passageHTML = `<p>${passageHTML.replace('<p></p>','</p>')}`
+  const passageEl = $(e.target);
+  let passageHTML = passageEl.html();
+  if (passageHTML.includes("<p></p>")) {
+    passageHTML = `<p>${passageHTML.replace("<p></p>", "</p>")}`;
   }
-  passageEl.html(passageHTML)
-  
+  passageEl.html(passageHTML);
+
   // Wrap buttons again so the carousel works on mobile
-  $('.button-wrapper').wrap('<p/>')
-  
+  $(".button-wrapper").wrap("<p/>");
+
   // Insert menu/title
-  passageEl.prepend('<div id="menu"><h1 id="title">Anything we can do, we can afford</h1><a href="javascript:void(0)" id="mmt-explainer" data-passage="Modern Monetary Theory Side Quest"><img src="./icons/chat-bubble-question.svg" /></a></div>');
-  
+  passageEl.prepend(
+    '<div id="menu"><h2 id="title">Anything we can do, we can afford</h2><a href="javascript:void(0)" id="mmt-explainer" data-passage="Modern Monetary Theory Side Quest"><img src="./icons/chat-bubble-question.svg" /></a></div>'
+  );
+
   // Wrap passage paragraphs in a container
-  passageEl.find('p').wrapAll('<div id="passage-container" />')
-  const passageContainer = $('#passage-container')
-  passageContainer.find('p').wrapAll('<div id="passages" />')
-  
+  passageEl.find("p").wrapAll('<div id="passage-container" />');
+  const passageContainer = $("#passage-container");
+  passageContainer.find("p").wrapAll('<div id="passages" />');
+
   // Transform <sup> elements into footnote links
   if (window.story.state.footnotes) {
-    const storyElement = $('tw-story')
-    storyElement.prepend('<div id="footnote-container"><div id="footnote-content"/><button id="close-footnote">🅇</button></div>')
-    
-    $('#close-footnote').on("click", function() {
-      $('#footnote-container').css("display", "none");
-      $('#passage-container').css("opacity", "100%");
-    })
-    const footnotes = passageContainer.find('sup')
+    const storyElement = $("tw-story");
+    storyElement.prepend(
+      '<div id="footnote-container"><div id="footnote-content"/><button id="close-footnote">🅇</button></div>'
+    );
+
+    $("#close-footnote").on("click", function () {
+      $("#footnote-container").css("display", "none");
+      $("#passage-container").css("opacity", "100%");
+    });
+    const footnotes = passageContainer.find("sup");
     footnotes.each((i, footnote) => {
-      $(footnote).wrap(`<a href="javascript:void(0)" class="footnote" data-footnote=${i}></a>`)
-    })
-    $(".footnote").on( "click", function() {
-      const footnoteIndex = this.getAttribute("data-footnote")
-      const footnoteContent = window.story.state.footnotes[footnoteIndex]
+      $(footnote).wrap(
+        `<a href="javascript:void(0)" class="footnote" data-footnote=${i}></a>`
+      );
+    });
+    $(".footnote").on("click", function () {
+      const footnoteIndex = this.getAttribute("data-footnote");
+      const footnoteContent = window.story.state.footnotes[footnoteIndex];
       if (footnoteContent.href) {
-      	$('#footnote-content').html(`<a href=${footnoteContent.href}  target="_blank">${footnoteContent.text}</a>`)
+        $("#footnote-content").html(
+          `<a href=${footnoteContent.href}  target="_blank">${footnoteContent.text}</a>`
+        );
       } else {
-      	$('#footnote-content').text(footnoteContent.text)
+        $("#footnote-content").text(footnoteContent.text);
       }
-      $('#footnote-container').css("display", "block");
-      $('#passage-container').css("opacity", "20%");
+      $("#footnote-container").css("display", "block");
+      $("#passage-container").css("opacity", "20%");
     });
   }
-    
+
   // Add special action to MMT button link
   if (data.passage.name === "Modern Monetary Theory Side Quest") {
-  	$('#passage-container').addClass('mmt-explainer')
-    $('a[data-passage]').on('click', function() {
-    	$('#passage-container').removeClass('mmt-explainer')
-    })
+    $("#passage-container").addClass("mmt-explainer");
+    $("a[data-passage]").on("click", function () {
+      $("#passage-container").removeClass("mmt-explainer");
+    });
   }
-  
+
   // Make navigation links look and work like buttons
-  const links = passageEl.find('a[data-passage]:not(#mmt-explainer)')
+  const links = passageEl.find("a[data-passage]:not(#mmt-explainer)");
   links.each((_, link) => {
-    link.innerText = ''
-  	$('<button>', {
-      text: link.getAttribute('data-passage'),
-      class: 'navigation-button',
+    link.innerText = "";
+    $("<button>", {
+      text: link.getAttribute("data-passage"),
+      class: "navigation-button",
     }).appendTo(link);
-  })
-  
+  });
+
   // Put carousel around the passage, only on mobile
-  const isMobile = window.matchMedia("(max-width: 768px)").matches || window.matchMedia("(pointer: coarse)").matches;
+  const isMobile =
+    window.matchMedia("(max-width: 768px)").matches ||
+    window.matchMedia("(pointer: coarse)").matches;
 
   if (isMobile) {
     // Do something for mobile screens
-    $('#passage-container').addClass(['carousel', 'slide'])
-    $('#passages').wrap('<div class="carousel-inner"/>')
-    $('#passage-container').prepend(`<div class="carousel-indicators" />`)
+    const carouselEl = $("#passage-container");
 
-    $('#passages > p').each((idx, item) => {
-      $(item).addClass('carousel-item')
+    carouselEl.addClass(["carousel", "slide"]);
+    $("#passages").wrap('<div class="carousel-inner"/>');
+    carouselEl.prepend(`<div class="carousel-indicators" />`);
+
+    $("#passages > p").each((idx, item) => {
+      $(item).addClass("carousel-item");
       if (idx === 0) {
-          $(item).addClass('active')
+        $(item).addClass("active");
       }
-      $('.carousel-indicators').append(`<button type="button" data-bs-target="#passage-container" data-bs-slide-to="${idx}" ${idx === 0 ? 'class="active" aria-current="true"':''} aria-label="Slide ${idx + 1}"></button>`)
-    })
+      $(".carousel-indicators").append(
+        `<button type="button" data-bs-target="#passage-container" data-bs-slide-to="${idx}" ${
+          idx === 0 ? 'class="active" aria-current="true"' : ""
+        } aria-label="Slide ${idx + 1}"></button>`
+      );
+    });
 
- 	 $('#passage-container').append(`<button class="carousel-control-prev" type="button" data-bs-target="#passage-container" data-bs-slide="prev">
+    carouselEl.append(`<button class="carousel-control-prev" type="button" data-bs-target="#passage-container" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
   <button class="carousel-control-next" type="button" data-bs-target="#passage-container" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
-  </button>`)
+  </button>`);
 
-  
-  
-  const addCarousel = () => {
-    try {
-      const carousel = new bootstrap.Carousel('#passage-container')
-    } catch {
-      console.log('bootstrap not yet available; try again in a few')
-      setTimeout(addCarousel, 500)
-    }
+    const checkControlVisibility = () => {
+      if ($(carouselEl).find(".carousel-item").first().hasClass("active")) {
+        $(carouselEl).children(".carousel-control-prev").hide();
+        $(carouselEl).children(".carousel-control-next").show();
+      } else if (
+        $(carouselEl).find(".carousel-item").last().hasClass("active")
+      ) {
+        $(carouselEl).children(".carousel-control-next").hide();
+        $(carouselEl).children(".carousel-control-prev").show();
+      } else {
+        $(carouselEl).children(".carousel-control-next").show();
+        $(carouselEl).children(".carousel-control-prev").show();
+      }
+    };
+
+    const addCarousel = () => {
+      try {
+        new bootstrap.Carousel("#passage-container", {
+          wrap: false,
+        });
+        checkControlVisibility();
+      } catch {
+        console.log("bootstrap not yet available; try again in a few");
+        setTimeout(addCarousel, 500);
+      }
+    };
+    addCarousel();
+
+    carouselEl.on("slid.bs.carousel", (event) => {
+      checkControlVisibility();
+    });
   }
-  addCarousel()
-        } 
-  
+
   // If this passage was the non-traditional answer, shoot confetti
-  if (data.passage.tags.includes('correct-answer')) {
+  if (data.passage.tags.includes("correct-answer")) {
     function randomInRange(min, max) {
       return Math.random() * (max - min) + min;
     }
-    let count = 3
+    let count = 3;
     function fireConfetti() {
       if (count > 0) {
         try {
@@ -389,24 +423,24 @@ $(window).on('sm.passage.shown', function (e, data)
             angle: randomInRange(55, 125),
             spread: randomInRange(50, 70),
             particleCount: randomInRange(50, 100),
-            origin: { y: 0.6 }
+            origin: { y: 0.6 },
           });
-          count--
-          window.story.confettiTimeout = setTimeout(fireConfetti, 1000)
+          count--;
+          window.story.confettiTimeout = setTimeout(fireConfetti, 1000);
         } catch {
-          console.log("confetti function not yet loaded")
-          window.story.confettiTimeout = setTimeout(fireConfetti, 1000)
+          console.log("confetti function not yet loaded");
+          window.story.confettiTimeout = setTimeout(fireConfetti, 1000);
         }
       }
     }
-    fireConfetti()
+    fireConfetti();
   }
 });
 
-$(window).on('sm.passage.hidden', function (e, data)
-{
-	window.story.state.footnotes = null
-});</script><tw-tag name="startup" color="red"></tw-tag><tw-tag name="footer" color="purple"></tw-tag><tw-tag name="happy_mmt_return" color="yellow"></tw-tag><tw-tag name="mmt_sad_return" color="red"></tw-tag><tw-tag name="mmt_traditional_return" color="orange"></tw-tag><tw-tag name="mmt_informed_return" color="green"></tw-tag><tw-tag name="correct-answer" color="yellow"></tw-tag><tw-passagedata pid="1" name="Express regret that your hands are tied" tags="footer" position="725,25" size="100,100">You’ve fallen into the traditional economics trap 🙅🏻‍♀️ 
+$(window).on("sm.passage.hidden", function (e, data) {
+  window.story.state.footnotes = null;
+});
+</script><tw-tag name="startup" color="red"></tw-tag><tw-tag name="footer" color="purple"></tw-tag><tw-tag name="happy_mmt_return" color="yellow"></tw-tag><tw-tag name="mmt_sad_return" color="red"></tw-tag><tw-tag name="mmt_traditional_return" color="orange"></tw-tag><tw-tag name="mmt_informed_return" color="green"></tw-tag><tw-tag name="correct-answer" color="yellow"></tw-tag><tw-passagedata pid="1" name="Express regret that your hands are tied" tags="footer" position="725,25" size="100,100">You’ve fallen into the traditional economics trap 🙅🏻‍♀️ 
 
 Back when you used to be able to exchange UK pounds for gold (what&#39;s commonly known as the gold standard), it’s true that you would have to find more gold to back the additional spending that you want to do. Otherwise you would run the risk of people wanting to convert those new pounds you created into gold at the agreed exchange rate, and you wouldn&#39;t have enough to pay them all.
 
