@@ -32,10 +32,10 @@ Cut corporation tax to encourage businesses to hire more workers with better con
 
 Implement a job guarantee, providing jobs in low-carbon industries and whatever else local communities need.
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[Cut corporation tax]]
   [[Job guarantee]] 
-</p>
+</div>
 
 
 :: Build more renewable energy capacity {"position":"775,1700","size":"100,100"}
@@ -45,9 +45,9 @@ We must consider the impact of our energy needs on the whole world, and make sur
 
 Go back to explore a fairer approach.
 
-<p.button-wrapper>
+<div.button-wrapper>
 	[[Overall energy needs]] 
-</p>
+</div>
 
 
 :: Carbon emissions from flying {"position":"500,3750","size":"100,100"}
@@ -58,10 +58,10 @@ Stop subsidising air travel, implement a Frequent Flyer Levy, and make up for th
 Nothing, we'll rely on new technologies (like Sustainable Aviation Fuel) to ensure flying doesn't add to emissions in the future
 
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[Stop subsidising air travel]]
   [[Rely on new technologies]]
-</p>
+</div>
 
 
 :: Caring for our older members of society {"position":"500,2850","size":"100,100"}
@@ -71,10 +71,10 @@ Provide more tax breaks for people to save money in their pensions.
 
 Establish a Universal Care Service where everyone will either be able to stay in their homes with the care they need, or live in assisted housing.
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[Tax breaks for people to save money in their pensions]]
   [[Universal Care Service]]
-</p>
+</div>
 
 
 :: Cut corporation tax {"position":"775,3400","size":"100,100"}
@@ -82,9 +82,9 @@ It's traditional but magical thinking that a policy like this would result in mo
 
 Go back to find out about an alternative and incredibly important way in which the government can help in this area.
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[Access to a good job]]
-</p>
+</div>
 
 
 :: Decarbonise as quickly as possible [footer correct-answer] {"position":"500,2725","size":"100,100"}
@@ -96,9 +96,9 @@ Workers would be given opportunities to train (fully-paid!) for good jobs in dec
 
 Let's move onto caring for our older members of society next.
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[Caring for our older members of society]]
-</p>
+</div>
 
 <%
 s.footnotes = [{href: "https://taxjustice.net/press/press-release-city-of-london-costs-uk-4-5tn-in-lost-economic-growth/#", text:"City of London costs UK £4.5tn in lost economic growth"}]
@@ -113,9 +113,9 @@ Admittedly China is rapidly approaching its fair share, but it is already one of
 Go back to see how we'll do it.
 
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[UK decarbonisation]]
-</p>
+</div>
 
 <%
 s.footnotes = [{href:"https://www.sciencedirect.com/science/article/pii/S2542519620301960", text: "Jason Hickel, Quantifying national responsibility for climate breakdown"}, {href: "https://www.carbonbrief.org/analysis-chinas-emissions-set-to-fall-in-2024-after-record-growth-in-clean-energy/", text: "Analysis: China’s emissions set to fall in 2024 after record growth in clean energy, Carbon Brief"}]
@@ -129,10 +129,10 @@ Build out a nationalised renewable energy provider, using government funds to bu
 
 No need, the fossil fuel companies are investing in renewables so our money helps them to help us decarbonise.
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[Nationalised renewable energy provider]]
   [[Fossil fuel companies will decarbonise]] 
-</p>
+</div>
 
 
 :: Decide what to do first {"position":"450,325","size":"100,100"}
@@ -142,10 +142,10 @@ Set up Citizen’s Assembly networks to ensure that communities who are currentl
 
 Start with the biggest issue that the tabloid newspapers have been writing about.
 
-<p.button-wrapper>
+<div.button-wrapper>
     [[Set up Citizen’s Assembly networks]]
     [[Issues from tabloid newspapers]]
-</p>
+</div>
 
 
 :: Don't target innovative wealthy people {"position":"775,3125","size":"100,100"}
@@ -156,9 +156,9 @@ So we don't need these wealthy people, and we most certainly don't need their ta
 Go back to see some ways we can do just that.
 
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[What should we do about wealth?]]
-</p>
+</div>
 
 
 <%
@@ -177,9 +177,9 @@ Another case in point is Belgium, where wages are indexed to inflation by law, a
 
 Let's bury this myth once and for all and do things differently.
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[Public Sector Industrial Action]] 
-</p>
+</div>
 
 <%
 s.footnotes = [{href:"https://www.imf.org/en/Publications/WP/Issues/2022/11/11/Wage-Price-Spirals-What-is-the-Historical-Evidence-525073", text: "Alvarez, Jorge et al. 2022. “Wage-Price Spirals: What is the Historical Evidence?” IMF Working Paper 22/221, International Monetary Fund, Washington, DC."}]
@@ -193,10 +193,10 @@ Publish a list of energy saving measures.
 
 Massive retrofitting and heat pump rollout, with fully-paid grants to incentivise households to carry out the work, and apprenticeships/paid training programs to build up skilled workforce
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[List of energy saving measures]]
   [[Retrofitting and heat pump rollout]]
-</p>
+</div>
 
 
 :: Express regret that your hands are tied [footer] {"position":"725,25","size":"100,100"}
@@ -208,9 +208,9 @@ But since the 1970s we’ve had a fiat currency<sup>1</sup>, which means that th
 
 Go back and let's see how we can use this insight to build a better economy.
 
-<p.button-wrapper>
+<div.button-wrapper>
 	[[Your first day in government]]
-</p>
+</div>
 
 <%
 s.footnotes = [{href:"https://en.wikipedia.org/wiki/Pound_sterling#Free-floating_pound", text: "Pound sterling, Wikipedia"}]
@@ -226,9 +226,9 @@ For cost push, interest rate hikes don't work at all. You have to target the act
 
 So let's find out more about the source of the inflation!
 
-<p.button-wrapper>
+<div.button-wrapper>
 	[[Source of the inflation]]
-</p>
+</div>
 
 
 :: Find whatever money you need [correct-answer] {"position":"450,175","size":"100,100"}
@@ -238,9 +238,9 @@ If you picked this option because it felt right, but you need an explainer on wh
 
 Otherwise if you’re all up to speed on that, let’s start using this insight to help the people of the UK and the whole planet.
 
-<p.button-wrapper>
+<div.button-wrapper>
 [[Decide what to do first]]
-</p>
+</div>
 
 
 :: Fossil fuel companies will decarbonise [footer] {"position":"750,1425","size":"100,100"}
@@ -251,9 +251,9 @@ Governments literally have to guarantee prices far higher for renewables than th
 Let's try something different.
 
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[Decarbonising the grid]]
-</p>
+</div>
 
 <%
 s.footnotes = [{href: "https://www.ft.com/content/86d71297-3f34-48f3-8f3f-28b7e8be03c6", text: "The energy transition will be volatile, Financial Times"}, {href:"https://www.theguardian.com/environment/2023/sep/08/what-went-wrong-at-uk-governments-offshore-wind-auction", text: "Guardian, What went wrong at UK government’s offshore wind auction?"}]
@@ -277,9 +277,9 @@ We don't need this money to fund other social programs, but reducing inequality 
 
 Let's think next about making sure that everyone has access to a good job.
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[Access to a good job]]
-</p>
+</div>
 
 
 :: Increase housing benefit {"position":"750,2050","size":"100,100"}
@@ -287,9 +287,9 @@ I see that you're trying to help people here, and while this definitely would in
 
 Let's think bigger.
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[Tackling the housing crisis]]
-</p>
+</div>
 
 
 :: Issues from tabloid newspapers {"position":"750,400","size":"100,100"}
@@ -299,9 +299,9 @@ It’s important to keep an eye on, but not let yourself get swayed by billionai
 
 By showing that you’re empowering working people and helping them make positive change (and with good social media and other coverage of that change!) you’ll be able to drown out their manipulation. Let’s go back and see what the other approach would have given us.
 
-<p.button-wrapper>
+<div.button-wrapper>
 	[[Decide what to do first]]
-</p>
+</div>
 
 
 :: Job guarantee [footer correct-answer] {"position":"500,3600","size":"100,100"}
@@ -314,9 +314,9 @@ Finally this is such a great policy because it ensures that the jobs will be cre
 For more details on Job Guarantees, see Pavlina Tchernova's work<sup>1</sup>. Let's see what's next on the agenda!
 
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[Carbon emissions from flying]]
-</p>
+</div>
 
 <%
 s.footnotes = [{href:"https://www.sciencedirect.com/science/article/pii/S2542519620301960", text: "The Job Guarantee: Design, Jobs, and Implementation, Pavlina R. Tcherneva: Levy Economics Institute of Bard College, April 2018"}]
@@ -328,9 +328,9 @@ This is an ok suggestion, but it’s just not ambitious enough on the level that
 
 Go back and see what could happen if we dreamed big.
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[Energy Efficiency]]
-</p>
+</div>
 
 
 :: Make housing a human right [correct-answer] {"position":"500,2175","size":"100,100"}
@@ -344,9 +344,9 @@ Finally you can build more social housing appropriate to people’s needs, in co
 
 Let's see what we can do about the waves of public sector industrial action across the UK next
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[Public Sector Industrial Action]]
-</p>
+</div>
 
 
 :: Modern Monetary Theory Side Quest {"position":"950,100","size":"100,100"}
@@ -372,9 +372,9 @@ This is definitely not the only way to run an economy - perhaps in an ideal worl
 
 Let’s get back into the game!
 
-<p.button-wrapper>
+<div.button-wrapper>
 	[[<%= last_passage_name %>]]
-</p>
+</div>
 
 
 :: National energy guarantee [footer correct-answer] {"position":"475,1025","size":"100,100"}
@@ -385,9 +385,9 @@ By providing everyone's basic needs for free, and then increasing costs progress
 Let's move on!
 
 
-<p.button-wrapper>
+<div.button-wrapper>
 	[[Energy Efficiency]]
-</p>
+</div>
 
 <%
 s.footnotes = [{href:"https://neweconomics.org/2023/04/the-national-energy-guarantee", text: "National Energy Guarantee, New Economics Foundation"}]
@@ -401,9 +401,9 @@ The 2024 example of Tata Steel pulling out of Port Talbot in Wales<sup>1</sup> i
 
 Let's move on to considering the bigger picture.
 
-<p.button-wrapper>
+<div.button-wrapper>
    [[Overall energy needs]]
-</p>
+</div>
 
 <%
 s.footnotes = [{href:"https://www.unitetheunion.org/news-events/news/2024/january/unite-statement-port-talbot-tata-steel", text: "Unite statement Port Talbot - Tata Steel"}]
@@ -418,10 +418,10 @@ Reduce demand by making local public transportation free, and by massively upgra
 Build more renewable energy capacity to meet whatever need arises.
 
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[Reduce demand by making local public transportation free]]
   [[Build more renewable energy capacity]]
-</p>
+</div>
 
 
 :: Public Sector Industrial Action {"position":"500,2325","size":"100,100"}
@@ -431,10 +431,10 @@ Don’t give in. If you do, it’ll create a wage-price spiral as the workers’
 
 Work with the unions to come to an agreement ensuring that their wages are keeping up with inflation.
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[Don’t give in to a wage-price spiral]]
   [[Raise wages in line with inflation]]
-</p>
+</div>
 
 
 :: Raise interest rates to cool demand {"position":"675,625","size":"100,100"}
@@ -448,9 +448,9 @@ And furthermore, because at the moment there's lots of money in the economy, it 
 
 Interest rate increases are untargeted and ineffective, and should not be used to control inflation. Go back to see how we could be doing all of this differently.
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[Tackling Inflation]]
-</p>
+</div>
 
 
 :: Raise wages in line with inflation [correct-answer] {"position":"500,2450","size":"100,100"}
@@ -463,9 +463,9 @@ You can implement automatic stabilisers like automatically-adjusting tax bands b
 Let's see what's next!
 
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[UK decarbonisation]]
-</p>
+</div>
 
 
 :: Reduce demand by making local public transportation free [correct-answer] {"position":"500,1900","size":"100,100"}
@@ -476,9 +476,9 @@ We'd quickly overwhelm the Earth's resources if we tried to replace every petrol
 Let's see what we should tackle next.
 
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[Tackling the housing crisis]]
-</p>
+</div>
 
 
 :: Rely on new technologies [footer] {"position":"775,3750","size":"100,100"}
@@ -495,9 +495,9 @@ See the excellent factsheets<sup>3</sup> at Stay Grounded for more details on wh
 Go back and let's see what kind of action is needed instead.
 
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[Carbon emissions from flying]]
-</p>
+</div>
 
 <%
 s.footnotes = [{href: "https://www.ipcc.ch/2022/04/04/ipcc-ar6-wgiii-pressrelease/", text:"Release of the IPCC’s Working Group III, Sixth Assessment Report (AR6)"}, {href: "https://en.wikipedia.org/wiki/Jevons_paradox", text:"Jevons Paradox, Wikipedia"}, {href:"https://stay-grounded.org/greenwashing/", text: "Stay Grounded, Greenwashing factsheets"}]
@@ -513,9 +513,9 @@ Finally to keep an eye on inflation, we’ll need to make sure we have enough la
 
 Let's keep going!
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[Decarbonising the grid]]
-</p>
+</div>
 
 <%
 s.footnotes = [{href:"https://www.sciencedirect.com/science/article/pii/S2542519620301960", text: "Jason Hickel, Quantifying national responsibility for climate breakdown"}]
@@ -529,9 +529,9 @@ We could set these up via sortition (so any adult in the country could be select
 
 From here on in, let’s assume that the choices you’re making are on policy areas that the public are raising as those that need to be addressed, and that they’ve had a chance to input their thoughts into what the solutions should be ✨ let’s keep going!
 
-<p.button-wrapper>
+<div.button-wrapper>
 	[[Tackling Inflation]]
-</p>
+</div>
 
 
 :: Source of the inflation {"position":"450,875","size":"100,100"}
@@ -542,10 +542,10 @@ Launch a national energy guarantee, providing everyone’s essential energy need
 Implement a windfall tax on the energy providers.
 
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[National energy guarantee]]
   [[Windfall tax on the energy providers]]
-</p>
+</div>
 
 
 :: Stop subsidising air travel [correct-answer] {"position":"500,3925","size":"100,100"}
@@ -559,9 +559,9 @@ Alongside that, we should heavily subsidise long-distance train travel, re-natio
 
 Well done, let's keep going.
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[What's next?]]
-</p>
+</div>
 
 <%
 s.footnotes = [{href: "https://stay-grounded.org/wp-content/uploads/2020/10/SG_Factsheet_Non-CO2_2020.pdf", text:"It's about more than just CO2, Stay Grounded Factsheet (pdf)"}, {href: "https://stay-grounded.org/eliminating-tax-exemptions/", text:"Stay Grounded, Eliminating Tax Exemptions"}, {href:"https://stay-grounded.org/wp-content/uploads/2019/12/Degrowth-Of-Aviation_2019.pdf", text: "The Degrowth of Aviation (pdf)"}]
@@ -575,10 +575,10 @@ Tell your economists to find out more about where the inflation is coming from b
 
 Raise interest rates to cool demand and therefore reduce the rate of price increase
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[Find out more about where the inflation is coming from]]
   [[Raise interest rates to cool demand]]
-</p>
+</div>
 
 
 :: Tackling the housing crisis {"position":"500,2050","size":"100,100"}
@@ -590,10 +590,10 @@ Make housing a human right, not a source of wealth, with a suite of policies tar
 
 Increase housing benefit for private renters
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[Make housing a human right]]
   [[Increase housing benefit]] 
-</p>
+</div>
 
 
 :: Tax breaks for people to save money in their pensions {"position":"750,2875","size":"100,100"}
@@ -603,9 +603,9 @@ Relying on savings growing in the private markets also keeps us entrenched in th
 
 We need a kinder, fairer system that doesn't exacerbate the existing inequalities in our country, so let's try again.
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[Caring for our older members of society]]
-</p>
+</div>
 
 
 :: UK decarbonisation {"position":"500,2600","size":"100,100"}
@@ -615,10 +615,10 @@ It's a motivation to go as quickly as possible - for example we should quickly r
 
 It's a factor, but other countries like China produce emissions that are much bigger than ours now, so while we should still decarbonise, we're not the biggest priority.
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[Decarbonise as quickly as possible]]
   [[Decarbonise, but it's not so important for us]]
-</p>
+</div>
 
 
 :: Universal Care Service [correct-answer] {"position":"500,3000","size":"100,100"}
@@ -630,9 +630,9 @@ Without the need to hoard homes as assets for retirement, you'll further reduce 
 
 Moving on!
 
-<p.button-wrapper>
+<div.button-wrapper>
 	[[What should we do about wealth?]]
-</p>
+</div>
 
 
 :: Welcome to the Story {"position":"75,50","size":"100,100"}
@@ -646,9 +646,9 @@ Over the course of this game, you will be given a choice of two different ways t
 
 You'll learn about why the traditional way is causing the various crises we find ourselves living in today, and how these alternatives can move us to a fairer society, living within the means of the planet. Click or tap on the button to get started!
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[Your first day in government]]
-</p>
+</div>
 
 
 :: What should we do about wealth? [footer] {"position":"500,3125","size":"100,100"}
@@ -658,10 +658,10 @@ Implement a suite of taxes targeting wealth and inequality.
 
 We shouldn't target wealth too much - the wealthy will innovate so we can get out of this crisis
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[Implement a suite of taxes targeting wealth and inequality]]
   [[Don't target innovative wealthy people]] 
-</p>
+</div>
 
 <%
 s.footnotes = [{href:"https://www.cambridge.org/core/journals/global-sustainability/article/unequal-distribution-of-household-carbon-footprints-in-europe-and-its-link-to-sustainability/F1ED4F705AF1C6C1FCAD477398353DC2", text: "Ivanova D, Wood R. The unequal distribution of household carbon footprints in Europe and its link to sustainability. Global Sustainability. 2020."}]
@@ -685,9 +685,9 @@ Finally as we know from Modern Monetary Theory, taxes don’t subsequently fund 
 
 Go back and try something more adventurous!
 
-<p.button-wrapper>
+<div.button-wrapper>
   [[Source of the inflation]]
-</p>
+</div>
 
 
 :: Your first day in government [footer] {"position":"425,25","size":"100,100"}
@@ -697,10 +697,10 @@ Express regret that your hands are tied by the last government - they borrowed t
 
 Acknowledge that because all UK currency comes from the UK government<sup>1</sup> you can always find whatever money you need - so long as the real resources (labour, materials) are there to be bought with that money
 
-<p.button-wrapper>
+<div.button-wrapper>
 	[[Express regret that your hands are tied]]
 	[[Find whatever money you need]]
-</p>
+</div>
 
 <%
 s.footnotes = [{ text: "It's true that private banks can create money too, but only as loans that have to be paid back with interest"}]
@@ -803,19 +803,22 @@ $(window).on('sm.passage.shown', function (e, data)
   }
   passageEl.html(passageHTML)
   
+  // Wrap buttons again so the carousel works on mobile
+  $('.button-wrapper').wrap('<p/>')
+  
   // Insert menu/title
   passageEl.prepend('<div id="menu"><h1 id="title">Anything we can do, we can afford</h1><a href="javascript:void(0)" id="mmt-explainer" data-passage="Modern Monetary Theory Side Quest"><img src="./icons/chat-bubble-question.svg" /></a></div>');
   
   // Wrap passage paragraphs in a container
   passageEl.find('p').wrapAll('<div id="passage-container" />')
+  const passageContainer = $('#passage-container')
+  passageContainer.find('p').wrapAll('<div id="passages" />')
   
   // Transform <sup> elements into footnote links
   if (window.story.state.footnotes) {
     const storyElement = $('tw-story')
     storyElement.prepend('<div id="footnote-container"><div id="footnote-content"/><button id="close-footnote">🅇</button></div>')
     
-    const passageContainer = $('#passage-container')
-  	passageContainer.find('p').wrapAll('<div id="passages" />')
     $('#close-footnote').on("click", function() {
       $('#footnote-container').css("display", "none");
       $('#passage-container').css("opacity", "100%");
@@ -855,8 +858,34 @@ $(window).on('sm.passage.shown', function (e, data)
     }).appendTo(link);
   })
   
-  // TODO: Put carousel around the passage
-  // TODO: only do this on mobile
+  // Put carousel around the passage, only on mobile
+  const isMobile = window.matchMedia("(max-width: 768px)").matches || window.matchMedia("(pointer: coarse)").matches;
+
+  if (isMobile) {
+    // Do something for mobile screens
+    $('#passage-container').addClass(['carousel', 'slide'])
+    $('#passages').wrap('<div class="carousel-inner"/>')
+    $('#passage-container').prepend(`<div class="carousel-indicators" />`)
+
+    $('#passages > p').each((idx, item) => {
+      $(item).addClass('carousel-item')
+      if (idx === 0) {
+          $(item).addClass('active')
+      }
+      $('.carousel-indicators').append(`<button type="button" data-bs-target="#passage-container" data-bs-slide-to="${idx}" ${idx === 0 ? 'class="active" aria-current="true"':''} aria-label="Slide ${idx + 1}"></button>`)
+    })
+
+ 	 $('#passage-container').append(`<button class="carousel-control-prev" type="button" data-bs-target="#passage-container" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#passage-container" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>`)
+
+  
+  
   const addCarousel = () => {
     try {
       const carousel = new bootstrap.Carousel('#passage-container')
@@ -866,6 +895,7 @@ $(window).on('sm.passage.shown', function (e, data)
     }
   }
   addCarousel()
+        } 
   
   // If this passage was the non-traditional answer, shoot confetti
   if (data.passage.tags.includes('correct-answer')) {
@@ -936,16 +966,78 @@ tw-passage {
   	grid-row: 1;
   	grid-column: 1;
 }
-#passage-container {
-	display: grid;
-  	padding: 8px;
+/* buttons */
+a[data-passage] {
+  text-decoration: none;
 }
-#passages {
-  	grid-row: 1;
-  	grid-column: 1;
+
+.button-wrapper {
+	display: flex;
+  	justify-content: space-around;
+  	margin: 32px;
+}
+
+.button-wrapper > a {
+	display: flex;
+  	justify-content: space-around;
+}
+
+a[data-passage] > button {
+  	max-width: 80%;
+    height: 100%;
+	text-wrap: pretty;
+	border-radius: 8px;
+  	padding: 8px;
+  	color: #222;
+  	width: fit-content;
+}
+
+/* mobile tweaks for carousel */
+@media only screen and (max-width: 767px) {
+  #passage-container {
+      display: grid;
+      flex-direction: column;
+      height: 80vh;
+      align-items: center;
+      justify-content: space-around;
+      grid-template-columns: 5vw auto 5vw;
+      grid-template-rows: auto 10vh;
+  }
+  #passages {
+      grid-row: 1;
+      grid-column: 1;
+  }
+  a[data-passage] > button {
+  	max-width: unset;
+  }
 }
 
 /* carousel */
+.carousel-inner {
+	width: 80vw;
+    text-align: center;
+    text-wrap: pretty;
+    font-size: 20px;
+  	grid-column: 2;
+}
+.carousel-control-prev {
+  	grid-row:1;
+	grid-column: 1;
+}
+.carousel-control-next {
+  	grid-row:1;
+	grid-column: 3
+}
+.carousel-control-next, .carousel-control-prev {
+  	position: unset;
+    width: 100%;
+}
+.carousel-indicators {
+	position:unset;
+  grid-row: 2;
+  grid-column: 1/4;
+  width: unset;
+}
 
 /* footnotes */
 sup {
@@ -989,32 +1081,6 @@ a:hover {
   padding: unset;
   top: 8px;
   right: 8px;
-}
-
-/* buttons */
-a[data-passage] {
-  text-decoration: none;
-}
-
-.button-wrapper {
-	display: flex;
-  	justify-content: space-around;
-  	margin: 32px;
-}
-
-.button-wrapper > a {
-	display: flex;
-  	justify-content: space-around;
-}
-
-a[data-passage] > button {
-  	max-width: 80%;
-    height: 100%;
-	text-wrap: pretty;
-	border-radius: 8px;
-  	padding: 8px;
-  	color: #222;
-  	width: fit-content;
 }
 
 /* mobile specific tweaks */

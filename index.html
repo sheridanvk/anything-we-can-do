@@ -46,16 +46,78 @@ tw-passage {
   	grid-row: 1;
   	grid-column: 1;
 }
-#passage-container {
-	display: grid;
-  	padding: 8px;
+/* buttons */
+a[data-passage] {
+  text-decoration: none;
 }
-#passages {
-  	grid-row: 1;
-  	grid-column: 1;
+
+.button-wrapper {
+	display: flex;
+  	justify-content: space-around;
+  	margin: 32px;
+}
+
+.button-wrapper > a {
+	display: flex;
+  	justify-content: space-around;
+}
+
+a[data-passage] > button {
+  	max-width: 80%;
+    height: 100%;
+	text-wrap: pretty;
+	border-radius: 8px;
+  	padding: 8px;
+  	color: #222;
+  	width: fit-content;
+}
+
+/* mobile tweaks for carousel */
+@media only screen and (max-width: 767px) {
+  #passage-container {
+      display: grid;
+      flex-direction: column;
+      height: 80vh;
+      align-items: center;
+      justify-content: space-around;
+      grid-template-columns: 5vw auto 5vw;
+      grid-template-rows: auto 10vh;
+  }
+  #passages {
+      grid-row: 1;
+      grid-column: 1;
+  }
+  a[data-passage] > button {
+  	max-width: unset;
+  }
 }
 
 /* carousel */
+.carousel-inner {
+	width: 80vw;
+    text-align: center;
+    text-wrap: pretty;
+    font-size: 20px;
+  	grid-column: 2;
+}
+.carousel-control-prev {
+  	grid-row:1;
+	grid-column: 1;
+}
+.carousel-control-next {
+  	grid-row:1;
+	grid-column: 3
+}
+.carousel-control-next, .carousel-control-prev {
+  	position: unset;
+    width: 100%;
+}
+.carousel-indicators {
+	position:unset;
+  grid-row: 2;
+  grid-column: 1/4;
+  width: unset;
+}
 
 /* footnotes */
 sup {
@@ -99,32 +161,6 @@ a:hover {
   padding: unset;
   top: 8px;
   right: 8px;
-}
-
-/* buttons */
-a[data-passage] {
-  text-decoration: none;
-}
-
-.button-wrapper {
-	display: flex;
-  	justify-content: space-around;
-  	margin: 32px;
-}
-
-.button-wrapper > a {
-	display: flex;
-  	justify-content: space-around;
-}
-
-a[data-passage] > button {
-  	max-width: 80%;
-    height: 100%;
-	text-wrap: pretty;
-	border-radius: 8px;
-  	padding: 8px;
-  	color: #222;
-  	width: fit-content;
 }
 
 /* mobile specific tweaks */
@@ -235,19 +271,22 @@ $(window).on('sm.passage.shown', function (e, data)
   }
   passageEl.html(passageHTML)
   
+  // Wrap buttons again so the carousel works on mobile
+  $('.button-wrapper').wrap('<p/>')
+  
   // Insert menu/title
   passageEl.prepend('<div id="menu"><h1 id="title">Anything we can do, we can afford</h1><a href="javascript:void(0)" id="mmt-explainer" data-passage="Modern Monetary Theory Side Quest"><img src="./icons/chat-bubble-question.svg" /></a></div>');
   
   // Wrap passage paragraphs in a container
   passageEl.find('p').wrapAll('<div id="passage-container" />')
+  const passageContainer = $('#passage-container')
+  passageContainer.find('p').wrapAll('<div id="passages" />')
   
   // Transform <sup> elements into footnote links
   if (window.story.state.footnotes) {
     const storyElement = $('tw-story')
     storyElement.prepend('<div id="footnote-container"><div id="footnote-content"/><button id="close-footnote">🅇</button></div>')
     
-    const passageContainer = $('#passage-container')
-  	passageContainer.find('p').wrapAll('<div id="passages" />')
     $('#close-footnote').on("click", function() {
       $('#footnote-container').css("display", "none");
       $('#passage-container').css("opacity", "100%");
@@ -287,8 +326,34 @@ $(window).on('sm.passage.shown', function (e, data)
     }).appendTo(link);
   })
   
-  // TODO: Put carousel around the passage
-  // TODO: only do this on mobile
+  // Put carousel around the passage, only on mobile
+  const isMobile = window.matchMedia("(max-width: 768px)").matches || window.matchMedia("(pointer: coarse)").matches;
+
+  if (isMobile) {
+    // Do something for mobile screens
+    $('#passage-container').addClass(['carousel', 'slide'])
+    $('#passages').wrap('<div class="carousel-inner"/>')
+    $('#passage-container').prepend(`<div class="carousel-indicators" />`)
+
+    $('#passages > p').each((idx, item) => {
+      $(item).addClass('carousel-item')
+      if (idx === 0) {
+          $(item).addClass('active')
+      }
+      $('.carousel-indicators').append(`<button type="button" data-bs-target="#passage-container" data-bs-slide-to="${idx}" ${idx === 0 ? 'class="active" aria-current="true"':''} aria-label="Slide ${idx + 1}"></button>`)
+    })
+
+ 	 $('#passage-container').append(`<button class="carousel-control-prev" type="button" data-bs-target="#passage-container" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#passage-container" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>`)
+
+  
+  
   const addCarousel = () => {
     try {
       const carousel = new bootstrap.Carousel('#passage-container')
@@ -298,6 +363,7 @@ $(window).on('sm.passage.shown', function (e, data)
     }
   }
   addCarousel()
+        } 
   
   // If this passage was the non-traditional answer, shoot confetti
   if (data.passage.tags.includes('correct-answer')) {
@@ -337,9 +403,9 @@ But since the 1970s we’ve had a fiat currency&lt;sup&gt;1&lt;/sup&gt;, which m
 
 Go back and let&#39;s see how we can use this insight to build a better economy.
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
 	[[Your first day in government]]
-&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;%
 s.footnotes = [{href:&quot;https://en.wikipedia.org/wiki/Pound_sterling#Free-floating_pound&quot;, text: &quot;Pound sterling, Wikipedia&quot;}]
@@ -353,9 +419,9 @@ And furthermore, because at the moment there&#39;s lots of money in the economy,
 
 Interest rate increases are untargeted and ineffective, and should not be used to control inflation. Go back to see how we could be doing all of this differently.
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[Tackling Inflation]]
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="3" name="Find out more about where the inflation is coming from" tags="correct-answer" position="450,750" size="100,100">This is the right call! There’s two main kinds of inflation - cost push and demand pull. The methods to fight these are different.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="Find out more about where the inflation is coming from" tags="correct-answer" position="450,750" size="100,100">This is the right call! There’s two main kinds of inflation - cost push and demand pull. The methods to fight these are different.
 
 For demand pull, this is the traditional &quot;too much money chasing too few goods and services&quot; situation that economists often try to cool with interest rate hikes. This type of inflation rarely happens, but if it does, then a more targeted approach would be to try to reduce demand on the specific sector causing the increase (e.g. if it&#39;s petrol prices, make public transport free or low cost). 
 
@@ -363,36 +429,36 @@ For cost push, interest rate hikes don&#39;t work at all. You have to target the
 
 So let&#39;s find out more about the source of the inflation!
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
 	[[Source of the inflation]]
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="4" name="Tackling Inflation" tags="" position="450,625" size="100,100">People are struggling to afford what they need because inflation is high and their wages are not keeping up. What do you do?
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="4" name="Tackling Inflation" tags="" position="450,625" size="100,100">People are struggling to afford what they need because inflation is high and their wages are not keeping up. What do you do?
 
 Tell your economists to find out more about where the inflation is coming from before taking action
 
 Raise interest rates to cool demand and therefore reduce the rate of price increase
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[Find out more about where the inflation is coming from]]
   [[Raise interest rates to cool demand]]
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="5" name="Source of the inflation" tags="" position="450,875" size="100,100">The economist team tells you that the biggest contributor to inflation right now is coming from high energy prices. How will you respond?
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="Source of the inflation" tags="" position="450,875" size="100,100">The economist team tells you that the biggest contributor to inflation right now is coming from high energy prices. How will you respond?
 
 Launch a national energy guarantee, providing everyone’s essential energy needs for free and ramping up costs for any excessive usage over that.
 
 Implement a windfall tax on the energy providers.
 
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[National energy guarantee]]
   [[Windfall tax on the energy providers]]
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="6" name="Find whatever money you need" tags="correct-answer" position="450,175" size="100,100">Yes! and honestly it’s refreshing to see politicians who aren’t being held back by outdated ways of thinking.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="6" name="Find whatever money you need" tags="correct-answer" position="450,175" size="100,100">Yes! and honestly it’s refreshing to see politicians who aren’t being held back by outdated ways of thinking.
 
 If you picked this option because it felt right, but you need an explainer on why, click on the little icon in the top right to learn more about Modern Monetary Theory. The explainer will be there for the whole game in case you need a refresher at any point.
 
 Otherwise if you’re all up to speed on that, let’s start using this insight to help the people of the UK and the whole planet.
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
 [[Decide what to do first]]
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="7" name="Modern Monetary Theory Side Quest" tags="" position="950,100" size="100,100">&lt;% const history = window.story.history
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="Modern Monetary Theory Side Quest" tags="" position="950,100" size="100,100">&lt;% const history = window.story.history
 const last_passage_id = history[history.length -2] 
 const last_passage = window.story.passages.find((passage) =&gt; passage?.id == last_passage_id)
 const last_passage_name = last_passage?.name ?? &#39;Start of journey&#39; 
@@ -414,43 +480,43 @@ This is definitely not the only way to run an economy - perhaps in an ideal worl
 
 Let’s get back into the game!
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
 	[[&lt;%= last_passage_name %&gt;]]
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="8" name="Decide what to do first" tags="" position="450,325" size="100,100">So now that it’s clear that money isn’t the main obstacle here, how do you decide what to do first?
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="8" name="Decide what to do first" tags="" position="450,325" size="100,100">So now that it’s clear that money isn’t the main obstacle here, how do you decide what to do first?
 
 Set up Citizen’s Assembly networks to ensure that communities who are currently bearing the brunt of the crisis are key stakeholders in how to solve them.
 
 Start with the biggest issue that the tabloid newspapers have been writing about.
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
     [[Set up Citizen’s Assembly networks]]
     [[Issues from tabloid newspapers]]
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="9" name="Set up Citizen’s Assembly networks" tags="correct-answer" position="450,475" size="100,100">You have the right instincts - our current system of representative politics doesn&#39;t result in popular policies (such as the re-nationalisation of our public services) becoming reality. By making our democracy more participatory, we’ll make sure that these important policies are prioritised by government, while ensuring people feel more connected to their communities and more in control of their lives.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="9" name="Set up Citizen’s Assembly networks" tags="correct-answer" position="450,475" size="100,100">You have the right instincts - our current system of representative politics doesn&#39;t result in popular policies (such as the re-nationalisation of our public services) becoming reality. By making our democracy more participatory, we’ll make sure that these important policies are prioritised by government, while ensuring people feel more connected to their communities and more in control of their lives.
 
 We could set these up via sortition (so any adult in the country could be selected to be part of the assembly), setting terms for a period of several years. It would also be important to train and pay people to participate, so any inequalities up until now are not exacerbated in this process, as well as minimising financial hardship from not working.
 
 From here on in, let’s assume that the choices you’re making are on policy areas that the public are raising as those that need to be addressed, and that they’ve had a chance to input their thoughts into what the solutions should be ✨ let’s keep going!
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
 	[[Tackling Inflation]]
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="10" name="Issues from tabloid newspapers" tags="" position="750,400" size="100,100">You’ve fallen into the traditional politican&#39;s trap 🙅🏻‍♀️ 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="Issues from tabloid newspapers" tags="" position="750,400" size="100,100">You’ve fallen into the traditional politican&#39;s trap 🙅🏻‍♀️ 
 
 It’s important to keep an eye on, but not let yourself get swayed by billionaire-run media. Their interests align with keeping everything the way they are, and they’re going to fight tooth and nail for themselves and the rest of the 1%.
 
 By showing that you’re empowering working people and helping them make positive change (and with good social media and other coverage of that change!) you’ll be able to drown out their manipulation. Let’s go back and see what the other approach would have given us.
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
 	[[Decide what to do first]]
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="11" name="National energy guarantee" tags="footer correct-answer" position="475,1025" size="100,100">Yes! This is an exciting option already proposed by many, including the New Economics Foundation&lt;sup&gt;1&lt;/sup&gt;. The reference goes into the specifics of the scheme in much more detail, but this would treat energy provision more like the NHS, as a basic need for all. 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="National energy guarantee" tags="footer correct-answer" position="475,1025" size="100,100">Yes! This is an exciting option already proposed by many, including the New Economics Foundation&lt;sup&gt;1&lt;/sup&gt;. The reference goes into the specifics of the scheme in much more detail, but this would treat energy provision more like the NHS, as a basic need for all. 
 
 By providing everyone&#39;s basic needs for free, and then increasing costs progressively as energy usage rises, it would also incentivise reductions in usage for richer households that are using more power (and should include social tariffs/subsidies for any poorer households that lose out with the higher prices).
 
 Let&#39;s move on!
 
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
 	[[Energy Efficiency]]
-&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;%
 s.footnotes = [{href:&quot;https://neweconomics.org/2023/04/the-national-energy-guarantee&quot;, text: &quot;National Energy Guarantee, New Economics Foundation&quot;}]
@@ -462,9 +528,9 @@ Finally as we know from Modern Monetary Theory, taxes don’t subsequently fund 
 
 Go back and try something more adventurous!
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[Source of the inflation]]
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="13" name="Retrofitting and heat pump rollout" tags="footer correct-answer" position="500,1300" size="100,100">This is exactly the kind of ambition we need in the UK. Our historical responsibility for climate change over our “fair share” (based on our population size) is 7%, the 4th largest in the world&lt;sup&gt;1&lt;/sup&gt;. We have to decarbonise as fast as we can in order to give space for poorer countries, who have historically contributed very little to the climate crisis and may need to grow their emissions before they can decarbonise.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="13" name="Retrofitting and heat pump rollout" tags="footer correct-answer" position="500,1300" size="100,100">This is exactly the kind of ambition we need in the UK. Our historical responsibility for climate change over our “fair share” (based on our population size) is 7%, the 4th largest in the world&lt;sup&gt;1&lt;/sup&gt;. We have to decarbonise as fast as we can in order to give space for poorer countries, who have historically contributed very little to the climate crisis and may need to grow their emissions before they can decarbonise.
 
 But that expense shouldn’t fall on individuals, which is why we must provide grants to make this happen (and as you now know, this is something the government can absolutely afford). It’s true that we’ll be giving grants to the wealthy here too, but we have other plans to address their wealth (and these grants are a drop in the ocean for them).
 
@@ -472,9 +538,9 @@ Finally to keep an eye on inflation, we’ll need to make sure we have enough la
 
 Let&#39;s keep going!
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[Decarbonising the grid]]
-&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;%
 s.footnotes = [{href:&quot;https://www.sciencedirect.com/science/article/pii/S2542519620301960&quot;, text: &quot;Jason Hickel, Quantifying national responsibility for climate breakdown&quot;}]
@@ -484,9 +550,9 @@ The 2024 example of Tata Steel pulling out of Port Talbot in Wales&lt;sup&gt;1&l
 
 Let&#39;s move on to considering the bigger picture.
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
    [[Overall energy needs]]
-&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;%
 s.footnotes = [{href:&quot;https://www.unitetheunion.org/news-events/news/2024/january/unite-statement-port-talbot-tata-steel&quot;, text: &quot;Unite statement Port Talbot - Tata Steel&quot;}]
@@ -497,9 +563,9 @@ Governments literally have to guarantee prices far higher for renewables than th
 Let&#39;s try something different.
 
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[Decarbonising the grid]]
-&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;%
 s.footnotes = [{href: &quot;https://www.ft.com/content/86d71297-3f34-48f3-8f3f-28b7e8be03c6&quot;, text: &quot;The energy transition will be volatile, Financial Times&quot;}, {href:&quot;https://www.theguardian.com/environment/2023/sep/08/what-went-wrong-at-uk-governments-offshore-wind-auction&quot;, text: &quot;Guardian, What went wrong at UK government’s offshore wind auction?&quot;}]
@@ -510,51 +576,51 @@ We&#39;d quickly overwhelm the Earth&#39;s resources if we tried to replace ever
 Let&#39;s see what we should tackle next.
 
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[Tackling the housing crisis]]
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="17" name="Decarbonising the grid" tags="" position="500,1425" size="100,100">So this is all great news, but we haven’t fully decarbonised our electrical grid yet, so the electricity that people are using is powered by fossil fuels and that’s where the government’s money is going. Can we do better?
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="17" name="Decarbonising the grid" tags="" position="500,1425" size="100,100">So this is all great news, but we haven’t fully decarbonised our electrical grid yet, so the electricity that people are using is powered by fossil fuels and that’s where the government’s money is going. Can we do better?
 
 Build out a nationalised renewable energy provider, using government funds to build new generation and transmission infrastructure.
 
 No need, the fossil fuel companies are investing in renewables so our money helps them to help us decarbonise.
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[Nationalised renewable energy provider]]
   [[Fossil fuel companies will decarbonise]] 
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="18" name="Overall energy needs" tags="" position="500,1700" size="100,100">So now that people can afford their energy needs, aggregate energy demand in the UK has gone up. What should you do?
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="18" name="Overall energy needs" tags="" position="500,1700" size="100,100">So now that people can afford their energy needs, aggregate energy demand in the UK has gone up. What should you do?
 
 Reduce demand by making local public transportation free, and by massively upgrading the network all across the UK.
 
 Build more renewable energy capacity to meet whatever need arises.
 
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[Reduce demand by making local public transportation free]]
   [[Build more renewable energy capacity]]
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="19" name="Build more renewable energy capacity" tags="" position="775,1700" size="100,100">While it&#39;s tempting to think that there&#39;s no downside to keep building more renewable energy because it doesn&#39;t emit carbon, that&#39;s not the whole story. It still takes materials to build those windmills, solar panels and batteries, and those materials usually come from the Global South. Those communities are battling the negative consquences of mass extractivism, from biodiversity loss to poisoning of water supplies and air.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="Build more renewable energy capacity" tags="" position="775,1700" size="100,100">While it&#39;s tempting to think that there&#39;s no downside to keep building more renewable energy because it doesn&#39;t emit carbon, that&#39;s not the whole story. It still takes materials to build those windmills, solar panels and batteries, and those materials usually come from the Global South. Those communities are battling the negative consquences of mass extractivism, from biodiversity loss to poisoning of water supplies and air.
 
 We must consider the impact of our energy needs on the whole world, and make sure we only build for what we truly need, especially as that will then ensure that other countries will also be able to cover their needs without overwhelming the Earth&#39;s supplies.
 
 Go back to explore a fairer approach.
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
 	[[Overall energy needs]] 
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="20" name="Energy Efficiency" tags="" position="500,1150" size="100,100">Speaking of reductions, many UK homes leak a lot of heat, resulting in high bills that aren’t covered by the energy guarantee. What can you do to help here?
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="20" name="Energy Efficiency" tags="" position="500,1150" size="100,100">Speaking of reductions, many UK homes leak a lot of heat, resulting in high bills that aren’t covered by the energy guarantee. What can you do to help here?
 
 Publish a list of energy saving measures.
 
 Massive retrofitting and heat pump rollout, with fully-paid grants to incentivise households to carry out the work, and apprenticeships/paid training programs to build up skilled workforce
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[List of energy saving measures]]
   [[Retrofitting and heat pump rollout]]
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="21" name="List of energy saving measures" tags="" position="725,1125" size="100,100">This is an ok suggestion, but it’s just not ambitious enough on the level that we need. Energy efficiency measures like LED lighting and more efficient appliances have definitely helped, but we need to be thinking on the level of systems change here to get off the dangerous trajectory that we&#39;re on.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="21" name="List of energy saving measures" tags="" position="725,1125" size="100,100">This is an ok suggestion, but it’s just not ambitious enough on the level that we need. Energy efficiency measures like LED lighting and more efficient appliances have definitely helped, but we need to be thinking on the level of systems change here to get off the dangerous trajectory that we&#39;re on.
 
 Go back and see what could happen if we dreamed big.
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[Energy Efficiency]]
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="22" name="What&#39;s next?" tags="correct-answer" position="500,4100" size="100,100">You made it to the end of the game! Congratulations on putting the UK onto a more sustainable path, while making sure that everyone’s quality of life is now above a minimum threshold 🙏🏻🤸🏽
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="22" name="What&#39;s next?" tags="correct-answer" position="500,4100" size="100,100">You made it to the end of the game! Congratulations on putting the UK onto a more sustainable path, while making sure that everyone’s quality of life is now above a minimum threshold 🙏🏻🤸🏽
 
 There’s no real end to this game, because we’ll keep facing new challenges, but the democratic foundations and better understanding of the economy you’ve helped to put in place should help the people and wider natural world of the UK overcome whatever comes their way in the future.
 
@@ -568,18 +634,18 @@ Over the course of this game, you will be given a choice of two different ways t
 
 You&#39;ll learn about why the traditional way is causing the various crises we find ourselves living in today, and how these alternatives can move us to a fairer society, living within the means of the planet. Click or tap on the button to get started!
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[Your first day in government]]
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="24" name="Your first day in government" tags="footer" position="425,25" size="100,100">Imagine you’re part of the government, and it’s your first day in charge of running the UK. The climate and cost-of-living crises are devastating the country and the world, and the people of your country are demanding change. What’s your first step?
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="24" name="Your first day in government" tags="footer" position="425,25" size="100,100">Imagine you’re part of the government, and it’s your first day in charge of running the UK. The climate and cost-of-living crises are devastating the country and the world, and the people of your country are demanding change. What’s your first step?
 
 Express regret that your hands are tied by the last government - they borrowed too much, so you can’t spend money on anything that would help until the economy starts growing again
 
 Acknowledge that because all UK currency comes from the UK government&lt;sup&gt;1&lt;/sup&gt; you can always find whatever money you need - so long as the real resources (labour, materials) are there to be bought with that money
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
 	[[Express regret that your hands are tied]]
 	[[Find whatever money you need]]
-&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;%
 s.footnotes = [{ text: &quot;It&#39;s true that private banks can create money too, but only as loans that have to be paid back with interest&quot;}]
@@ -591,10 +657,10 @@ Make housing a human right, not a source of wealth, with a suite of policies tar
 
 Increase housing benefit for private renters
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[Make housing a human right]]
   [[Increase housing benefit]] 
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="26" name="Make housing a human right" tags="correct-answer" position="500,2175" size="100,100">This is exactly the right principle to be keeping in mind when designing policies for housing in the UK - housing is a human right. There are many things that could be done here - you could cap maximum rents to a proportion of average wages in each area, cap annual rent increases and implement heavy taxes on second homes and empty homes, for example.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="Make housing a human right" tags="correct-answer" position="500,2175" size="100,100">This is exactly the right principle to be keeping in mind when designing policies for housing in the UK - housing is a human right. There are many things that could be done here - you could cap maximum rents to a proportion of average wages in each area, cap annual rent increases and implement heavy taxes on second homes and empty homes, for example.
 
 In order to combat the likely decrease in house prices, given that housing would be less profitable, you could offer to remortgage anyone&#39;s property that now is worth less than what they paid for it (providing a 30-year fixed mortgage in a publicly-owned bank).
 
@@ -604,24 +670,24 @@ Finally you can build more social housing appropriate to people’s needs, in co
 
 Let&#39;s see what we can do about the waves of public sector industrial action across the UK next
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[Public Sector Industrial Action]]
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="27" name="Increase housing benefit" tags="" position="750,2050" size="100,100">I see that you&#39;re trying to help people here, and while this definitely would in the short term, it does nothing to address the systemic problems with how we view housing in the UK. The housing benefit would go straight to private landlords and further increase wealth inequalities in the UK. 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="27" name="Increase housing benefit" tags="" position="750,2050" size="100,100">I see that you&#39;re trying to help people here, and while this definitely would in the short term, it does nothing to address the systemic problems with how we view housing in the UK. The housing benefit would go straight to private landlords and further increase wealth inequalities in the UK. 
 
 Let&#39;s think bigger.
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[Tackling the housing crisis]]
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="28" name="Public Sector Industrial Action" tags="" position="500,2325" size="100,100">There’s been disruption all over the UK for many years now because of strikes from public sector workers in the NHS and railways, asking for better pay and conditions to reverse years of austerity and fight cuts. What do you do?
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="Public Sector Industrial Action" tags="" position="500,2325" size="100,100">There’s been disruption all over the UK for many years now because of strikes from public sector workers in the NHS and railways, asking for better pay and conditions to reverse years of austerity and fight cuts. What do you do?
 
 Don’t give in. If you do, it’ll create a wage-price spiral as the workers’ additional income will drive up prices, causing them to demand more money and result in out-of-control inflation.
 
 Work with the unions to come to an agreement ensuring that their wages are keeping up with inflation.
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[Don’t give in to a wage-price spiral]]
   [[Raise wages in line with inflation]]
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="29" name="Don’t give in to a wage-price spiral" tags="footer" position="675,2325" size="100,100">You’ve fallen into the worst traditional economics trap of them all 🙅🏻‍♀️ 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="29" name="Don’t give in to a wage-price spiral" tags="footer" position="675,2325" size="100,100">You’ve fallen into the worst traditional economics trap of them all 🙅🏻‍♀️ 
 
 This is truly one of the most pernicious beliefs of traditional economic thinking - that if wages keep up with inflation, that will then push prices even higher, causing firms and workers to fight against each other and making the inflation even worse than it would otherwise have been.
 
@@ -631,9 +697,9 @@ Another case in point is Belgium, where wages are indexed to inflation by law, a
 
 Let&#39;s bury this myth once and for all and do things differently.
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[Public Sector Industrial Action]] 
-&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;%
 s.footnotes = [{href:&quot;https://www.imf.org/en/Publications/WP/Issues/2022/11/11/Wage-Price-Spirals-What-is-the-Historical-Evidence-525073&quot;, text: &quot;Alvarez, Jorge et al. 2022. “Wage-Price Spirals: What is the Historical Evidence?” IMF Working Paper 22/221, International Monetary Fund, Washington, DC.&quot;}]
@@ -646,18 +712,18 @@ You can implement automatic stabilisers like automatically-adjusting tax bands b
 Let&#39;s see what&#39;s next!
 
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[UK decarbonisation]]
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="31" name="UK decarbonisation" tags="" position="500,2600" size="100,100">The UK has been a huge net contributor to the climate crisis, as one of the first countries to industrialise. How will this influence your policies?
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="31" name="UK decarbonisation" tags="" position="500,2600" size="100,100">The UK has been a huge net contributor to the climate crisis, as one of the first countries to industrialise. How will this influence your policies?
 
 It&#39;s a motivation to go as quickly as possible - for example we should quickly reduce high-carbon sectors like the aviation, finance and tourism sectors, to free those people up for well-paid jobs in decarbonisation and low-carbon professions like the public transport, health and care sectors. 
 
 It&#39;s a factor, but other countries like China produce emissions that are much bigger than ours now, so while we should still decarbonise, we&#39;re not the biggest priority.
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[Decarbonise as quickly as possible]]
   [[Decarbonise, but it&#39;s not so important for us]]
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="32" name="Decarbonise as quickly as possible" tags="footer correct-answer" position="500,2725" size="100,100">Yes, exactly! As mentioned before, we have a huge historical responsibility for climiate change, so rapid action is needed.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="32" name="Decarbonise as quickly as possible" tags="footer correct-answer" position="500,2725" size="100,100">Yes, exactly! As mentioned before, we have a huge historical responsibility for climiate change, so rapid action is needed.
 
 These industries either do very little to add to the real economy of our country (even suppressing it in the case of finance&lt;sup&gt;1&lt;/sup&gt;), or cause a huge amount of fossil fuel emissions. Tourism also increases the need for us to grow or import more food to support high numbers of visitors to the country each year.
 
@@ -665,9 +731,9 @@ Workers would be given opportunities to train (fully-paid!) for good jobs in dec
 
 Let&#39;s move onto caring for our older members of society next.
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[Caring for our older members of society]]
-&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;%
 s.footnotes = [{href: &quot;https://taxjustice.net/press/press-release-city-of-london-costs-uk-4-5tn-in-lost-economic-growth/#&quot;, text:&quot;City of London costs UK £4.5tn in lost economic growth&quot;}]
@@ -678,9 +744,9 @@ Admittedly China is rapidly approaching its fair share, but it is already one of
 Go back to see how we&#39;ll do it.
 
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[UK decarbonisation]]
-&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;%
 s.footnotes = [{href:&quot;https://www.sciencedirect.com/science/article/pii/S2542519620301960&quot;, text: &quot;Jason Hickel, Quantifying national responsibility for climate breakdown&quot;}, {href: &quot;https://www.carbonbrief.org/analysis-chinas-emissions-set-to-fall-in-2024-after-record-growth-in-clean-energy/&quot;, text: &quot;Analysis: China’s emissions set to fall in 2024 after record growth in clean energy, Carbon Brief&quot;}]
@@ -690,18 +756,18 @@ Provide more tax breaks for people to save money in their pensions.
 
 Establish a Universal Care Service where everyone will either be able to stay in their homes with the care they need, or live in assisted housing.
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[Tax breaks for people to save money in their pensions]]
   [[Universal Care Service]]
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="35" name="Tax breaks for people to save money in their pensions" tags="" position="750,2875" size="100,100">This isn&#39;t the fairest approach. Firstly this only rewards people who already have money and can invest some of that in the stock market. And secondly, this would keep care in the private market, which is primarily trying to make a profit and therefore is not prioritising the best service for the country.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="35" name="Tax breaks for people to save money in their pensions" tags="" position="750,2875" size="100,100">This isn&#39;t the fairest approach. Firstly this only rewards people who already have money and can invest some of that in the stock market. And secondly, this would keep care in the private market, which is primarily trying to make a profit and therefore is not prioritising the best service for the country.
 
 Relying on savings growing in the private markets also keeps us entrenched in the cycle of growth - people don&#39;t get the money they need unless the stock market grows, and if there&#39;s a crash like the one in 2008, people&#39;s ability to live off their pensions will be hugely diminished.
 
 We need a kinder, fairer system that doesn&#39;t exacerbate the existing inequalities in our country, so let&#39;s try again.
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[Caring for our older members of society]]
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="36" name="Universal Care Service" tags="correct-answer" position="500,3000" size="100,100">This is a great choice - you&#39;ll pay really good wages for these jobs, and ensure that the hours aren&#39;t too onerous for what can be very demanding work, so that you can easily attract workers away from the existing private care sector and relieve the incredibly overloaded social workers who provide these kinds of services already. 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="36" name="Universal Care Service" tags="correct-answer" position="500,3000" size="100,100">This is a great choice - you&#39;ll pay really good wages for these jobs, and ensure that the hours aren&#39;t too onerous for what can be very demanding work, so that you can easily attract workers away from the existing private care sector and relieve the incredibly overloaded social workers who provide these kinds of services already. 
 
 You can even offer to buy existing private care homes up so that you have ready-made care facilities, and again could consider putting all of these new assets into Community Wealth Funds such that the people would decide their future, so they can&#39;t be sold off to private firms by a future government.
 
@@ -709,18 +775,18 @@ Without the need to hoard homes as assets for retirement, you&#39;ll further red
 
 Moving on!
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
 	[[What should we do about wealth?]]
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="37" name="What should we do about wealth?" tags="footer" position="500,3125" size="100,100">We know that the richest in our society contribute the most to carbon emissions - in Europe, the richest 10% contribute about as much as the entire poorest 50%&lt;sup&gt;1&lt;/sup&gt;. What should you do about this?
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="37" name="What should we do about wealth?" tags="footer" position="500,3125" size="100,100">We know that the richest in our society contribute the most to carbon emissions - in Europe, the richest 10% contribute about as much as the entire poorest 50%&lt;sup&gt;1&lt;/sup&gt;. What should you do about this?
 
 Implement a suite of taxes targeting wealth and inequality. 
 
 We shouldn&#39;t target wealth too much - the wealthy will innovate so we can get out of this crisis
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[Implement a suite of taxes targeting wealth and inequality]]
   [[Don&#39;t target innovative wealthy people]] 
-&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;%
 s.footnotes = [{href:&quot;https://www.cambridge.org/core/journals/global-sustainability/article/unequal-distribution-of-household-carbon-footprints-in-europe-and-its-link-to-sustainability/F1ED4F705AF1C6C1FCAD477398353DC2&quot;, text: &quot;Ivanova D, Wood R. The unequal distribution of household carbon footprints in Europe and its link to sustainability. Global Sustainability. 2020.&quot;}]
@@ -731,9 +797,9 @@ So we don&#39;t need these wealthy people, and we most certainly don&#39;t need 
 Go back to see some ways we can do just that.
 
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[What should we do about wealth?]]
-&lt;/p&gt;
+&lt;/div&gt;
 
 
 &lt;%
@@ -754,24 +820,24 @@ We don&#39;t need this money to fund other social programs, but reducing inequal
 
 Let&#39;s think next about making sure that everyone has access to a good job.
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[Access to a good job]]
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="40" name="Access to a good job" tags="" position="500,3400" size="100,100">All of these policies so far are making a huge improvement in people’s lives, but many are still struggling to find work or are stuck in low-wage jobs with poor conditions, especially outside of London and the South East. How will you help them?
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="40" name="Access to a good job" tags="" position="500,3400" size="100,100">All of these policies so far are making a huge improvement in people’s lives, but many are still struggling to find work or are stuck in low-wage jobs with poor conditions, especially outside of London and the South East. How will you help them?
 
 Cut corporation tax to encourage businesses to hire more workers with better conditions.
 
 Implement a job guarantee, providing jobs in low-carbon industries and whatever else local communities need.
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[Cut corporation tax]]
   [[Job guarantee]] 
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="41" name="Cut corporation tax" tags="" position="775,3400" size="100,100">It&#39;s traditional but magical thinking that a policy like this would result in more jobs; corporations are most likely to put the money they&#39;re saving into profits and dividends. If you want more jobs, a better way to make it happen is to create them in the public sector, for example by increasing public services as we&#39;ve already covered earlier in the game. 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="41" name="Cut corporation tax" tags="" position="775,3400" size="100,100">It&#39;s traditional but magical thinking that a policy like this would result in more jobs; corporations are most likely to put the money they&#39;re saving into profits and dividends. If you want more jobs, a better way to make it happen is to create them in the public sector, for example by increasing public services as we&#39;ve already covered earlier in the game. 
 
 Go back to find out about an alternative and incredibly important way in which the government can help in this area.
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[Access to a good job]]
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="42" name="Job guarantee" tags="footer correct-answer" position="500,3600" size="100,100">Yes! This is a key part of ensuring that the economy stays stable and that everyone has access to their basic needs. A Job Guarantee scheme would be centrally funded, but locally administered, such that local communities could have influence over the kinds of jobs that their local areas would benefit from.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="42" name="Job guarantee" tags="footer correct-answer" position="500,3600" size="100,100">Yes! This is a key part of ensuring that the economy stays stable and that everyone has access to their basic needs. A Job Guarantee scheme would be centrally funded, but locally administered, such that local communities could have influence over the kinds of jobs that their local areas would benefit from.
 
 The main advantage of schemes like this one is that it would provide a good baseline for all working conditions in the economy - the wage would be set at a good living wage, with no zero-hours contracts or unstable working conditions allowed. And it acts as an inflation stabiliser - instead of raising interest rates when inflation increases, which just puts people out of work to reduce demand in the economy, people are provided with an inflation-linked living wage such that they can still afford their bills when the private economy is struggling.
 
@@ -780,9 +846,9 @@ Finally this is such a great policy because it ensures that the jobs will be cre
 For more details on Job Guarantees, see Pavlina Tchernova&#39;s work&lt;sup&gt;1&lt;/sup&gt;. Let&#39;s see what&#39;s next on the agenda!
 
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[Carbon emissions from flying]]
-&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;%
 s.footnotes = [{href:&quot;https://www.sciencedirect.com/science/article/pii/S2542519620301960&quot;, text: &quot;The Job Guarantee: Design, Jobs, and Implementation, Pavlina R. Tcherneva: Levy Economics Institute of Bard College, April 2018&quot;}]
@@ -793,10 +859,10 @@ Stop subsidising air travel, implement a Frequent Flyer Levy, and make up for th
 Nothing, we&#39;ll rely on new technologies (like Sustainable Aviation Fuel) to ensure flying doesn&#39;t add to emissions in the future
 
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[Stop subsidising air travel]]
   [[Rely on new technologies]]
-&lt;/p&gt;</tw-passagedata><tw-passagedata pid="44" name="Rely on new technologies" tags="footer" position="775,3750" size="100,100">You’ve fallen into the traditional politician&#39;s trap 🙅🏻‍♀️ 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="44" name="Rely on new technologies" tags="footer" position="775,3750" size="100,100">You’ve fallen into the traditional politician&#39;s trap 🙅🏻‍♀️ 
 
 We’re a long way away from any feasible technology that will significantly reduce airline emissions as much as we need - there&#39;s no evidence that the airline industry will be able to create biofuels like Sustainable Aviation Fuel (SAF) at even the scale currently needed, and the demand for airline travel is increasing all the time. 
 
@@ -809,9 +875,9 @@ See the excellent factsheets&lt;sup&gt;3&lt;/sup&gt; at Stay Grounded for more d
 Go back and let&#39;s see what kind of action is needed instead.
 
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[Carbon emissions from flying]]
-&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;%
 s.footnotes = [{href: &quot;https://www.ipcc.ch/2022/04/04/ipcc-ar6-wgiii-pressrelease/&quot;, text:&quot;Release of the IPCC’s Working Group III, Sixth Assessment Report (AR6)&quot;}, {href: &quot;https://en.wikipedia.org/wiki/Jevons_paradox&quot;, text:&quot;Jevons Paradox, Wikipedia&quot;}, {href:&quot;https://stay-grounded.org/greenwashing/&quot;, text: &quot;Stay Grounded, Greenwashing factsheets&quot;}]
@@ -825,9 +891,9 @@ Alongside that, we should heavily subsidise long-distance train travel, re-natio
 
 Well done, let&#39;s keep going.
 
-&lt;p.button-wrapper&gt;
+&lt;div.button-wrapper&gt;
   [[What&#39;s next?]]
-&lt;/p&gt;
+&lt;/div&gt;
 
 &lt;%
 s.footnotes = [{href: &quot;https://stay-grounded.org/wp-content/uploads/2020/10/SG_Factsheet_Non-CO2_2020.pdf&quot;, text:&quot;It&#39;s about more than just CO2, Stay Grounded Factsheet (pdf)&quot;}, {href: &quot;https://stay-grounded.org/eliminating-tax-exemptions/&quot;, text:&quot;Stay Grounded, Eliminating Tax Exemptions&quot;}, {href:&quot;https://stay-grounded.org/wp-content/uploads/2019/12/Degrowth-Of-Aviation_2019.pdf&quot;, text: &quot;The Degrowth of Aviation (pdf)&quot;}]
