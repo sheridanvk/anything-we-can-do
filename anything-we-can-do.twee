@@ -930,12 +930,17 @@ $(window).on('sm.passage.hidden', function (e, data)
 });
 
 :: StoryStylesheet [stylesheet]
+html {
+	overscroll-behavior: none;
+}
+
 body {
     background-color: #222;
     color: #eee;
   	font-family: 'Merriweather';
   	font-size: 16px;
   	margin: 8px;
+  	height:100%;
 }
 
 /* header */
