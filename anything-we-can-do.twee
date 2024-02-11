@@ -724,7 +724,7 @@ s.footnotes = [{ text: "It's true that private banks can create money too, but o
 :: StoryScript [script]
 const deepLinkQueryParam = "passage";
 
-function deepLinkToPassage() {
+const deepLinkToPassage = () => {
   // Check to see if there's a deep link reference when starting the
   // story. If so, navigate straight there instead of starting at
   // the beginning of the story
@@ -744,9 +744,67 @@ function deepLinkToPassage() {
       }
     }
   }
-}
+};
 
-$(window).on("sm.story.started", function (e, data) {
+const addCarouselToElement = (cssSelector) => {
+  const htmlEl = $(cssSelector);
+  htmlEl.addClass(["carousel", "slide"]);
+  $("#passages").wrap('<div class="carousel-inner"/>');
+  htmlEl.prepend(`<div class="carousel-indicators" />`);
+
+  $("#passages > p").each((idx, item) => {
+    $(item).addClass("carousel-item");
+    if (idx === 0) {
+      $(item).addClass("active");
+    }
+    $(".carousel-indicators").append(
+      `<button type="button" data-bs-target="${cssSelector}" data-bs-slide-to="${idx}" ${
+        idx === 0 ? 'class="active" aria-current="true"' : ""
+      } aria-label="Slide ${idx + 1}"></button>`
+    );
+  });
+
+  htmlEl.append(`<button class="carousel-control-prev" type="button" data-bs-target="${cssSelector}" data-bs-slide="prev">
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span class="visually-hidden">Previous</span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="${cssSelector}" data-bs-slide="next">
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="visually-hidden">Next</span>
+</button>`);
+
+  const checkControlVisibility = () => {
+    if ($(htmlEl).find(".carousel-item").first().hasClass("active")) {
+      $(htmlEl).children(".carousel-control-prev").hide();
+      $(htmlEl).children(".carousel-control-next").show();
+    } else if ($(htmlEl).find(".carousel-item").last().hasClass("active")) {
+      $(htmlEl).children(".carousel-control-next").hide();
+      $(htmlEl).children(".carousel-control-prev").show();
+    } else {
+      $(htmlEl).children(".carousel-control-next").show();
+      $(htmlEl).children(".carousel-control-prev").show();
+    }
+  };
+
+  const addCarousel = () => {
+    try {
+      new bootstrap.Carousel(cssSelector, {
+        wrap: false,
+      });
+      checkControlVisibility();
+    } catch {
+      console.log("bootstrap not yet available; try again in a few");
+      setTimeout(addCarousel, 500);
+    }
+  };
+  addCarousel();
+
+  htmlEl.on("slid.bs.carousel", (event) => {
+    checkControlVisibility();
+  });
+};
+
+$(window).on("sm.story.started", () => {
   // Load external CSS
   $("<link/>", {
     rel: "stylesheet",
@@ -787,9 +845,22 @@ $(window).on("sm.story.started", function (e, data) {
     .fail(() => {
       console.log("failed to load bootstrap");
     });
+
+  // Add footnotes container. This is outside of the passage and therefore we only want to render it once per story load.
+  const bodyElement = $("body");
+  bodyElement.prepend(
+    '<div id="footnote-container"><div id="footnote-content"><div id="content"/><button id="close-footnote">🅇</button></div></div>'
+  );
+
+  $("#close-footnote").on("click", () => {
+    $("#footnote-container").css("display", "none");
+  });
+
+  $("#footnote-container").on("click", (event) => event.stopPropagation());
+  bodyElement.wrapInner('<div id="app">');
 });
 
-$(window).on("sm.passage.showing", function (e, data) {
+$(window).on("sm.passage.showing", (_, data) => {
   // clear any confetti that isn't finished yet
   try {
     clearTimeout(window.story.confettiTimeout);
@@ -810,7 +881,7 @@ $(window).on("sm.passage.showing", function (e, data) {
   window.history.replaceState(window.history.state, "", currentUrl.toString());
 });
 
-$(window).on("sm.passage.shown", function (e, data) {
+$(window).on("sm.passage.shown", (e, data) => {
   // Fix any incorrectly-parsed first paragraphs (i.e. move <p> tag to front of sentence, instead of having an empty tag).
   const passageEl = $(e.target);
   let passageHTML = passageEl.html();
@@ -834,40 +905,32 @@ $(window).on("sm.passage.shown", function (e, data) {
 
   // Transform <sup> elements into footnote links
   if (window.story.state.footnotes) {
-    const storyElement = $("tw-story");
-    storyElement.prepend(
-      '<div id="footnote-container"><div id="footnote-content"/><button id="close-footnote">🅇</button></div>'
-    );
-
-    $("#close-footnote").on("click", function () {
-      $("#footnote-container").css("display", "none");
-      $("#passage-container").css("opacity", "100%");
-    });
     const footnotes = passageContainer.find("sup");
     footnotes.each((i, footnote) => {
       $(footnote).wrap(
         `<a href="javascript:void(0)" class="footnote" data-footnote=${i}></a>`
       );
     });
-    $(".footnote").on("click", function () {
-      const footnoteIndex = this.getAttribute("data-footnote");
+    $(".footnote").on("click", (e) => {
+      const footnoteIndex = e.currentTarget.getAttribute("data-footnote");
       const footnoteContent = window.story.state.footnotes[footnoteIndex];
       if (footnoteContent.href) {
-        $("#footnote-content").html(
-          `<a href=${footnoteContent.href}  target="_blank">${footnoteContent.text}</a>`
+        $("#footnote-content > #content").html(
+          `<p><a href=${footnoteContent.href}  target="_blank">${footnoteContent.text}</a></p>`
         );
       } else {
-        $("#footnote-content").text(footnoteContent.text);
+        $("#footnote-content > #content").html(
+          `<p>${footnoteContent.text}</p>`
+        );
       }
-      $("#footnote-container").css("display", "block");
-      $("#passage-container").css("opacity", "20%");
+      $("#footnote-container").css("display", "flex");
     });
   }
 
   // Add special action to MMT button link
   if (data.passage.name === "Modern Monetary Theory Side Quest") {
     $("#passage-container").addClass("mmt-explainer");
-    $("a[data-passage]").on("click", function () {
+    $("a[data-passage]").on("click", () => {
       $("#passage-container").removeClass("mmt-explainer");
     });
   }
@@ -888,74 +951,16 @@ $(window).on("sm.passage.shown", function (e, data) {
     window.matchMedia("(pointer: coarse)").matches;
 
   if (isMobile) {
-    // Do something for mobile screens
-    const carouselEl = $("#passage-container");
-
-    carouselEl.addClass(["carousel", "slide"]);
-    $("#passages").wrap('<div class="carousel-inner"/>');
-    carouselEl.prepend(`<div class="carousel-indicators" />`);
-
-    $("#passages > p").each((idx, item) => {
-      $(item).addClass("carousel-item");
-      if (idx === 0) {
-        $(item).addClass("active");
-      }
-      $(".carousel-indicators").append(
-        `<button type="button" data-bs-target="#passage-container" data-bs-slide-to="${idx}" ${
-          idx === 0 ? 'class="active" aria-current="true"' : ""
-        } aria-label="Slide ${idx + 1}"></button>`
-      );
-    });
-
-    carouselEl.append(`<button class="carousel-control-prev" type="button" data-bs-target="#passage-container" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#passage-container" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>`);
-
-    const checkControlVisibility = () => {
-      if ($(carouselEl).find(".carousel-item").first().hasClass("active")) {
-        $(carouselEl).children(".carousel-control-prev").hide();
-        $(carouselEl).children(".carousel-control-next").show();
-      } else if (
-        $(carouselEl).find(".carousel-item").last().hasClass("active")
-      ) {
-        $(carouselEl).children(".carousel-control-next").hide();
-        $(carouselEl).children(".carousel-control-prev").show();
-      } else {
-        $(carouselEl).children(".carousel-control-next").show();
-        $(carouselEl).children(".carousel-control-prev").show();
-      }
-    };
-
-    const addCarousel = () => {
-      try {
-        new bootstrap.Carousel("#passage-container", {
-          wrap: false,
-        });
-        checkControlVisibility();
-      } catch {
-        console.log("bootstrap not yet available; try again in a few");
-        setTimeout(addCarousel, 500);
-      }
-    };
-    addCarousel();
-
-    carouselEl.on("slid.bs.carousel", (event) => {
-      checkControlVisibility();
-    });
+    addCarouselToElement("#passage-container");
   }
 
   // If this passage was the non-traditional answer, shoot confetti
   if (data.passage.tags.includes("correct-answer")) {
-    function randomInRange(min, max) {
+    const randomInRange = (min, max) => {
       return Math.random() * (max - min) + min;
-    }
+    };
     let count = 3;
-    function fireConfetti() {
+    const fireConfetti = () => {
       if (count > 0) {
         try {
           confetti({
@@ -967,16 +972,16 @@ $(window).on("sm.passage.shown", function (e, data) {
           count--;
           window.story.confettiTimeout = setTimeout(fireConfetti, 1000);
         } catch {
-          console.log("confetti function not yet loaded");
+          console.log("confetti const not yet loaded");
           window.story.confettiTimeout = setTimeout(fireConfetti, 1000);
         }
       }
-    }
+    };
     fireConfetti();
   }
 });
 
-$(window).on("sm.passage.hidden", function (e, data) {
+$(window).on("sm.passage.hidden", () => {
   window.story.state.footnotes = null;
 });
 
@@ -995,6 +1000,11 @@ body {
   	margin: 8px;
   	height: inherit;
   	overflow: hidden;
+}
+
+#app {
+	display: grid;
+  	align-items: center;
 }
 
 /* header */
@@ -1019,13 +1029,11 @@ body {
 
 /* story and passages */
 tw-story {
-	display: grid;
-  	align-items: center;
   	height: inherit;
-}
-tw-passage {
   	grid-row: 1;
   	grid-column: 1;
+}
+tw-passage {
   	height: inherit;
 }
 /* buttons */
@@ -1077,6 +1085,7 @@ a[data-passage] > button {
     text-align: center;
     text-wrap: pretty;
     font-size: 20px;
+  	line-height: 150%;
   	grid-column: 2;
 }
 .carousel-control-prev {
@@ -1120,16 +1129,26 @@ a:hover {
 }
 
 #footnote-container {
+  	max-width: 35em;
+ 	margin: 0 auto;
+  	flex-direction:column;
+  	justify-content: space-around;
   	grid-row: 1;
   	grid-column: 1;
-  	background-color: #222;
-    border-radius: 10px;
-  	z-index: 1;
-	border: #eee solid;
+  	z-index: 1000;
   	display: none;
   	position: relative;
-  	padding: 32px;
+  	background-color: rgba(34, 34, 34, 0.8);
+	height: 100%;
+    width: 100%;
+}
+#footnote-content {
+  	background-color: rgba(34, 34, 34, 1);
+    border-radius: 10px;
+	border: #eee solid;
+	padding: 32px;
   	height: fit-content;
+  	position: relative;
 }
 #close-footnote {
   height: 24px;
@@ -1145,6 +1164,9 @@ a:hover {
 
 /* mobile specific tweaks */
 @media only screen and (max-width: 767px) {
+  #app {
+    height: 100%;
+  } 
   .button-wrapper {
 	flex-direction: column;
   }
