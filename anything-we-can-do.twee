@@ -932,6 +932,7 @@ $(window).on('sm.passage.hidden', function (e, data)
 :: StoryStylesheet [stylesheet]
 html {
 	overscroll-behavior: none;
+	height:100%;
 }
 
 body {
@@ -940,7 +941,7 @@ body {
   	font-family: 'Merriweather';
   	font-size: 16px;
   	margin: 8px;
-  	height:100%;
+  	height: inherit;
 }
 
 /* header */
@@ -948,6 +949,7 @@ body {
 	display: flex;
   	justify-content: space-between;
   	align-items: baseline;
+  	height: 20%;
 }
 
 #title {
@@ -966,10 +968,12 @@ body {
 tw-story {
 	display: grid;
   	align-items: center;
+  	height: inherit;
 }
 tw-passage {
   	grid-row: 1;
   	grid-column: 1;
+  	height: inherit;
 }
 /* buttons */
 a[data-passage] {
@@ -1002,15 +1006,15 @@ a[data-passage] > button {
   #passage-container {
       display: grid;
       flex-direction: column;
-      height: 80vh;
+  	  height: 80%;
       align-items: center;
       justify-content: space-around;
       grid-template-columns: 5vw auto 5vw;
       grid-template-rows: auto 10vh;
   }
   #passages {
-      grid-row: 1;
-      grid-column: 1;
+      display: flex;
+      align-items: center;
   }
   a[data-passage] > button {
   	max-width: unset;

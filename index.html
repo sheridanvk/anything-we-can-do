@@ -12,6 +12,7 @@
 		<tw-story tags></tw-story>
 		<tw-storydata name="Anything we can actually do, we can afford" startnode="23" creator="Twine" creator-version="2.8.0" format="Snowman" format-version="2.0.2" ifid="5AF69E4F-8A91-4AC1-AE94-CA1801C7B04A" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">html {
 	overscroll-behavior: none;
+	height:100%;
 }
 
 body {
@@ -20,7 +21,7 @@ body {
   	font-family: 'Merriweather';
   	font-size: 16px;
   	margin: 8px;
-  	height:100%;
+  	height: inherit;
 }
 
 /* header */
@@ -28,6 +29,7 @@ body {
 	display: flex;
   	justify-content: space-between;
   	align-items: baseline;
+  	height: 20%;
 }
 
 #title {
@@ -46,10 +48,12 @@ body {
 tw-story {
 	display: grid;
   	align-items: center;
+  	height: inherit;
 }
 tw-passage {
   	grid-row: 1;
   	grid-column: 1;
+  	height: inherit;
 }
 /* buttons */
 a[data-passage] {
@@ -82,15 +86,15 @@ a[data-passage] > button {
   #passage-container {
       display: grid;
       flex-direction: column;
-      height: 80vh;
+  	  height: 80%;
       align-items: center;
       justify-content: space-around;
       grid-template-columns: 5vw auto 5vw;
       grid-template-rows: auto 10vh;
   }
   #passages {
-      grid-row: 1;
-      grid-column: 1;
+      display: flex;
+      align-items: center;
   }
   a[data-passage] > button {
   	max-width: unset;
