@@ -22,6 +22,7 @@ body {
   	font-size: 16px;
   	margin: 8px;
   	height: inherit;
+  	overflow: hidden;
 }
 
 /* header */
@@ -122,10 +123,11 @@ a[data-passage] > button {
     width: 100%;
 }
 .carousel-indicators {
-	position:unset;
+  position:unset;
   grid-row: 2;
   grid-column: 1/4;
   width: unset;
+  display: flex;
 }
 
 /* footnotes */
@@ -434,7 +436,11 @@ Interest rate increases are untargeted and ineffective, and should not be used t
 
 For demand pull, this is the traditional &quot;too much money chasing too few goods and services&quot; situation that economists often try to cool with interest rate hikes. This type of inflation rarely happens, but if it does, then a more targeted approach would be to try to reduce demand on the specific sector causing the increase (e.g. if it&#39;s petrol prices, make public transport free or low cost). 
 
-For cost push, interest rate hikes don&#39;t work at all. You have to target the actual issues causing the costs to increase - for example, when the economy picked up again a few months into the Covid pandemic, there were bottlenecks in the supply chain where ports weren&#39;t processing containers quickly enough because they were making so much money having increased prices for each container so much. The US imposed a tax for containers sitting empty on the docks, which caused them to increase the rate of processing again, and improved supply of goods to the economy.
+For cost push, interest rate hikes don&#39;t work at all. You have to target the actual issues causing the costs to increase. 
+
+An example of this is when the economy picked up again a few months into the Covid pandemic, there were bottlenecks in the supply chain where ports weren&#39;t processing containers quickly enough because they were making so much money having increased prices for each container so much. 
+
+The US imposed a tax for containers sitting empty on the docks, which caused them to increase the rate of processing again, and improved supply of goods to the economy.
 
 So let&#39;s find out more about the source of the inflation!
 
@@ -543,7 +549,9 @@ Go back and try something more adventurous!
 
 But that expense shouldn’t fall on individuals, which is why we must provide grants to make this happen (and as you now know, this is something the government can absolutely afford). It’s true that we’ll be giving grants to the wealthy here too, but we have other plans to address their wealth (and these grants are a drop in the ocean for them).
 
-Finally to keep an eye on inflation, we’ll need to make sure we have enough labour for this project, and that we can produce enough of the heat pumps and retrofitting materials (or import them). The training programs (offering a good salary from the very start) will attract workers from precarious gig work and the armed forces. If there’s competition for the actual materials required from the private sector, with the potential to drive up inflation, we can enact emergency powers to ramp up production, or ensure that the government gets first right of refusal on those goods, at the price before the program was announced.
+Finally to keep an eye on inflation, we’ll need to make sure we have enough labour for this project, and that we can produce enough of the heat pumps and retrofitting materials (or import them). The training programs (offering a good salary from the very start) will attract workers from precarious gig work and the armed forces.
+
+If there’s competition for the actual materials required from the private sector, with the potential to drive up inflation, we can enact emergency powers to ramp up production, or ensure that the government gets first right of refusal on those goods, at the price before the program was announced.
 
 Let&#39;s keep going!
 
@@ -578,7 +586,9 @@ Let&#39;s try something different.
 
 &lt;%
 s.footnotes = [{href: &quot;https://www.ft.com/content/86d71297-3f34-48f3-8f3f-28b7e8be03c6&quot;, text: &quot;The energy transition will be volatile, Financial Times&quot;}, {href:&quot;https://www.theguardian.com/environment/2023/sep/08/what-went-wrong-at-uk-governments-offshore-wind-auction&quot;, text: &quot;Guardian, What went wrong at UK government’s offshore wind auction?&quot;}]
-%&gt;</tw-passagedata><tw-passagedata pid="16" name="Reduce demand by making local public transportation free" tags="correct-answer" position="500,1900" size="100,100">This is a fantastic policy - it will put more money back into people&#39;s pockets, and will help better connect rural communities and cities outside of London alike. The UK public transport network has been extensively privatised and is run in the interests of profit, not service. So rather than giving subsidies to private companies, the government can re-nationalise these services, improving wages and increasing the desirability of these jobs in the local communities.
+%&gt;</tw-passagedata><tw-passagedata pid="16" name="Reduce demand by making local public transportation free" tags="correct-answer" position="500,1900" size="100,100">This is a fantastic policy - it will put more money back into people&#39;s pockets, and will help better connect rural communities and cities outside of London alike. 
+
+The UK public transport network has been extensively privatised and is run in the interests of profit, not service. So rather than giving subsidies to private companies, the government can re-nationalise these services, improving wages and increasing the desirability of these jobs in the local communities.
 
 We&#39;d quickly overwhelm the Earth&#39;s resources if we tried to replace every petrol car out there with an electric equivalent. But if we make public transportation a true alternative to owning a car, we can persuade people to ditch their private vehicles and greatly reduce the total amount of resources that we need to give everyone a good life.
 
@@ -633,9 +643,7 @@ Go back and see what could happen if we dreamed big.
 
 There’s no real end to this game, because we’ll keep facing new challenges, but the democratic foundations and better understanding of the economy you’ve helped to put in place should help the people and wider natural world of the UK overcome whatever comes their way in the future.
 
-Join the conversation on &lt;a href=&quot;https://github.com/sheridanvk/anything-we-can-do/discussions/5&quot;&gt;Github&lt;/a&gt; if you think anything in here needs tweaking or enhancing! We’d love to get your feedback :)</tw-passagedata><tw-passagedata pid="23" name="Welcome to the Story" tags="" position="75,50" size="100,100">Welcome!
-
-Have you ever found yourself frustrated with the constant political narratives insisting that there&#39;s no money left to fund essential services like the NHS or build much-needed social housing?
+Join the conversation on &lt;a href=&quot;https://github.com/sheridanvk/anything-we-can-do/discussions/5&quot;&gt;Github&lt;/a&gt; if you think anything in here needs tweaking or enhancing! We’d love to get your feedback :)</tw-passagedata><tw-passagedata pid="23" name="Welcome to the Story" tags="" position="75,50" size="100,100">Welcome! Have you ever found yourself frustrated with the constant political narratives insisting that there&#39;s no money left to fund essential services like the NHS or build much-needed social housing?
 
 It may surprise you to learn that the vast majority of people making decisions about our economy are operating on outdated information, and the government doesn’t have to balance its budgets in the same way that you or I need to.
 
@@ -673,7 +681,9 @@ Increase housing benefit for private renters
 
 In order to combat the likely decrease in house prices, given that housing would be less profitable, you could offer to remortgage anyone&#39;s property that now is worth less than what they paid for it (providing a 30-year fixed mortgage in a publicly-owned bank).
 
-Knowing what you do about where money comes from in the UK, you could go even further with your government&#39;s spending power to buy up existing housing stock from landlords who no longer want to rent under the new rules, and turn them into council housing - or even better, set up community wealth funds to purchase the housing, so that future governments without the people&#39;s interest in mind can&#39;t choose to sell the housing stock back off again.
+Knowing what you do about where money comes from in the UK, you could go even further with your government&#39;s spending power to buy up existing housing stock from landlords who no longer want to rent under the new rules, and turn them into council housing.
+
+Even better, you could set up community wealth funds to purchase the housing, so that future governments without the people&#39;s interest in mind can&#39;t choose to sell the housing stock back off again.
 
 Finally you can build more social housing appropriate to people’s needs, in communities where all essentials are available within 15min walk or public transport - but the priority should be to ensure that the housing we do have is being used in the most socially-benefical ways.
 
@@ -848,9 +858,13 @@ Go back to find out about an alternative and incredibly important way in which t
   [[Access to a good job]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="42" name="Job guarantee" tags="footer correct-answer" position="500,3600" size="100,100">Yes! This is a key part of ensuring that the economy stays stable and that everyone has access to their basic needs. A Job Guarantee scheme would be centrally funded, but locally administered, such that local communities could have influence over the kinds of jobs that their local areas would benefit from.
 
-The main advantage of schemes like this one is that it would provide a good baseline for all working conditions in the economy - the wage would be set at a good living wage, with no zero-hours contracts or unstable working conditions allowed. And it acts as an inflation stabiliser - instead of raising interest rates when inflation increases, which just puts people out of work to reduce demand in the economy, people are provided with an inflation-linked living wage such that they can still afford their bills when the private economy is struggling.
+The main advantage of schemes like this one is that it would provide a good baseline for all working conditions in the economy - the wage would be set at a good living wage, with no zero-hours contracts or unstable working conditions allowed. 
 
-Finally this is such a great policy because it ensures that the jobs will be created where the people already are, rather than forcing people to move for opportunities. Informal care jobs like spending time with the elderly or isolated (not professional care jobs, which would be highly trained and even better remunerated), ecosystem restoration or jobs in non-profits could all be roles in which Job Guarantee roles would be available.
+And it also acts as an inflation stabiliser - instead of raising interest rates when inflation increases, which just puts people out of work to reduce demand in the economy, people are provided with an inflation-linked living wage such that they can still afford their bills when the private economy is struggling.
+
+Finally this is such a great policy because it ensures that the jobs will be created where the people already are, rather than forcing people to move for opportunities. 
+
+Informal care jobs like spending time with the elderly or isolated (not professional care jobs, which would be highly trained and even better remunerated), ecosystem restoration or jobs in non-profits could all be roles in which Job Guarantee roles would be available.
 
 For more details on Job Guarantees, see Pavlina Tchernova&#39;s work&lt;sup&gt;1&lt;/sup&gt;. Let&#39;s see what&#39;s next on the agenda!
 
@@ -896,7 +910,9 @@ Airline travel is so mind-bogglingly cheap right now due to the subsidies and ta
 
 Additionally to make sure that the richest travel less without too-heavily penalising lower-income people, we should implement a Frequent Flyer levy - the first flight per person per year would not have a charge, but after that a charge would be applied, doubling for each additional flight&lt;sup&gt;3&lt;/sup&gt;.
 
-Alongside that, we should heavily subsidise long-distance train travel, re-nationalising the whole service and improving the infrastructure (e.g. completing the new HS2 rail project to free up capacity for services to the North, better service that doesn&#39;t require connections through London, increasing the number of cross-Channel trains, etc). It&#39;s understanable that people fly instead of taking the train right now, due to how much cheaper it is, so we have to make the choice to take the train much easier.
+Alongside that, we should heavily subsidise long-distance train travel, re-nationalising the whole service and improving the infrastructure (e.g. completing the new HS2 rail project to free up capacity for services to the North, better service that doesn&#39;t require connections through London, increasing the number of cross-Channel trains, etc). 
+
+It&#39;s understandable that people fly instead of taking the train right now, due to how much cheaper it is, so we have to make the choice to take the train much easier.
 
 Well done, let&#39;s keep going.
 
