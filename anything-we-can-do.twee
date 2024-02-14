@@ -21,10 +21,6 @@ Anything we can actually do, we can afford
 }
 
 
-:: <%= last_passage_name %> {"position":"1050,275","size":"100,100"}
-
-
-
 :: Access to a good job {"position":"500,3400","size":"100,100"}
 All of these policies so far are making a huge improvement in people’s lives, but many are still struggling to find work or are stuck in low-wage jobs with poor conditions, especially outside of London and the South East. How will you help them?
 
@@ -360,12 +356,6 @@ Let's see what we can do about the waves of public sector industrial action acro
 
 
 :: Modern Monetary Theory Side Quest {"position":"950,100","size":"100,100"}
-<% const history = window.story.history
-const last_passage_id = history[history.length -2] 
-const last_passage = window.story.passages.find((passage) => passage?.id == last_passage_id)
-const last_passage_name = last_passage?.name ?? 'Start of journey' 
-%>
-
 Money's origin isn't rooted in widespread barter as commonly believed. Societies historically pooled resources, with people contributing based on ability and receiving based on needs, so neither barter nor money was used.
 
 Money emerged to incentivise larger and less well-acquainted groups of people to do things - for example, when rulers sent their armies on long campaigns, rather than having to bring all their supplies with them, they imposed taxes on the people living in the land through which they passed. 
@@ -374,17 +364,13 @@ To earn the money to pay those taxes, the people could give some of their food t
 
 In other words, the state uses its power to impose a tax on the people living in it, thereby creating unemployment and requiring people to work to pay that tax. And in order for the people to be able to earn the currency, the state has to create it in the first place - so it must spend money into the economy (i.e. by giving the money to its armies to give to the people who provide them with food and shelter) before it can collect it back in tax.
 
-And if the state spends more than it taxes back (what’s known as a deficit — the opposite would be a surplus), this allows people to save, or to exchange that money with other people for goods and services - in other words, a state deficit is a good thing for us. The only risk comes if the state puts too much money into an area where there’s already a lot of competition for resources - this is what might lead to inflation (which you’ll learn more about in the game).
+And if the state spends more than it taxes back (what’s known as a deficit — the opposite would be a surplus), this allows people to save, or to exchange that money with other people for goods and services. 
+
+In other words, a state deficit is a good thing for us. The only risk comes if the state puts too much money into an area where there’s already a lot of competition for resources - this is what might lead to inflation (which you’ll learn more about in the game).
 
 One other important thing is that this only works if you have monetary sovereignty - that is you don’t have a fixed exchange rate to any other currency or commodity, and you have little to no debt in foreign currencies. This is not the case for many Global South countries, so we should be fighting to cancel their foreign debts and help them achieve this.
 
 This is definitely not the only way to run an economy - perhaps in an ideal world, we wouldn’t need money at all. But for now it’s what we have, so it’s important to know the rules and make sure everyone can thrive in this system.
-
-Let’s get back into the game!
-
-<div.button-wrapper>
-	[[<%= last_passage_name %>]]
-</div>
 
 
 :: National energy guarantee [footer correct-answer] {"position":"475,1025","size":"100,100"}
@@ -746,29 +732,41 @@ const deepLinkToPassage = () => {
   }
 };
 
-const addCarouselToElement = (cssSelector) => {
-  const htmlEl = $(cssSelector);
+const addCarouselToElement = async (
+  topLevelCSSSelector,
+  carouselItemsCollectionSelector
+) => {
+  // Don't add carousels if we're not on mobile
+  const isMobile =
+    window.matchMedia("(max-width: 768px)").matches ||
+    window.matchMedia("(pointer: coarse)").matches;
+
+  if (!isMobile) {
+    return;
+  }
+
+  const htmlEl = $(topLevelCSSSelector);
   htmlEl.addClass(["carousel", "slide"]);
-  $("#passages").wrap('<div class="carousel-inner"/>');
+  $(carouselItemsCollectionSelector).wrap('<div class="carousel-inner"/>');
   htmlEl.prepend(`<div class="carousel-indicators" />`);
 
-  $("#passages > p").each((idx, item) => {
+  $(`${carouselItemsCollectionSelector} > p`).each((idx, item) => {
     $(item).addClass("carousel-item");
     if (idx === 0) {
       $(item).addClass("active");
     }
-    $(".carousel-indicators").append(
-      `<button type="button" data-bs-target="${cssSelector}" data-bs-slide-to="${idx}" ${
+    $(`${topLevelCSSSelector} > .carousel-indicators`).append(
+      `<button type="button" data-bs-target="${topLevelCSSSelector}" data-bs-slide-to="${idx}" ${
         idx === 0 ? 'class="active" aria-current="true"' : ""
       } aria-label="Slide ${idx + 1}"></button>`
     );
   });
 
-  htmlEl.append(`<button class="carousel-control-prev" type="button" data-bs-target="${cssSelector}" data-bs-slide="prev">
+  htmlEl.append(`<button class="carousel-control-prev" type="button" data-bs-target="${topLevelCSSSelector}" data-bs-slide="prev">
   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
   <span class="visually-hidden">Previous</span>
 </button>
-<button class="carousel-control-next" type="button" data-bs-target="${cssSelector}" data-bs-slide="next">
+<button class="carousel-control-next" type="button" data-bs-target="${topLevelCSSSelector}" data-bs-slide="next">
   <span class="carousel-control-next-icon" aria-hidden="true"></span>
   <span class="visually-hidden">Next</span>
 </button>`);
@@ -786,23 +784,55 @@ const addCarouselToElement = (cssSelector) => {
     }
   };
 
-  const addCarousel = () => {
-    try {
-      new bootstrap.Carousel(cssSelector, {
-        wrap: false,
-      });
-      checkControlVisibility();
-    } catch {
-      console.log("bootstrap not yet available; try again in a few");
-      setTimeout(addCarousel, 500);
-    }
-  };
-  addCarousel();
+  const addCarousel = async (selector) => {
+    let attempts = 3;
 
-  htmlEl.on("slid.bs.carousel", (event) => {
+    const tryAddCarousel = (selector, resolveFn) => {
+      try {
+        const carousel = new bootstrap.Carousel(selector, {
+          wrap: false,
+        });
+        checkControlVisibility();
+        resolveFn(carousel);
+      } catch {
+        throw Error("bootstrap not yet available; try again in a few");
+      }
+    };
+    const initialisationPromise = new Promise((resolve, reject) => {
+      try {
+        tryAddCarousel(selector, resolve);
+      } catch (e) {
+        if (attempts > 0) {
+          console.log(e);
+          attempts--;
+          setTimeout(() => tryAddCarousel(selector, resolve), 500);
+        } else {
+          reject("failed to add carousel");
+        }
+      }
+    });
+    return initialisationPromise;
+  };
+
+  const carousel = await addCarousel(topLevelCSSSelector);
+
+  htmlEl.on("slid.bs.carousel", () => {
     checkControlVisibility();
   });
+  return carousel;
 };
+
+const showFootnote = async (htmlContent) => {
+  $("#footnote-content > #footnote-passages").html(htmlContent);
+  $("#footnote-container").css("display", "flex");
+  //   Add Carousel if we're on mobile
+  window.story.state.footnoteCarousel = await addCarouselToElement(
+    "#footnote-content",
+    "#footnote-passages"
+  );
+};
+
+const fixParsingError = (html) => `<p>${html.replace("<p></p>", "</p>")}`;
 
 $(window).on("sm.story.started", () => {
   // Load external CSS
@@ -849,15 +879,32 @@ $(window).on("sm.story.started", () => {
   // Add footnotes container. This is outside of the passage and therefore we only want to render it once per story load.
   const bodyElement = $("body");
   bodyElement.prepend(
-    '<div id="footnote-container"><div id="footnote-content"><div id="content"/><button id="close-footnote">🅇</button></div></div>'
+    '<div id="footnote-container"><div id="footnote-content"><div id="footnote-passages"/><button id="close-footnote">🅇</button></div></div>'
   );
 
   $("#close-footnote").on("click", () => {
     $("#footnote-container").css("display", "none");
+    if (window.story.state.footnoteCarousel) {
+      window.story.state.footnoteCarousel.dispose();
+      window.story.state.footnoteCarousel = null;
+    }
   });
 
   $("#footnote-container").on("click", (event) => event.stopPropagation());
+
   bodyElement.wrapInner('<div id="app">');
+  const appElement = $("#app");
+  // Insert menu/title
+  appElement.prepend(
+    '<div id="menu"><h2 id="title">Anything we can do, we can afford</h2><a href="javascript:void(0)" class="mmt-footnote"><img src="./icons/chat-bubble-question.svg" /></a></div>'
+  );
+  const mmtContent = window.story.passages.find(
+    (passage) => passage?.name === "Modern Monetary Theory Side Quest"
+  );
+  $(".mmt-footnote").on("click", () => {
+    const mmtFootnoteContent = window.passage.render(mmtContent.source);
+    showFootnote(fixParsingError(mmtFootnoteContent));
+  });
 });
 
 $(window).on("sm.passage.showing", (_, data) => {
@@ -881,22 +928,17 @@ $(window).on("sm.passage.showing", (_, data) => {
   window.history.replaceState(window.history.state, "", currentUrl.toString());
 });
 
-$(window).on("sm.passage.shown", (e, data) => {
+$(window).on("sm.passage.shown", async (e, data) => {
   // Fix any incorrectly-parsed first paragraphs (i.e. move <p> tag to front of sentence, instead of having an empty tag).
   const passageEl = $(e.target);
   let passageHTML = passageEl.html();
   if (passageHTML.includes("<p></p>")) {
-    passageHTML = `<p>${passageHTML.replace("<p></p>", "</p>")}`;
+    passageHTML = fixParsingError(passageHTML);
   }
   passageEl.html(passageHTML);
 
   // Wrap buttons again so the carousel works on mobile
   $(".button-wrapper").wrap("<p/>");
-
-  // Insert menu/title
-  passageEl.prepend(
-    '<div id="menu"><h2 id="title">Anything we can do, we can afford</h2><a href="javascript:void(0)" id="mmt-explainer" data-passage="Modern Monetary Theory Side Quest"><img src="./icons/chat-bubble-question.svg" /></a></div>'
-  );
 
   // Wrap passage paragraphs in a container
   passageEl.find("p").wrapAll('<div id="passage-container" />');
@@ -911,27 +953,16 @@ $(window).on("sm.passage.shown", (e, data) => {
         `<a href="javascript:void(0)" class="footnote" data-footnote=${i}></a>`
       );
     });
-    $(".footnote").on("click", (e) => {
+    $(".footnote").on("click", async (e) => {
       const footnoteIndex = e.currentTarget.getAttribute("data-footnote");
       const footnoteContent = window.story.state.footnotes[footnoteIndex];
       if (footnoteContent.href) {
-        $("#footnote-content > #content").html(
+        await showFootnote(
           `<p><a href=${footnoteContent.href}  target="_blank">${footnoteContent.text}</a></p>`
         );
       } else {
-        $("#footnote-content > #content").html(
-          `<p>${footnoteContent.text}</p>`
-        );
+        await showFootnote(`<p>${footnoteContent.text}</p>`);
       }
-      $("#footnote-container").css("display", "flex");
-    });
-  }
-
-  // Add special action to MMT button link
-  if (data.passage.name === "Modern Monetary Theory Side Quest") {
-    $("#passage-container").addClass("mmt-explainer");
-    $("a[data-passage]").on("click", () => {
-      $("#passage-container").removeClass("mmt-explainer");
     });
   }
 
@@ -945,14 +976,11 @@ $(window).on("sm.passage.shown", (e, data) => {
     }).appendTo(link);
   });
 
-  // Put carousel around the passage, only on mobile
-  const isMobile =
-    window.matchMedia("(max-width: 768px)").matches ||
-    window.matchMedia("(pointer: coarse)").matches;
-
-  if (isMobile) {
-    addCarouselToElement("#passage-container");
-  }
+  // Add carousel if we're on mobile
+  window.story.state.passageCarousel = await addCarouselToElement(
+    "#passage-container",
+    "#passages"
+  );
 
   // If this passage was the non-traditional answer, shoot confetti
   if (data.passage.tags.includes("correct-answer")) {
@@ -1005,14 +1033,18 @@ body {
 #app {
 	display: grid;
   	align-items: center;
+	grid-template-rows: 10% auto;
+  	max-width: 35em;
+    margin: 0 auto;
 }
 
 /* header */
 #menu {
+  	grid-row: 1;
+    grid-column: 1;
 	display: flex;
   	justify-content: space-between;
   	align-items: baseline;
-  	height: 10%;
 }
 
 #title {
@@ -1030,7 +1062,7 @@ body {
 /* story and passages */
 tw-story {
   	height: inherit;
-  	grid-row: 1;
+  	grid-row: 2;
   	grid-column: 1;
 }
 tw-passage {
@@ -1065,13 +1097,7 @@ a[data-passage] > button {
 /* mobile tweaks for carousel */
 @media only screen and (max-width: 767px) {
   #passage-container {
-      display: grid;
-      flex-direction: column;
   	  height: 90%;
-      align-items: center;
-      justify-content: space-around;
-      grid-template-columns: 5vw auto 5vw;
-      grid-template-rows: auto 10vh;
   }
   #passages {
       display: flex;
@@ -1080,6 +1106,14 @@ a[data-passage] > button {
 }
 
 /* carousel */
+.carousel {
+	display: grid;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    grid-template-columns: 5vw auto 5vw;
+    grid-template-rows: auto 10vh;
+}
 .carousel-inner {
 	width: 80vw;
     text-align: center;
@@ -1106,6 +1140,7 @@ a[data-passage] > button {
   grid-column: 1/4;
   width: unset;
   display: flex;
+  flex-wrap: wrap;
 }
 
 /* footnotes */
@@ -1129,11 +1164,9 @@ a:hover {
 }
 
 #footnote-container {
-  	max-width: 35em;
- 	margin: 0 auto;
   	flex-direction:column;
   	justify-content: space-around;
-  	grid-row: 1;
+  	grid-row: 1/3;
   	grid-column: 1;
   	z-index: 1000;
   	display: none;
@@ -1146,9 +1179,13 @@ a:hover {
   	background-color: rgba(34, 34, 34, 1);
     border-radius: 10px;
 	border: #eee solid;
-	padding: 32px;
-  	height: fit-content;
+  	height: 100%;
   	position: relative;
+  	padding-top: 30px;
+}
+#footnote-passages {
+    display: flex;
+    align-items: center;
 }
 #close-footnote {
   height: 24px;
