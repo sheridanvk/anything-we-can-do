@@ -1015,11 +1015,6 @@ $(window).on("sm.passage.hidden", () => {
 
 
 :: StoryStylesheet [stylesheet]
-html {
-	overscroll-behavior: none;
-	height:100%;
-}
-
 body {
     background-color: #222;
     color: #eee;
@@ -1027,7 +1022,6 @@ body {
   	font-size: 16px;
   	margin: 8px;
   	height: inherit;
-  	overflow: hidden;
 }
 
 #app {
@@ -1099,9 +1093,9 @@ a[data-passage] > button {
   #passage-container {
   	  height: 90%;
   }
-  #passages {
-      display: flex;
-      align-items: center;
+  .carousel-inner > div {
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -1182,10 +1176,7 @@ a:hover {
   	height: 100%;
   	position: relative;
   	padding-top: 30px;
-}
-#footnote-passages {
-    display: flex;
-    align-items: center;
+  	padding-inline: 16px;
 }
 #close-footnote {
   height: 24px;
@@ -1201,6 +1192,13 @@ a:hover {
 
 /* mobile specific tweaks */
 @media only screen and (max-width: 767px) {
+  html {
+	overscroll-behavior: none;
+    height: 100%
+  }
+  body {
+  	overflow: hidden;
+  }
   #app {
     height: 100%;
   } 
@@ -1212,5 +1210,8 @@ a:hover {
   }
   .passage > p {
   	text-align: center
+  }
+  #footnote-content {
+    padding-inline: unset;
   }
 }

@@ -10,19 +10,13 @@
 	</head>
 	<body>
 		<tw-story tags></tw-story>
-		<tw-storydata name="Anything we can actually do, we can afford" startnode="23" creator="Twine" creator-version="2.8.0" format="Snowman" format-version="2.0.2" ifid="5AF69E4F-8A91-4AC1-AE94-CA1801C7B04A" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">html {
-	overscroll-behavior: none;
-	height:100%;
-}
-
-body {
+		<tw-storydata name="Anything we can actually do, we can afford" startnode="23" creator="Twine" creator-version="2.8.0" format="Snowman" format-version="2.0.2" ifid="5AF69E4F-8A91-4AC1-AE94-CA1801C7B04A" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body {
     background-color: #222;
     color: #eee;
   	font-family: 'Merriweather';
   	font-size: 16px;
   	margin: 8px;
   	height: inherit;
-  	overflow: hidden;
 }
 
 #app {
@@ -94,9 +88,9 @@ a[data-passage] > button {
   #passage-container {
   	  height: 90%;
   }
-  #passages {
-      display: flex;
-      align-items: center;
+  .carousel-inner > div {
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -177,10 +171,7 @@ a:hover {
   	height: 100%;
   	position: relative;
   	padding-top: 30px;
-}
-#footnote-passages {
-    display: flex;
-    align-items: center;
+  	padding-inline: 16px;
 }
 #close-footnote {
   height: 24px;
@@ -196,6 +187,13 @@ a:hover {
 
 /* mobile specific tweaks */
 @media only screen and (max-width: 767px) {
+  html {
+	overscroll-behavior: none;
+    height: 100%
+  }
+  body {
+  	overflow: hidden;
+  }
   #app {
     height: 100%;
   } 
@@ -207,6 +205,9 @@ a:hover {
   }
   .passage > p {
   	text-align: center
+  }
+  #footnote-content {
+    padding-inline: unset;
   }
 }
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">const deepLinkQueryParam = "passage";
