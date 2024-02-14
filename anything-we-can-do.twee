@@ -1173,7 +1173,7 @@ a:hover {
   	background-color: rgba(34, 34, 34, 1);
     border-radius: 10px;
 	border: #eee solid;
-  	height: 100%;
+  	height: fit-content%;
   	position: relative;
   	padding-top: 30px;
   	padding-inline: 16px;
@@ -1213,5 +1213,6 @@ a:hover {
   }
   #footnote-content {
     padding-inline: unset;
+  	height: 100%;
   }
 }
