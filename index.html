@@ -33,7 +33,7 @@
     grid-column: 1;
 	display: flex;
   	justify-content: space-between;
-  	align-items: baseline;
+  	align-items: start;
 }
 
 #title {
@@ -195,8 +195,11 @@ a:hover {
   	overflow: hidden;
   }
   #app {
-    height: 100%;
+    height: calc(100% - 16px);
   } 
+  tw-story {
+  	height: 100%;
+  }
   .button-wrapper {
 	flex-direction: column;
   }
@@ -328,11 +331,13 @@ const addCarouselToElement = async (
 const showFootnote = async (htmlContent) => {
   $("#footnote-content > #footnote-passages").html(htmlContent);
   $("#footnote-container").css("display", "flex");
-  //   Add Carousel if we're on mobile
-  window.story.state.footnoteCarousel = await addCarouselToElement(
-    "#footnote-content",
-    "#footnote-passages"
-  );
+  //   Add Carousel if it's the first open and we're on mobile
+  if (!window.story.state.footnoteCarousel) {
+    window.story.state.footnoteCarousel = await addCarouselToElement(
+      "#footnote-content",
+      "#footnote-passages"
+    );
+  }
 };
 
 const fixParsingError = (html) => `<p>${html.replace("<p></p>", "</p>")}`;
@@ -386,11 +391,8 @@ $(window).on("sm.story.started", () => {
   );
 
   $("#close-footnote").on("click", () => {
+    window.story.state.footnoteCarousel.to(0);
     $("#footnote-container").css("display", "none");
-    if (window.story.state.footnoteCarousel) {
-      window.story.state.footnoteCarousel.dispose();
-      window.story.state.footnoteCarousel = null;
-    }
   });
 
   $("#footnote-container").on("click", (event) => event.stopPropagation());
@@ -413,9 +415,11 @@ $(window).on("sm.story.started", () => {
 $(window).on("sm.passage.showing", (_, data) => {
   // clear any confetti that isn't finished yet
   try {
-    clearTimeout(window.story.confettiTimeout);
-    confetti.reset();
-    console.log("cleared confetti and timeouts");
+    if (window.story.confettiTimeout) {
+      clearTimeout(window.story.confettiTimeout);
+      confetti.reset();
+    }
+    console.log("cleared any confetti and timeouts");
   } catch {
     console.error("couldn't reset confetti");
   }
