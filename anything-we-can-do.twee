@@ -362,9 +362,11 @@ Money emerged to incentivise larger and less well-acquainted groups of people to
 
 To earn the money to pay those taxes, the people could give some of their food to the passing armies, or give them accommodation for the night.
 
-In other words, the state uses its power to impose a tax on the people living in it, thereby creating unemployment and requiring people to work to pay that tax. And in order for the people to be able to earn the currency, the state has to create it in the first place - so it must spend money into the economy (i.e. by giving the money to its armies to give to the people who provide them with food and shelter) before it can collect it back in tax.
+In other words, the state uses its power to impose a tax on the people living in it, thereby creating unemployment and requiring people to work to pay that tax. 
 
-And if the state spends more than it taxes back (what’s known as a deficit — the opposite would be a surplus), this allows people to save, or to exchange that money with other people for goods and services. 
+And in order for the people to be able to earn the currency, the state has to create it in the first place - so it must spend money into the economy (i.e. by giving the money to its armies to give to the people who provide them with food and shelter) before it can collect it back in tax.
+
+If the state spends more than it taxes back (what’s known as a deficit — the opposite would be a surplus), this allows people to save, or to exchange that money with other people for goods and services. 
 
 In other words, a state deficit is a good thing for us. The only risk comes if the state puts too much money into an area where there’s already a lot of competition for resources - this is what might lead to inflation (which you’ll learn more about in the game).
 
@@ -825,11 +827,13 @@ const addCarouselToElement = async (
 const showFootnote = async (htmlContent) => {
   $("#footnote-content > #footnote-passages").html(htmlContent);
   $("#footnote-container").css("display", "flex");
-  //   Add Carousel if we're on mobile
-  window.story.state.footnoteCarousel = await addCarouselToElement(
-    "#footnote-content",
-    "#footnote-passages"
-  );
+  //   Add Carousel if it's the first open and we're on mobile
+  if (!window.story.state.footnoteCarousel) {
+    window.story.state.footnoteCarousel = await addCarouselToElement(
+      "#footnote-content",
+      "#footnote-passages"
+    );
+  }
 };
 
 const fixParsingError = (html) => `<p>${html.replace("<p></p>", "</p>")}`;
@@ -883,11 +887,8 @@ $(window).on("sm.story.started", () => {
   );
 
   $("#close-footnote").on("click", () => {
+    window.story.state.footnoteCarousel.to(0);
     $("#footnote-container").css("display", "none");
-    if (window.story.state.footnoteCarousel) {
-      window.story.state.footnoteCarousel.dispose();
-      window.story.state.footnoteCarousel = null;
-    }
   });
 
   $("#footnote-container").on("click", (event) => event.stopPropagation());
@@ -896,7 +897,7 @@ $(window).on("sm.story.started", () => {
   const appElement = $("#app");
   // Insert menu/title
   appElement.prepend(
-    '<div id="menu"><h2 id="title">Anything we can do, we can afford</h2><a href="javascript:void(0)" class="mmt-footnote"><img src="./icons/chat-bubble-question.svg" /></a></div>'
+    '<div id="menu"><h2 id="title">Anything we can actually do, we can afford</h2><a href="javascript:void(0)" class="mmt-footnote"><img src="./icons/chat-bubble-question.svg" /></a></div>'
   );
   const mmtContent = window.story.passages.find(
     (passage) => passage?.name === "Modern Monetary Theory Side Quest"
@@ -910,9 +911,11 @@ $(window).on("sm.story.started", () => {
 $(window).on("sm.passage.showing", (_, data) => {
   // clear any confetti that isn't finished yet
   try {
-    clearTimeout(window.story.confettiTimeout);
-    confetti.reset();
-    console.log("cleared confetti and timeouts");
+    if (window.story.confettiTimeout) {
+      clearTimeout(window.story.confettiTimeout);
+      confetti.reset();
+    }
+    console.log("cleared any confetti and timeouts");
   } catch {
     console.error("couldn't reset confetti");
   }
@@ -1038,7 +1041,7 @@ body {
     grid-column: 1;
 	display: flex;
   	justify-content: space-between;
-  	align-items: baseline;
+  	align-items: start;
 }
 
 #title {
@@ -1200,8 +1203,11 @@ a:hover {
   	overflow: hidden;
   }
   #app {
-    height: 100%;
+    height: calc(100% - 16px);
   } 
+  tw-story {
+  	height: 100%;
+  }
   .button-wrapper {
 	flex-direction: column;
   }
