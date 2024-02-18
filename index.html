@@ -106,6 +106,7 @@ a[data-passage] > button {
     justify-content: space-around;
     grid-template-columns: 5vw auto 5vw;
     grid-template-rows: auto 10vh;
+  	grid-gap: 8px;
 }
 .carousel-inner {
 	width: 80vw;
@@ -222,6 +223,9 @@ a:hover {
   }
 }
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">const deepLinkQueryParam = "passage";
+const isMobile =
+  window.matchMedia("(max-width: 768px)").matches ||
+  window.matchMedia("(pointer: coarse)").matches;
 
 const deepLinkToPassage = () => {
   // Check to see if there's a deep link reference when starting the
@@ -245,35 +249,71 @@ const deepLinkToPassage = () => {
   }
 };
 
+const addCarouselContentAndIndicators = (
+  topLevelCSSSelector,
+  carouselItemsCollectionSelector
+) => {
+  const content = $(`${carouselItemsCollectionSelector} > p`);
+  content.each((idx, item) => {
+    $(item).addClass("carousel-item");
+    if (idx === 0) {
+      $(item).addClass("active");
+    }
+    if (content.length > 1) {
+      $(`${topLevelCSSSelector} > .carousel-indicators`).append(
+        `<button type="button" data-bs-target="${topLevelCSSSelector}" data-bs-slide-to="${idx}" ${
+          idx === 0 ? 'class="active" aria-current="true"' : ""
+        } aria-label="Slide ${idx + 1}"></button>`
+      );
+    }
+  });
+  checkControlVisibility(topLevelCSSSelector);
+};
+
+const removeCarouselContentAndIndicators = (topLevelCSSSelector) => {
+  if (!isMobile) {
+    return;
+  }
+  window.story.state.footnoteCarousel.to(0);
+  $(`${topLevelCSSSelector} > .carousel-indicators`).html("");
+};
+
+const checkControlVisibility = (topLevelCSSSelector) => {
+  const htmlEl = $(topLevelCSSSelector);
+  if (htmlEl.find(".carousel-item").length === 1) {
+    htmlEl.children(".carousel-control-next").hide();
+    htmlEl.children(".carousel-control-prev").hide();
+  } else if (htmlEl.find(".carousel-item").first().hasClass("active")) {
+    htmlEl.children(".carousel-control-prev").hide();
+    htmlEl.children(".carousel-control-next").show();
+  } else if (htmlEl.find(".carousel-item").last().hasClass("active")) {
+    htmlEl.children(".carousel-control-next").hide();
+    htmlEl.children(".carousel-control-prev").show();
+  } else {
+    htmlEl.children(".carousel-control-next").show();
+    htmlEl.children(".carousel-control-prev").show();
+  }
+};
+
 const addCarouselToElement = async (
   topLevelCSSSelector,
   carouselItemsCollectionSelector
 ) => {
   // Don't add carousels if we're not on mobile
-  const isMobile =
-    window.matchMedia("(max-width: 768px)").matches ||
-    window.matchMedia("(pointer: coarse)").matches;
-
   if (!isMobile) {
     return;
   }
 
   const htmlEl = $(topLevelCSSSelector);
   htmlEl.addClass(["carousel", "slide"]);
+
+  // set up carousel containers for the content and indicators
   $(carouselItemsCollectionSelector).wrap('<div class="carousel-inner"/>');
   htmlEl.prepend(`<div class="carousel-indicators" />`);
-
-  $(`${carouselItemsCollectionSelector} > p`).each((idx, item) => {
-    $(item).addClass("carousel-item");
-    if (idx === 0) {
-      $(item).addClass("active");
-    }
-    $(`${topLevelCSSSelector} > .carousel-indicators`).append(
-      `<button type="button" data-bs-target="${topLevelCSSSelector}" data-bs-slide-to="${idx}" ${
-        idx === 0 ? 'class="active" aria-current="true"' : ""
-      } aria-label="Slide ${idx + 1}"></button>`
-    );
-  });
+  addCarouselContentAndIndicators(
+    topLevelCSSSelector,
+    carouselItemsCollectionSelector
+  );
 
   htmlEl.append(`<button class="carousel-control-prev" type="button" data-bs-target="${topLevelCSSSelector}" data-bs-slide="prev">
   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -284,19 +324,6 @@ const addCarouselToElement = async (
   <span class="visually-hidden">Next</span>
 </button>`);
 
-  const checkControlVisibility = () => {
-    if ($(htmlEl).find(".carousel-item").first().hasClass("active")) {
-      $(htmlEl).children(".carousel-control-prev").hide();
-      $(htmlEl).children(".carousel-control-next").show();
-    } else if ($(htmlEl).find(".carousel-item").last().hasClass("active")) {
-      $(htmlEl).children(".carousel-control-next").hide();
-      $(htmlEl).children(".carousel-control-prev").show();
-    } else {
-      $(htmlEl).children(".carousel-control-next").show();
-      $(htmlEl).children(".carousel-control-prev").show();
-    }
-  };
-
   const addCarousel = async (selector) => {
     let attempts = 3;
 
@@ -305,7 +332,7 @@ const addCarouselToElement = async (
         const carousel = new bootstrap.Carousel(selector, {
           wrap: false,
         });
-        checkControlVisibility();
+        checkControlVisibility(selector);
         resolveFn(carousel);
       } catch {
         throw Error("bootstrap not yet available; try again in a few");
@@ -329,21 +356,22 @@ const addCarouselToElement = async (
 
   const carousel = await addCarousel(topLevelCSSSelector);
 
-  htmlEl.on("slid.bs.carousel", () => {
-    checkControlVisibility();
+  htmlEl.on("slid.bs.carousel", (e) => {
+    checkControlVisibility(e.target);
   });
   return carousel;
 };
 
 const showFootnote = async (htmlContent) => {
-  $("#footnote-content > #footnote-passages").html(htmlContent);
+  $("#footnote-content #footnote-passages").html(htmlContent);
   $("#footnote-container").css("display", "flex");
-  //   Add Carousel if it's the first open and we're on mobile
   if (!window.story.state.footnoteCarousel) {
     window.story.state.footnoteCarousel = await addCarouselToElement(
       "#footnote-content",
       "#footnote-passages"
     );
+  } else {
+    addCarouselContentAndIndicators("#footnote-content", "#footnote-passages");
   }
 };
 
@@ -398,8 +426,8 @@ $(window).on("sm.story.started", () => {
   );
 
   $("#close-footnote").on("click", () => {
-    window.story.state.footnoteCarousel.to(0);
     $("#footnote-container").css("display", "none");
+    removeCarouselContentAndIndicators("#footnote-content");
   });
 
   $("#footnote-container").on("click", (event) => event.stopPropagation());
@@ -413,9 +441,9 @@ $(window).on("sm.story.started", () => {
   const mmtContent = window.story.passages.find(
     (passage) => passage?.name === "Modern Monetary Theory Side Quest"
   );
-  $(".mmt-footnote").on("click", () => {
+  $(".mmt-footnote").on("click", async () => {
     const mmtFootnoteContent = window.passage.render(mmtContent.source);
-    showFootnote(fixParsingError(mmtFootnoteContent));
+    await showFootnote(fixParsingError(mmtFootnoteContent));
   });
 });
 
@@ -554,7 +582,9 @@ Interest rate increases are untargeted and ineffective, and should not be used t
   [[Tackling Inflation]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="3" name="Find out more about where the inflation is coming from" tags="correct-answer" position="450,750" size="100,100">This is the right call! There’s two main kinds of inflation - cost push and demand pull. The methods to fight these are different.
 
-For demand pull, this is the traditional &quot;too much money chasing too few goods and services&quot; situation that economists often try to cool with interest rate hikes. This type of inflation rarely happens, but if it does, then a more targeted approach would be to try to reduce demand on the specific sector causing the increase (e.g. if it&#39;s petrol prices, make public transport free or low cost). 
+For demand pull, this is the traditional &quot;too much money chasing too few goods and services&quot; situation that economists often try to cool with interest rate hikes. 
+
+Demand pull inflation rarely happens, but if it does, then a more targeted approach would be to try to reduce demand on the specific sector causing the increase (e.g. if it&#39;s petrol prices, make public transport free or low cost). 
 
 For cost push, interest rate hikes don&#39;t work at all. You have to target the actual issues causing the costs to increase. 
 
@@ -649,9 +679,11 @@ Let&#39;s move on!
 
 &lt;%
 s.footnotes = [{href:&quot;https://neweconomics.org/2023/04/the-national-energy-guarantee&quot;, text: &quot;National Energy Guarantee, New Economics Foundation&quot;}]
-%&gt;</tw-passagedata><tw-passagedata pid="12" name="Windfall tax on the energy providers" tags="" position="700,875" size="100,100">It&#39;s tempting to go for an approach like this, but it&#39;s not necessarily one that materially helps anyone. 
+%&gt;</tw-passagedata><tw-passagedata pid="12" name="Windfall tax on the energy providers" tags="" position="700,875" size="100,100">It&#39;s tempting to go for an approach like this, but it&#39;s not necessarily one that directly helps people who are suffering. 
 
-Yes this reduces the energy providers&#39; profits, and also has the effect of reducing the amount of money they can redistribute to their shareholders, but nothing will change regarding the soaring amounts of money that people have to pay for their energy. And ultimately the companies may just pass on higher costs to their customers.
+It&#39;s good in that it reduces the energy providers&#39; profits, and also has the effect of reducing inequality by limiting the amount of money they can redistribute to their shareholders, 
+
+However nothing will change regarding the soaring amounts of money that people have to pay for their energy. And ultimately the companies may just pass on higher costs to their customers to claw back their profit margin.
 
 Finally as we know from Modern Monetary Theory, taxes don’t subsequently fund spending, so all that will happen is that this money will disappear from circulation.
 
@@ -659,9 +691,13 @@ Go back and try something more adventurous!
 
 &lt;div.button-wrapper&gt;
   [[Source of the inflation]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="13" name="Retrofitting and heat pump rollout" tags="footer correct-answer" position="500,1300" size="100,100">This is exactly the kind of ambition we need in the UK. Our historical responsibility for climate change over our “fair share” (based on our population size) is 7%, the 4th largest in the world&lt;sup&gt;1&lt;/sup&gt;. We have to decarbonise as fast as we can in order to give space for poorer countries, who have historically contributed very little to the climate crisis and may need to grow their emissions before they can decarbonise.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="13" name="Retrofitting and heat pump rollout" tags="footer correct-answer" position="500,1300" size="100,100">This is exactly the kind of ambition we need in the UK. Our historical responsibility for climate change over our “fair share” (based on our population size) is 7%, the 4th largest in the world&lt;sup&gt;1&lt;/sup&gt;. 
 
-But that expense shouldn’t fall on individuals, which is why we must provide grants to make this happen (and as you now know, this is something the government can absolutely afford). It’s true that we’ll be giving grants to the wealthy here too, but we have other plans to address their wealth (and these grants are a drop in the ocean for them).
+We have to decarbonise as fast as we can in order to give space for poorer countries, who have historically contributed very little to the climate crisis and may need to grow their emissions before they can decarbonise.
+
+But that expense shouldn’t fall on individuals, which is why we must provide grants to make this happen (and as you now know, this is something the government can absolutely afford). 
+
+It’s true that we’ll be giving grants to the wealthy here too, but we have other plans to address their wealth (and these grants are a drop in the ocean for them).
 
 Finally to keep an eye on inflation, we’ll need to make sure we have enough labour for this project, and that we can produce enough of the heat pumps and retrofitting materials (or import them). The training programs (offering a good salary from the very start) will attract workers from precarious gig work and the armed forces.
 
@@ -675,9 +711,13 @@ Let&#39;s keep going!
 
 &lt;%
 s.footnotes = [{href:&quot;https://www.sciencedirect.com/science/article/pii/S2542519620301960&quot;, text: &quot;Jason Hickel, Quantifying national responsibility for climate breakdown&quot;}]
-%&gt;</tw-passagedata><tw-passagedata pid="14" name="Nationalised renewable energy provider" tags="footer correct-answer" position="500,1550" size="100,100">Excellent choice! If the state owns the generation capability, it doesn’t need it to make a profit - it can invest what’s needed in this essential productive capacity, and then the UK population gets the benefit of the cheaper energy. That said, the cost of raw materials for renewables has skyrocketed recently, so the government should also explore ways to get alternative, post-growth supply chains for what it needs.
+%&gt;</tw-passagedata><tw-passagedata pid="14" name="Nationalised renewable energy provider" tags="footer correct-answer" position="500,1550" size="100,100">Excellent choice! If the state owns the generation capability, it doesn’t need it to make a profit - it can invest what’s needed in this essential productive capacity, and then the UK population gets the benefit of the cheaper energy. 
 
-The 2024 example of Tata Steel pulling out of Port Talbot in Wales&lt;sup&gt;1&lt;/sup&gt; is a prime example of how the government could pivot ventures that private companies think are unprofitable into nationalised post-growth companies that would prioritise green steel manufacturing, only to meet the actual needs of the energy transition (and other non-planet-destroying ventures).
+That said, the cost of raw materials for renewables has skyrocketed recently, so the government should also explore ways to get alternative, post-growth supply chains for what it needs.
+
+The 2024 example of Tata Steel pulling out of Port Talbot in Wales&lt;sup&gt;1&lt;/sup&gt; is a prime example of how the government could pivot ventures that private companies think are unprofitable into nationalised companies that care about more than just profits.
+
+The nationalised companies could prioritise green steel manufacturing, only producing enough to meet the actual needs of the energy transition (and other non-planet-destroying ventures).
 
 Let&#39;s move on to considering the bigger picture.
 
@@ -687,9 +727,13 @@ Let&#39;s move on to considering the bigger picture.
 
 &lt;%
 s.footnotes = [{href:&quot;https://www.unitetheunion.org/news-events/news/2024/january/unite-statement-port-talbot-tata-steel&quot;, text: &quot;Unite statement Port Talbot - Tata Steel&quot;}]
-%&gt;</tw-passagedata><tw-passagedata pid="15" name="Fossil fuel companies will decarbonise" tags="footer" position="750,1425" size="100,100">It would be nice if this were really true, but we cannot rely on the private sector to decarbonise at the rate we need - even the Financial Times says that &quot;Capitalism won’t deliver the energy transition fast enough&quot;&lt;sup&gt;1&lt;/sup&gt;. The financial returns from renewables are so much lower than fossil fuels, because once you’ve set up the site, then the fuel that powers the generation (wind and sun) is literally free. Fossil fuels (and nuclear/hydrogen) cost far more to run because you’re constantly paying for more fuel.
+%&gt;</tw-passagedata><tw-passagedata pid="15" name="Fossil fuel companies will decarbonise" tags="footer" position="750,1425" size="100,100">It would be nice if this were really true, but we cannot rely on the private sector to decarbonise at the rate we need - even the Financial Times says that &quot;Capitalism won’t deliver the energy transition fast enough&quot;&lt;sup&gt;1&lt;/sup&gt;. 
 
-Governments literally have to guarantee prices far higher for renewables than they would actually cost to run, to make it worth the while for private companies to decide to bid for renewable energy contracts (and if set the maximum bids too low, this has resulted in no private companies wanting to make offers&lt;sup&gt;2&lt;/sup&gt;). A public energy provider would not have to make a profit - its only goal would be to make sure the UK meets its decarbonisation goals and provides cheaper energy.
+The financial returns from renewables are so much lower than fossil fuels, because once you’ve set up the site, then the fuel that powers the generation (wind and sun) is literally free. Fossil fuels (and nuclear/hydrogen) cost far more to run because you’re constantly paying for more fuel.
+
+Governments literally have to guarantee prices far higher for renewables than they would actually cost to run, to make it worth the while for private companies to decide to bid for renewable energy contracts (and if set the maximum bids too low, this has resulted in no private companies wanting to make offers&lt;sup&gt;2&lt;/sup&gt;). 
+
+A public energy provider would not have to make a profit - its only goal would be to make sure the UK meets its decarbonisation goals and provides cheaper energy.
 
 Let&#39;s try something different.
 
@@ -704,7 +748,9 @@ s.footnotes = [{href: &quot;https://www.ft.com/content/86d71297-3f34-48f3-8f3f-2
 
 The UK public transport network has been extensively privatised and is run in the interests of profit, not service. So rather than giving subsidies to private companies, the government can re-nationalise these services, improving wages and increasing the desirability of these jobs in the local communities.
 
-We&#39;d quickly overwhelm the Earth&#39;s resources if we tried to replace every petrol car out there with an electric equivalent. But if we make public transportation a true alternative to owning a car, we can persuade people to ditch their private vehicles and greatly reduce the total amount of resources that we need to give everyone a good life.
+We&#39;d quickly overwhelm the Earth&#39;s resources if we tried to replace every petrol car out there with an electric equivalent. 
+
+But if we make public transportation a true alternative to owning a car, we can persuade people to ditch their private vehicles and greatly reduce the total amount of resources that we need to give everyone a good life.
 
 Let&#39;s see what we should tackle next.
 
@@ -730,7 +776,9 @@ Build more renewable energy capacity to meet whatever need arises.
 &lt;div.button-wrapper&gt;
   [[Reduce demand by making local public transportation free]]
   [[Build more renewable energy capacity]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="Build more renewable energy capacity" tags="" position="775,1700" size="100,100">While it&#39;s tempting to think that there&#39;s no downside to keep building more renewable energy because it doesn&#39;t emit carbon, that&#39;s not the whole story. It still takes materials to build those windmills, solar panels and batteries, and those materials usually come from the Global South. Those communities are battling the negative consquences of mass extractivism, from biodiversity loss to poisoning of water supplies and air.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="Build more renewable energy capacity" tags="" position="775,1700" size="100,100">While it&#39;s tempting to think that there&#39;s no downside to keep building more renewable energy because it doesn&#39;t emit carbon, that&#39;s not the whole story. 
+
+It still takes materials to build those windmills, solar panels and batteries, and those materials usually come from the Global South. Those communities are battling the negative consquences of mass extractivism, from biodiversity loss to poisoning of water supplies and air.
 
 We must consider the impact of our energy needs on the whole world, and make sure we only build for what we truly need, especially as that will then ensure that other countries will also be able to cover their needs without overwhelming the Earth&#39;s supplies.
 
@@ -755,7 +803,15 @@ Go back and see what could happen if we dreamed big.
   [[Energy Efficiency]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="22" name="What&#39;s next?" tags="correct-answer" position="500,4100" size="100,100">You made it to the end of the game! Congratulations on putting the UK onto a more sustainable path, while making sure that everyone’s quality of life is now above a minimum threshold 🙏🏻🤸🏽
 
-There’s no real end to this game, because we’ll keep facing new challenges, but the democratic foundations and better understanding of the economy you’ve helped to put in place should help the people and wider natural world of the UK overcome whatever comes their way in the future.
+Hopefully this has helped you understand that money is not the limiting factor in building a better world - instead we need to determine whether we have the real resources to do what we want to do. 
+
+Modern Monetary Theory shows us that we can use the power of our government to create money to make use of those resources by funding training, building infrastructure and making sure that everyone who wants to work can do so. 
+
+And as a society we can decide that where our precious resources are in short supply, we will tax or regulate undesirable parts of the economy to redirect them towards areas that make life better for people and the planet.
+
+With this better understanding of how money works, we most importantly understand that we should rely no longer on economic growth to provide for our needs, and must instead focus on more equitable sharing of the resources we do have.
+
+There’s no real end to this game, because we’ll keep facing new challenges, but the democratic foundations and better understanding of the economy you’ve put in place here should help the people and wider natural world of the UK overcome whatever comes their way in the future.
 
 Join the conversation on &lt;a href=&quot;https://github.com/sheridanvk/anything-we-can-do/discussions/5&quot;&gt;Github&lt;/a&gt; if you think anything in here needs tweaking or enhancing! We’d love to get your feedback :)</tw-passagedata><tw-passagedata pid="23" name="Welcome to the Story" tags="" position="75,50" size="100,100">Welcome! Have you ever found yourself frustrated with the constant political narratives insisting that there&#39;s no money left to fund essential services like the NHS or build much-needed social housing?
 
@@ -791,9 +847,11 @@ Increase housing benefit for private renters
 &lt;div.button-wrapper&gt;
   [[Make housing a human right]]
   [[Increase housing benefit]] 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="Make housing a human right" tags="correct-answer" position="500,2175" size="100,100">This is exactly the right principle to be keeping in mind when designing policies for housing in the UK - housing is a human right. There are many things that could be done here - you could cap maximum rents to a proportion of average wages in each area, cap annual rent increases and implement heavy taxes on second homes and empty homes, for example.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="Make housing a human right" tags="correct-answer" position="500,2175" size="100,100">This is exactly the right principle to be keeping in mind when designing policies for housing in the UK - housing is a human right. 
 
-In order to combat the likely decrease in house prices, given that housing would be less profitable, you could offer to remortgage anyone&#39;s property that now is worth less than what they paid for it (providing a 30-year fixed mortgage in a publicly-owned bank).
+There are many things that could be done here - you could cap maximum rents to a proportion of average wages in each area, cap annual rent increases and implement heavy taxes on second homes and empty homes, for example.
+
+In order to combat the likely decrease in house prices, given that housing would be less profitable, the government could offer to remortgage anyone&#39;s property that now is worth less than what they paid for it (providing a 30-year fixed mortgage in a publicly-owned bank).
 
 Knowing what you do about where money comes from in the UK, you could go even further with your government&#39;s spending power to buy up existing housing stock from landlords who no longer want to rent under the new rules, and turn them into council housing.
 
@@ -824,7 +882,9 @@ Work with the unions to come to an agreement ensuring that their wages are keepi
 
 This is truly one of the most pernicious beliefs of traditional economic thinking - that if wages keep up with inflation, that will then push prices even higher, causing firms and workers to fight against each other and making the inflation even worse than it would otherwise have been.
 
-There is very little evidence that this has ever happened in history - even the IMF found that the inflation of the 1970s was found to be primarily driven by skyrocketing oil prices (due to limited supply) and not further excerbated by the union-negotiated wage increaes that followed that inflation&lt;sup&gt;1&lt;/sup&gt;. The inflation was eased due to increased oil supply in the 1980s, and not because of the heavy-handed union busting tactics of conservative leaders like Margaret Thatcher.
+There is very little evidence that this has ever happened in history - even the IMF found that the inflation of the 1970s was found to be primarily driven by skyrocketing oil prices (due to limited supply) and not further excerbated by the union-negotiated wage increaes that followed that inflation&lt;sup&gt;1&lt;/sup&gt;. 
+
+The inflation was eased due to increased oil supply in the 1980s, and not because of the heavy-handed union busting tactics of conservative leaders like Margaret Thatcher.
 
 Another case in point is Belgium, where wages are indexed to inflation by law, and which has never experienced a wage-price spiral.
 
@@ -892,7 +952,9 @@ Establish a Universal Care Service where everyone will either be able to stay in
 &lt;div.button-wrapper&gt;
   [[Tax breaks for people to save money in their pensions]]
   [[Universal Care Service]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="35" name="Tax breaks for people to save money in their pensions" tags="" position="750,2875" size="100,100">This isn&#39;t the fairest approach. Firstly this only rewards people who already have money and can invest some of that in the stock market. And secondly, this would keep care in the private market, which is primarily trying to make a profit and therefore is not prioritising the best service for the country.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="35" name="Tax breaks for people to save money in their pensions" tags="" position="750,2875" size="100,100">This isn&#39;t the fairest approach. Firstly this only rewards people who already have money and can invest some of that in the stock market. 
+
+And secondly, this would keep care in the private market, which is primarily trying to make a profit and therefore is not prioritising the best service for the country.
 
 Relying on savings growing in the private markets also keeps us entrenched in the cycle of growth - people don&#39;t get the money they need unless the stock market grows, and if there&#39;s a crash like the one in 2008, people&#39;s ability to live off their pensions will be hugely diminished.
 
@@ -900,7 +962,9 @@ We need a kinder, fairer system that doesn&#39;t exacerbate the existing inequal
 
 &lt;div.button-wrapper&gt;
   [[Caring for our older members of society]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="36" name="Universal Care Service" tags="correct-answer" position="500,3000" size="100,100">This is a great choice - you&#39;ll pay really good wages for these jobs, and ensure that the hours aren&#39;t too onerous for what can be very demanding work, so that you can easily attract workers away from the existing private care sector and relieve the incredibly overloaded social workers who provide these kinds of services already. 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="36" name="Universal Care Service" tags="correct-answer" position="500,3000" size="100,100">This is a great choice - you&#39;ll pay really good wages for these jobs, and ensure that the hours aren&#39;t too onerous for what can be very demanding work.
+
+This will help you attract workers away from the existing private care sector and relieve the incredibly overloaded social workers who provide these kinds of services already. 
 
 You can even offer to buy existing private care homes up so that you have ready-made care facilities, and again could consider putting all of these new assets into Community Wealth Funds such that the people would decide their future, so they can&#39;t be sold off to private firms by a future government.
 
@@ -964,7 +1028,9 @@ Implement a job guarantee, providing jobs in low-carbon industries and whatever 
 &lt;div.button-wrapper&gt;
   [[Cut corporation tax]]
   [[Job guarantee]] 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="41" name="Cut corporation tax" tags="" position="775,3400" size="100,100">It&#39;s traditional but magical thinking that a policy like this would result in more jobs; corporations are most likely to put the money they&#39;re saving into profits and dividends. If you want more jobs, a better way to make it happen is to create them in the public sector, for example by increasing public services as we&#39;ve already covered earlier in the game. 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="41" name="Cut corporation tax" tags="" position="775,3400" size="100,100">It&#39;s traditional but magical thinking that a policy like this would result in more jobs; corporations are most likely to put the money they&#39;re saving into profits and dividends. 
+
+If you want more jobs, a better way to make it happen is to create them in the public sector, for example by increasing public services as we&#39;ve already covered earlier in the game. 
 
 Go back to find out about an alternative and incredibly important way in which the government can help in this area.
 
@@ -974,7 +1040,7 @@ Go back to find out about an alternative and incredibly important way in which t
 
 The main advantage of schemes like this one is that it would provide a good baseline for all working conditions in the economy - the wage would be set at a good living wage, with no zero-hours contracts or unstable working conditions allowed. 
 
-And it also acts as an inflation stabiliser - instead of raising interest rates when inflation increases, which just puts people out of work to reduce demand in the economy, people are provided with an inflation-linked living wage such that they can still afford their bills when the private economy is struggling.
+And it also acts as an inflation stabiliser - instead of raising interest rates when inflation increases, which just puts people out of work to reduce demand in the economy, people are provided with a living wage such that they can still afford their bills when the private economy is struggling.
 
 Finally this is such a great policy because it ensures that the jobs will be created where the people already are, rather than forcing people to move for opportunities. 
 
@@ -989,7 +1055,7 @@ For more details on Job Guarantees, see Pavlina Tchernova&#39;s work&lt;sup&gt;1
 
 &lt;%
 s.footnotes = [{href:&quot;https://www.sciencedirect.com/science/article/pii/S2542519620301960&quot;, text: &quot;The Job Guarantee: Design, Jobs, and Implementation, Pavlina R. Tcherneva: Levy Economics Institute of Bard College, April 2018&quot;}]
-%&gt;</tw-passagedata><tw-passagedata pid="43" name="Carbon emissions from flying" tags="" position="500,3750" size="100,100">The UK is one of the worst-offending countries in the world for carbon emissions from flying. Per-head, we emit more than 800kg per year, but it’s even worse when you take into account that 15% of people in the UK take 70% of all flights, while nearly half of our population does not fly at all in a given year. How should we address this?
+%&gt;</tw-passagedata><tw-passagedata pid="43" name="Carbon emissions from flying" tags="" position="500,3750" size="100,100">The UK is one of the worst-offending countries in the world for carbon emissions from flying. On average, we each emit more than 800kg per year, but it’s very unequal - 15% of people in the UK take 70% of all flights, while half of us don&#39;t fly at all in any given year. How should we address this?
 
 Stop subsidising air travel, implement a Frequent Flyer Levy, and make up for this with significantly cheaper long-distance train services.
 
