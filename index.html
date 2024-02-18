@@ -25,6 +25,7 @@
 	grid-template-rows: 10% auto;
   	max-width: 35em;
     margin: 0 auto;
+  	grid-gap: 8px;
 }
 
 /* header */
@@ -33,12 +34,15 @@
     grid-column: 1;
 	display: flex;
   	justify-content: space-between;
-  	align-items: start;
+  	align-items: center;
+  	font-size: 1.17em; /* h3 size*/
+  	gap: 8px;
 }
 
 #title {
 	margin-right: auto;
 	margin-left: auto;
+	margin-bottom: unset;
   	font-family: 'Lato';
   	line-height: normal;
 }
@@ -197,6 +201,9 @@ a:hover {
   #app {
     height: calc(100% - 16px);
   } 
+  #menu {
+  	align-items: flex-start;
+  }
   tw-story {
   	height: 100%;
   }
@@ -401,7 +408,7 @@ $(window).on("sm.story.started", () => {
   const appElement = $("#app");
   // Insert menu/title
   appElement.prepend(
-    '<div id="menu"><h2 id="title">Anything we can actually do, we can afford</h2><a href="javascript:void(0)" class="mmt-footnote"><img src="./icons/chat-bubble-question.svg" /></a></div>'
+    '<div id="menu"><h3 id="title">Anything we can actually do, we can afford</h3><a href="javascript:void(0)" class="mmt-footnote"><img src="./icons/chat-bubble-question.svg" /></a></div>'
   );
   const mmtContent = window.story.passages.find(
     (passage) => passage?.name === "Modern Monetary Theory Side Quest"
