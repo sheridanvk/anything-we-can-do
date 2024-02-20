@@ -106,11 +106,11 @@ s.footnotes = [{href: "https://taxjustice.net/press/press-release-city-of-london
 
 
 :: Decarbonise, but it's not so important for us [footer] {"position":"750,2600","size":"100,100"}
-While we might be emitting less overall as a country now, our historical responsibility for climate change over our “fair share” (based on our population size) is 7%, the 4th largest in the world<sup>1</sup>. China hasn't even reached its fair share of emissions yet. 
+While we might be emitting less overall as a country now, our historical responsibility for climate change over our “fair share” (based on our population size) is 7%, the 4th largest in the world<sup>1</sup>.
 
-Admittedly China is rapidly approaching its fair share, but it is already one of the world leaders in decarbonisation, with its emissions set to peak in 2024<sup>2</sup> due to rapid rollouts of renewable energy sources, and its per-capita emissions still far below ours. We need to do our part, and quickly.
+China just recently reached its fair share, but it is already one of the world leaders in decarbonisation, with its emissions set to peak in 2024<sup>2</sup> due to rapid rollouts of renewable energy sources, and its per-capita emissions are still far below ours. 
 
-Go back to see how we'll do it.
+We need to do our part, and quickly. Go back to see how we'll do it.
 
 
 <div.button-wrapper>
@@ -169,15 +169,15 @@ s.footnotes = [{text: "The Entreprenieurial State, Mariana Mazzucato 2013"}]
 :: Don’t give in to a wage-price spiral [footer] {"position":"675,2325","size":"100,100"}
 You’ve fallen into the worst traditional economics trap of them all 🙅🏻‍♀️ 
 
-This is truly one of the most pernicious beliefs of traditional economic thinking - that if wages keep up with inflation, that will then push prices even higher, causing firms and workers to fight against each other and making the inflation even worse than it would otherwise have been.
+This is one of the most harmful beliefs of traditional economic thinking - that if wages keep up with inflation, that will then push prices even higher, causing firms and workers to fight against each other and making the inflation even worse than it would otherwise have been.
 
-There is very little evidence that this has ever happened in history - even the IMF found that the inflation of the 1970s was found to be primarily driven by skyrocketing oil prices (due to limited supply) and not further excerbated by the union-negotiated wage increaes that followed that inflation<sup>1</sup>. 
+There is very little evidence that this has ever happened in history - even the IMF found that the inflation of the 1970s was found to be primarily driven by skyrocketing oil prices (due to limited supply) and not further excerbated by the union-negotiated wage increases that came after that inflation<sup>1</sup>. 
 
 The inflation was eased due to increased oil supply in the 1980s, and not because of the heavy-handed union busting tactics of conservative leaders like Margaret Thatcher.
 
-Another case in point is Belgium, where wages are indexed to inflation by law, and which has never experienced a wage-price spiral.
+It's important to identify when inflation is coming from short term supply shocks, as it's better to handle those with temporary price controls and/or subsidies, rather than allow the price level to permanently be higher now that people can afford to pay this with higher wages. 
 
-Let's bury this myth once and for all and do things differently.
+But for more stubborn inflation over time, it's not a problem for wages to track it. Let's bury this myth once and for all and do things differently.
 
 <div.button-wrapper>
   [[Public Sector Industrial Action]] 
@@ -204,9 +204,13 @@ Massive retrofitting and heat pump rollout, with fully-paid grants to incentivis
 :: Express regret that your hands are tied [footer] {"position":"725,25","size":"100,100"}
 You’ve fallen into the traditional economics trap 🙅🏻‍♀️ 
 
-Back when you used to be able to exchange UK pounds for gold (what's commonly known as the gold standard), it’s true that you would have to find more gold to back the additional spending that you want to do. Otherwise you would run the risk of people wanting to convert those new pounds you created into gold at the agreed exchange rate, and you wouldn't have enough to pay them all.
+Back when you used to be able to exchange UK pounds for gold (what's commonly known as the gold standard), it’s true that you would have to find more gold to back the additional spending that you want to do. 
 
-But since the 1970s we’ve had a fiat currency<sup>1</sup>, which means that the currency isn’t convertible at a fixed rate to gold or anything else, and the government has more flexibility over how much money is available to our economy. This means that like Keynes said: "Anything we can actually do, we can afford". For more information, click the icon in the top right to learn all about Modern Monetary Theory.
+Otherwise you would run the risk of people wanting to convert those new pounds you created into gold at the agreed exchange rate, and you wouldn't have enough to pay them all.
+
+But since the 1970s we’ve had a fiat currency<sup>1</sup>, which means that the currency isn’t convertible at a fixed rate to gold or anything else, and the government has more flexibility over how much money is available to our economy. 
+
+This means that like Keynes said: "Anything we can actually do, we can afford". For more information, click the icon in the top right to learn all about Modern Monetary Theory.
 
 Go back and let's see how we can use this insight to build a better economy.
 
@@ -460,7 +464,9 @@ Raising interest rates is supposed to help with inflation by making unemployment
 
 However this is an incredibly untargeted approach and rarely if ever has the desired effect. It is a cruel policy to intentionally target unemployment, and causes incredible stress for renters and homeowners who are now suddenly facing large increases in their monthly housing payments.
 
-And furthermore, because at the moment there's lots of money in the economy, it actually creates the opposite effect - the stock market has been going up since the interest rate increases, because higher interest rates funnel money to people who already have money, enabling them to invest even more and further widening inequality.
+And furthermore, because at the moment there's lots of money in the economy, it can actually create the opposite effect - in the US, the stock market has been going up since the interest rate increases, while unemployment is still going down.
+
+This is because higher interest rates funnel money to people who already have money, enabling them to invest even more and further widening inequality.
 
 Interest rate increases are untargeted and ineffective, and should not be used to control inflation. Go back to see how we could be doing all of this differently.
 
@@ -472,7 +478,9 @@ Interest rate increases are untargeted and ineffective, and should not be used t
 :: Raise wages in line with inflation [correct-answer] {"position":"500,2450","size":"100,100"}
 Absolutely the right call.
 
-The cost of the strikes to the wellbeing and health of the country is not worth some power struggle, and you know you have the money. The previous government spent far more mitigating the cost of the strikes than they would have spent to meet the needs of the union, so you know an approach like theirs was a cruel waste of time.
+The cost of the strikes to the wellbeing and health of the country is not worth some power struggle, and you know you have the money. 
+
+The previous government spent far more mitigating the cost of the strikes than they would have spent to meet the needs of the union, so you know an approach like theirs was a cruel waste of time.
 
 You can implement automatic stabilisers like automatically-adjusting tax bands based on any excessive wage growth over inflation to proactively address any demand pull inflation that might come in as a result, but there's very little risk of this happening based on historical drivers to inflation.
 
@@ -533,7 +541,9 @@ But that expense shouldn’t fall on individuals, which is why we must provide g
 
 It’s true that we’ll be giving grants to the wealthy here too, but we have other plans to address their wealth (and these grants are a drop in the ocean for them).
 
-Finally to keep an eye on inflation, we’ll need to make sure we have enough labour for this project, and that we can produce enough of the heat pumps and retrofitting materials (or import them). The training programs (offering a good salary from the very start) will attract workers from precarious gig work and the armed forces.
+Finally to keep an eye on inflation, we’ll need to make sure we have enough labour for this project, and that we can produce enough of the heat pumps and retrofitting materials (or import them). 
+
+The training programs (offering a good salary from the very start) will attract workers away from precarious zero-hours contracts and gig work.
 
 If there’s competition for the actual materials required from the private sector, with the potential to drive up inflation, we can enact emergency powers to ramp up production, or ensure that the government gets first right of refusal on those goods, at the price before the program was announced.
 
@@ -553,7 +563,9 @@ You have the right instincts - our current system of representative politics doe
 
 By making our democracy more participatory, we’ll make sure that these important policies are prioritised by government, while ensuring people feel more connected to their communities and more in control of their lives.
 
-We could set these up via sortition (so any adult in the country could be selected to be part of the assembly), setting terms for a period of several years. It would also be important to train and pay people to participate, so any inequalities up until now are not exacerbated in this process, as well as minimising financial hardship from not working.
+We could set these up via sortition (so any adult in the country could be selected to be part of the assembly), setting terms for a period of several years. 
+
+It would also be important to train and pay people to participate, so any inequalities up until now are not exacerbated in this process, as well as minimising financial hardship from not working.
 
 From here on in, let’s assume that the choices you’re making are on policy areas that the public are raising as those that need to be addressed, and that they’ve had a chance to input their thoughts into what the solutions should be ✨ let’s keep going!
 
@@ -718,20 +730,24 @@ For more reading and background on Modern Monetary Theory, see this <a href="htt
 Or <a href="https://github.com/sheridanvk/anything-we-can-do/discussions/5">join the conversation on Github</a> if you think anything in here needs tweaking or enhancing! We’d love to get your feedback :)
 
 
-:: Windfall tax on the energy providers {"position":"700,875","size":"100,100"}
-It's tempting to go for an approach like this, but it's not necessarily one that directly helps people who are suffering. 
+:: Windfall tax on the energy providers [footer] {"position":"700,875","size":"100,100"}
+It's tempting to go for an approach like this, but it's not necessarily one that actually helps people who are suffering. As we know from Modern Monetary Theory, taxes don’t fund government spending, so all that will happen is that this money will disappear from circulation.
 
-It's good in that it reduces the energy providers' profits, and also has the effect of reducing inequality by limiting the amount of money they can redistribute to their shareholders, 
+It would reduce the energy providers' profits, and also has the effect of reducing inequality by limiting the amount of money they can redistribute to their shareholders, so it's still good to do this, but it doesn't go far enough. 
 
-However nothing will change regarding the soaring amounts of money that people have to pay for their energy. And ultimately the companies may just pass on higher costs to their customers to claw back their profit margin.
+Some might argue that you're helping address inflation by taking money and therefore demand out of the system, but these people tend to have a lower propensity to consume<sup>1</sup>, so you'd have to remove a huge amount for it to have much effect on inflation.
 
-Finally as we know from Modern Monetary Theory, taxes don’t subsequently fund spending, so all that will happen is that this money will disappear from circulation.
+A windfall tax in itself won't reduce the soaring bills that people are facing for their energy. And ultimately the companies may just pass on higher costs to their customers to claw back their profit margin.
 
 Go back and try something more adventurous!
 
 <div.button-wrapper>
   [[Source of the inflation]]
 </div>
+
+<%
+s.footnotes = [{href:"https://www.britannica.com/money/propensity-to-consume", text: "Propensity to consume, in economics, the proportion of total income or of an increase in income that consumers tend to spend on goods and services rather than to save"}]
+%>
 
 
 :: Your first day in government [footer] {"position":"425,25","size":"100,100"}
@@ -1092,17 +1108,17 @@ body {
     color: #eee;
   	font-family: 'Merriweather';
   	font-size: 16px;
-  	margin: 8px;
+  	padding: 16px;
   	height: inherit;
 }
 
 #app {
 	display: grid;
   	align-items: center;
-	grid-template-rows: 10% auto;
+	grid-template-rows: min-content auto;
   	max-width: 35em;
     margin: 0 auto;
-  	grid-gap: 8px;
+  	grid-gap: 32px;
 }
 
 /* header */
@@ -1113,7 +1129,7 @@ body {
   	justify-content: space-between;
   	align-items: center;
   	font-size: 1.17em; /* h3 size*/
-  	gap: 8px;
+  	gap: 16px;
 }
 
 #title {
@@ -1137,6 +1153,7 @@ tw-story {
 }
 tw-passage {
   	height: inherit;
+  	text-align: justify;
 }
 /* buttons */
 a[data-passage] {
@@ -1186,7 +1203,6 @@ a[data-passage] > button {
   	grid-gap: 8px;
 }
 .carousel-inner {
-	width: 80vw;
     text-align: center;
     text-wrap: pretty;
     font-size: 20px;
@@ -1277,7 +1293,8 @@ a:hover {
   	overflow: hidden;
   }
   #app {
-    height: calc(100% - 16px);
+    height: 100%;
+  	grid-gap: 8px;
   } 
   #menu {
   	align-items: flex-start;
