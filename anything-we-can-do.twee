@@ -106,11 +106,11 @@ s.footnotes = [{href: "https://taxjustice.net/press/press-release-city-of-london
 
 
 :: Decarbonise, but it's not so important for us [footer] {"position":"750,2600","size":"100,100"}
-While we might be emitting less overall as a country now, our historical responsibility for climate change over our “fair share” (based on our population size) is 7%, the 4th largest in the world<sup>1</sup>. China hasn't even reached its fair share of emissions yet. 
+While we might be emitting less overall as a country now, our historical responsibility for climate change over our “fair share” (based on our population size) is 7%, the 4th largest in the world<sup>1</sup>.
 
-Admittedly China is rapidly approaching its fair share, but it is already one of the world leaders in decarbonisation, with its emissions set to peak in 2024<sup>2</sup> due to rapid rollouts of renewable energy sources, and its per-capita emissions still far below ours. We need to do our part, and quickly.
+China just recently reached its fair share, but it is already one of the world leaders in decarbonisation, with its emissions set to peak in 2024<sup>2</sup> due to rapid rollouts of renewable energy sources, and its per-capita emissions are still far below ours. 
 
-Go back to see how we'll do it.
+We need to do our part, and quickly. Go back to see how we'll do it.
 
 
 <div.button-wrapper>
@@ -169,15 +169,15 @@ s.footnotes = [{text: "The Entreprenieurial State, Mariana Mazzucato 2013"}]
 :: Don’t give in to a wage-price spiral [footer] {"position":"675,2325","size":"100,100"}
 You’ve fallen into the worst traditional economics trap of them all 🙅🏻‍♀️ 
 
-This is truly one of the most pernicious beliefs of traditional economic thinking - that if wages keep up with inflation, that will then push prices even higher, causing firms and workers to fight against each other and making the inflation even worse than it would otherwise have been.
+This is one of the most harmful beliefs of traditional economic thinking - that if wages keep up with inflation, that will then push prices even higher, causing firms and workers to fight against each other and making the inflation even worse than it would otherwise have been.
 
-There is very little evidence that this has ever happened in history - even the IMF found that the inflation of the 1970s was found to be primarily driven by skyrocketing oil prices (due to limited supply) and not further excerbated by the union-negotiated wage increaes that followed that inflation<sup>1</sup>. 
+There is very little evidence that this has ever happened in history - even the IMF found that the inflation of the 1970s was found to be primarily driven by skyrocketing oil prices (due to limited supply) and not further excerbated by the union-negotiated wage increases that came after that inflation<sup>1</sup>. 
 
 The inflation was eased due to increased oil supply in the 1980s, and not because of the heavy-handed union busting tactics of conservative leaders like Margaret Thatcher.
 
-Another case in point is Belgium, where wages are indexed to inflation by law, and which has never experienced a wage-price spiral.
+It's important to identify when inflation is coming from short term supply shocks, as it's better to handle those with temporary price controls and/or subsidies, rather than allow the price level to permanently be higher now that people can afford to pay this with higher wages. 
 
-Let's bury this myth once and for all and do things differently.
+But for more stubborn inflation over time, it's not a problem for wages to track it. Let's bury this myth once and for all and do things differently.
 
 <div.button-wrapper>
   [[Public Sector Industrial Action]] 
@@ -718,20 +718,24 @@ For more reading and background on Modern Monetary Theory, see this <a href="htt
 Or <a href="https://github.com/sheridanvk/anything-we-can-do/discussions/5">join the conversation on Github</a> if you think anything in here needs tweaking or enhancing! We’d love to get your feedback :)
 
 
-:: Windfall tax on the energy providers {"position":"700,875","size":"100,100"}
-It's tempting to go for an approach like this, but it's not necessarily one that directly helps people who are suffering. 
+:: Windfall tax on the energy providers [footer] {"position":"700,875","size":"100,100"}
+It's tempting to go for an approach like this, but it's not necessarily one that actually helps people who are suffering. As we know from Modern Monetary Theory, taxes don’t fund government spending, so all that will happen is that this money will disappear from circulation.
 
-It's good in that it reduces the energy providers' profits, and also has the effect of reducing inequality by limiting the amount of money they can redistribute to their shareholders, 
+It would reduce the energy providers' profits, and also has the effect of reducing inequality by limiting the amount of money they can redistribute to their shareholders, so it's still good to do this, but it doesn't go far enough. 
 
-However nothing will change regarding the soaring amounts of money that people have to pay for their energy. And ultimately the companies may just pass on higher costs to their customers to claw back their profit margin.
+Some might argue that you're helping address inflation by taking money and therefore demand out of the system, but these people tend to have a lower propensity to consume<sup>1</sup>, so you'd have to remove a huge amount for it to have much effect on inflation.
 
-Finally as we know from Modern Monetary Theory, taxes don’t subsequently fund spending, so all that will happen is that this money will disappear from circulation.
+A windfall tax in itself won't reduce the soaring bills that people are facing for their energy. And ultimately the companies may just pass on higher costs to their customers to claw back their profit margin.
 
 Go back and try something more adventurous!
 
 <div.button-wrapper>
   [[Source of the inflation]]
 </div>
+
+<%
+s.footnotes = [{href:"https://www.britannica.com/money/propensity-to-consume", text: "Propensity to consume, in economics, the proportion of total income or of an increase in income that consumers tend to spend on goods and services rather than to save"}]
+%>
 
 
 :: Your first day in government [footer] {"position":"425,25","size":"100,100"}
@@ -1102,7 +1106,7 @@ body {
 	grid-template-rows: 10% auto;
   	max-width: 35em;
     margin: 0 auto;
-  	grid-gap: 8px;
+  	grid-gap: 32px;
 }
 
 /* header */
@@ -1137,6 +1141,7 @@ tw-story {
 }
 tw-passage {
   	height: inherit;
+  	text-align: justify;
 }
 /* buttons */
 a[data-passage] {
@@ -1278,6 +1283,7 @@ a:hover {
   }
   #app {
     height: calc(100% - 16px);
+  	grid-gap: 8px;
   } 
   #menu {
   	align-items: flex-start;
