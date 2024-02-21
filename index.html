@@ -316,51 +316,63 @@ const addCarouselToElement = async (
     carouselItemsCollectionSelector
   );
 
-  htmlEl.append(`<button class="carousel-control-prev" type="button" data-bs-target="${topLevelCSSSelector}" data-bs-slide="prev">
-  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-  <span class="visually-hidden">Previous</span>
-</button>
-<button class="carousel-control-next" type="button" data-bs-target="${topLevelCSSSelector}" data-bs-slide="next">
-  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-  <span class="visually-hidden">Next</span>
-</button>`);
-
   const addCarousel = async (selector) => {
-    let attempts = 3;
+    let remainingAttempts = 0;
+    const delays = [500, 2000, 4000];
 
-    const tryAddCarousel = (selector, resolveFn) => {
+    const tryAddCarousel = (selector, resolveFn, rejectFn) => {
       try {
         const carousel = new bootstrap.Carousel(selector, {
           wrap: false,
         });
+
+        console.log("successfully added carousel");
+        htmlEl.append(`<button class="carousel-control-prev" type="button" data-bs-target="${topLevelCSSSelector}" data-bs-slide="prev">
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span class="visually-hidden">Previous</span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="${topLevelCSSSelector}" data-bs-slide="next">
+  <span class="carousel-control-next-icon" aria-hidden="true""></span>
+  <span class="visually-hidden">Next</span>
+</button>`);
         checkControlVisibility(selector);
         resolveFn(carousel);
       } catch {
-        throw Error("bootstrap not yet available; try again in a few");
+        if (remainingAttempts <= 3) {
+          console.log("bootstrap not yet available, try again in a few");
+          setTimeout(
+            tryAddCarousel,
+            delays[remainingAttempts], // adds backoff
+            selector,
+            resolveFn,
+            rejectFn
+          );
+          remainingAttempts++;
+        } else {
+          rejectFn("failed to add carousel");
+        }
       }
     };
     const initialisationPromise = new Promise((resolve, reject) => {
       try {
-        tryAddCarousel(selector, resolve);
+        tryAddCarousel(selector, resolve, reject);
       } catch (e) {
-        if (attempts > 0) {
-          console.log(e);
-          attempts--;
-          setTimeout(() => tryAddCarousel(selector, resolve), 500);
-        } else {
-          reject("failed to add carousel");
-        }
+        reject(e);
       }
     });
     return initialisationPromise;
   };
-
-  const carousel = await addCarousel(topLevelCSSSelector);
-
-  htmlEl.on("slid.bs.carousel", (e) => {
-    checkControlVisibility(e.target);
-  });
-  return carousel;
+  try {
+    const carousel = await addCarousel(topLevelCSSSelector);
+    htmlEl.on("slid.bs.carousel", (e) => {
+      checkControlVisibility(e.target);
+    });
+    return carousel;
+  } catch {
+    window.alert(
+      "Could not load all the required libraries; please check your connection and try again"
+    );
+  }
 };
 
 const showFootnote = async (htmlContent) => {
