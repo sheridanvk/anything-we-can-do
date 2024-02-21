@@ -339,19 +339,21 @@ const addCarouselToElement = async (
         rejectFn("bootstrap not yet available; try again in a few");
       }
     };
+	
+    const sleep = (ms = 0) => new Promise(resolve => setTimeout(resolve, ms));
+	
     const initialisationPromise = new Promise((resolve, reject) => {
-      if (remainingAttempts > 0) {
+      while (remainingAttempts > 0) {
         try {
           tryAddCarousel(selector, resolve, reject);
+	  break;
         } catch (e) {
             console.log(e);
             remainingAttempts--;
             sleep(500);
 	}
-      } 
-      else {
-        reject("failed to add carousel");
       }
+      reject("failed to add carousel");
     });
     return initialisationPromise;
   };
