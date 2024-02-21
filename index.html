@@ -350,7 +350,7 @@ const addCarouselToElement = async (
         } catch (e) {
             console.log(e);
             remainingAttempts--;
-            sleep(500);
+            await sleep(500);
 	}
       }
       reject("failed to add carousel");
