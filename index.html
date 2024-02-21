@@ -326,7 +326,7 @@ const addCarouselToElement = async (
 </button>`);
 
   const addCarousel = async (selector) => {
-    let attempts = 3;
+    let remainingAttempts = 3;
 
     const tryAddCarousel = (selector, resolveFn, rejectFn) => {
       try {
@@ -340,16 +340,17 @@ const addCarouselToElement = async (
       }
     };
     const initialisationPromise = new Promise((resolve, reject) => {
-      try {
-        tryAddCarousel(selector, resolve, reject);
-      } catch (e) {
-        if (attempts > 0) {
-          console.log(e);
-          attempts--;
-          setTimeout(() => tryAddCarousel(selector, resolve, reject), 500);
-        } else {
-          reject("failed to add carousel");
-        }
+      if (remainingAttempts > 0) {
+        try {
+          tryAddCarousel(selector, resolve, reject);
+        } catch (e) {
+            console.log(e);
+            attempts--;
+            sleep(500);
+	}
+      } 
+      else {
+        reject("failed to add carousel");
       }
     });
     return initialisationPromise;
