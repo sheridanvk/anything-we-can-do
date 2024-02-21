@@ -328,7 +328,7 @@ const addCarouselToElement = async (
   const addCarousel = async (selector) => {
     let attempts = 3;
 
-    const tryAddCarousel = (selector, resolveFn) => {
+    const tryAddCarousel = (selector, resolveFn, rejectFn) => {
       try {
         const carousel = new bootstrap.Carousel(selector, {
           wrap: false,
@@ -336,17 +336,17 @@ const addCarouselToElement = async (
         checkControlVisibility(selector);
         resolveFn(carousel);
       } catch {
-        throw Error("bootstrap not yet available; try again in a few");
+        rejectFn("bootstrap not yet available; try again in a few");
       }
     };
     const initialisationPromise = new Promise((resolve, reject) => {
       try {
-        tryAddCarousel(selector, resolve);
+        tryAddCarousel(selector, resolve, reject);
       } catch (e) {
         if (attempts > 0) {
           console.log(e);
           attempts--;
-          setTimeout(() => tryAddCarousel(selector, resolve), 500);
+          setTimeout(() => tryAddCarousel(selector, resolve, reject), 500);
         } else {
           reject("failed to add carousel");
         }
