@@ -345,7 +345,7 @@ const addCarouselToElement = async (
           tryAddCarousel(selector, resolve, reject);
         } catch (e) {
             console.log(e);
-            attempts--;
+            remainingAttempts--;
             sleep(500);
 	}
       } 
