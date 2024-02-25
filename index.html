@@ -271,12 +271,12 @@ const addCarouselContentAndIndicators = (
   checkControlVisibility(topLevelCSSSelector);
 };
 
-const removeCarouselContentAndIndicators = (topLevelCSSSelector) => {
+const removeCarouselContentAndIndicators = (carousel) => {
   if (!isMobile) {
     return;
   }
-  window.story.state.footnoteCarousel.to(0);
-  $(`${topLevelCSSSelector} > .carousel-indicators`).html("");
+  carousel.to(0);
+  $(carousel._indicatorsElement).html("");
 };
 
 const checkControlVisibility = (topLevelCSSSelector) => {
@@ -377,15 +377,22 @@ const addCarouselToElement = async (
 
 const showFootnote = async (htmlContent) => {
   $("#footnote-content #footnote-passages").html(htmlContent);
-  $("#footnote-container").css("display", "flex");
-  if (!window.story.state.footnoteCarousel) {
-    window.story.state.footnoteCarousel = await addCarouselToElement(
+  // If this is the first time we're showing the footnote container, add all the html elements and other config
+  // that we need. Otherwise just load up the content and the relevant indicators to move through the content.
+  if (!window.story.state.footnoteCarouselEnabled) {
+    const footnoteCarousel = await addCarouselToElement(
       "#footnote-content",
       "#footnote-passages"
     );
+    $("#close-footnote").on("click", () => {
+      $("#footnote-container").css("display", "none");
+      removeCarouselContentAndIndicators(footnoteCarousel);
+    });
+    window.story.state.footnoteCarouselEnabled = true;
   } else {
     addCarouselContentAndIndicators("#footnote-content", "#footnote-passages");
   }
+  $("#footnote-container").css("display", "flex");
 };
 
 const fixParsingError = (html) => `<p>${html.replace("<p></p>", "</p>")}`;
@@ -432,17 +439,11 @@ $(window).on("sm.story.started", () => {
       console.log("failed to load bootstrap");
     });
 
-  // Add footnotes container. This is outside of the passage and therefore we only want to render it once per story load.
+  //Add the core pieces of the UI
   const bodyElement = $("body");
   bodyElement.prepend(
     '<div id="footnote-container"><div id="footnote-content"><div id="footnote-passages"/><button id="close-footnote">🅇</button></div></div>'
   );
-
-  $("#close-footnote").on("click", () => {
-    $("#footnote-container").css("display", "none");
-    removeCarouselContentAndIndicators("#footnote-content");
-  });
-
   $("#footnote-container").on("click", (event) => event.stopPropagation());
 
   bodyElement.wrapInner('<div id="app">');
@@ -532,9 +533,8 @@ $(window).on("sm.passage.shown", async (e, data) => {
   });
 
   // Add carousel if we're on mobile
-  window.story.state.passageCarousel = await addCarouselToElement(
-    "#passage-container",
-    "#passages"
+  window.story.state.passageCarousel = JSON.stringify(
+    await addCarouselToElement("#passage-container", "#passages")
   );
 
   // If this passage was the non-traditional answer, shoot confetti
