@@ -391,6 +391,12 @@ const showFootnote = async (htmlContent) => {
 const fixParsingError = (html) => `<p>${html.replace("<p></p>", "</p>")}`;
 
 $(window).on("sm.story.started", () => {
+  // Add favicon
+  $("<link/>", {
+    rel: "icon",
+    href: "icons/sustainable-pound.svg",
+  }).appendTo("head");
+
   // Load external CSS
   $("<link/>", {
     rel: "stylesheet",
