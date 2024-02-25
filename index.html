@@ -480,6 +480,7 @@ $(window).on("sm.passage.showing", (_, data) => {
   // query param (for deep linking)
   const currentUrl = new URL(window.location.href);
   currentUrl.searchParams.set(deepLinkQueryParam, data.passage.name);
+  debugger;
   window.history.replaceState(window.history.state, "", currentUrl.toString());
 });
 
