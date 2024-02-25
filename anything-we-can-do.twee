@@ -939,8 +939,7 @@ $(window).on("sm.story.started", () => {
   // Add favicon
   $("<link/>", {
     rel: "icon",
-    type: "text/css",
-    href: "./icons/sustainable-pound.svg",
+    href: "icons/sustainable-pound.svg",
   }).appendTo("head");
 
   // Load external CSS
