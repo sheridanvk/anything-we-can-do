@@ -173,7 +173,7 @@ a:hover {
   	background-color: rgba(34, 34, 34, 1);
     border-radius: 10px;
 	border: #eee solid;
-  	height: fit-content%;
+  	height: fit-content;
   	position: relative;
   	padding-top: 30px;
   	padding-inline: 16px;
@@ -254,6 +254,9 @@ const addCarouselContentAndIndicators = (
   topLevelCSSSelector,
   carouselItemsCollectionSelector
 ) => {
+  if (!isMobile) {
+    return;
+  }
   const content = $(`${carouselItemsCollectionSelector} > p`);
   content.each((idx, item) => {
     $(item).addClass("carousel-item");
@@ -567,15 +570,21 @@ $(window).on("sm.passage.shown", async (e, data) => {
 $(window).on("sm.passage.hidden", () => {
   window.story.state.footnotes = null;
 });
-</script><tw-tag name="startup" color="red"></tw-tag><tw-tag name="footer" color="purple"></tw-tag><tw-tag name="happy_mmt_return" color="yellow"></tw-tag><tw-tag name="mmt_sad_return" color="red"></tw-tag><tw-tag name="mmt_traditional_return" color="orange"></tw-tag><tw-tag name="mmt_informed_return" color="green"></tw-tag><tw-tag name="correct-answer" color="yellow"></tw-tag><tw-passagedata pid="1" name="Express regret that your hands are tied" tags="footer" position="725,25" size="100,100">You’ve fallen into the traditional economics trap 🙅🏻‍♀️ 
+</script><tw-tag name="startup" color="red"></tw-tag><tw-tag name="footer" color="purple"></tw-tag><tw-tag name="happy_mmt_return" color="yellow"></tw-tag><tw-tag name="mmt_sad_return" color="red"></tw-tag><tw-tag name="mmt_traditional_return" color="orange"></tw-tag><tw-tag name="mmt_informed_return" color="green"></tw-tag><tw-tag name="correct-answer" color="yellow"></tw-tag><tw-passagedata pid="1" name="Business Growth Programme" tags="footer" position="725,25" size="100,100">This is what most of our politicians would say, but it creates all kinds of problems. 
+
+For starters, when you prioritise growth without regulating what kinds of activities it should come from, then that is how you get massively bloated, non-productive sectors like the housing market (housing makes up over 12% of UK GDP&lt;sup&gt;1&lt;/sup&gt;).
+
+It also environmentally damaging sectors like the finance industry or in areas like consulting, which keep the government dependent on skills from the private sector when it should receive the investment it needs to hire its own top talent&lt;sup&gt;2&lt;/sup&gt;.
+
+On top of all that, the idea that you can&#39;t fund public services without taxpayer money, or money that you&#39;ve borrowed is completely backwards. 
 
 Back when you used to be able to exchange UK pounds for gold (what&#39;s commonly known as the gold standard), it’s true that you would have to find more gold to back the additional spending that you want to do. 
 
 Otherwise you would run the risk of people wanting to convert those new pounds you created into gold at the agreed exchange rate, and you wouldn&#39;t have enough to pay them all.
 
-But since the 1970s we’ve had a fiat currency&lt;sup&gt;1&lt;/sup&gt;, which means that the currency isn’t convertible at a fixed rate to gold or anything else, and the government has more flexibility over how much money is available to our economy. 
+But since the 1970s we’ve had a fiat currency&lt;sup&gt;3&lt;/sup&gt;, which means that the currency isn’t convertible at a fixed rate to gold or anything else, and the government has more flexibility over how much money is available to our economy. 
 
-This means that like Keynes said: &quot;Anything we can actually do, we can afford&quot;. For more information, click the icon in the top right to learn all about Modern Monetary Theory.
+This means that like Keynes said: &quot;Anything we can actually do, we can afford&quot;. For more information, click the icon in the top right to learn all about Modern Monetary Theory at any point in the game.
 
 Go back and let&#39;s see how we can use this insight to build a better economy.
 
@@ -584,7 +593,15 @@ Go back and let&#39;s see how we can use this insight to build a better economy.
 &lt;/div&gt;
 
 &lt;%
-s.footnotes = [{href:&quot;https://en.wikipedia.org/wiki/Pound_sterling#Free-floating_pound&quot;, text: &quot;Pound sterling, Wikipedia&quot;}]
+s.footnotes = [{
+text:&quot;GDP boosted by £158bn of ‘phantom rent’, New Economics Foundation&quot;, href:&quot;https://web.archive.org/web/20160420012102/http://www.neweconomics.org/press/entry/gdp-boosted-by-158bn-of-phantom-rent-nef-research-reveals&quot;
+},{
+href:&quot;https://www.theguardian.com/books/2023/feb/16/the-big-con-by-mariana-mazzucato-and-rosie-collington-review-how-consultancy-firms-cash-in&quot;,
+text:&quot;The Big Con by Mariana Mazzucato and Rosie Collington review – how consultancy firms cash in, The Guardian&quot;
+},{
+href:&quot;https://en.wikipedia.org/wiki/Pound_sterling#Free-floating_pound&quot;, 
+text: &quot;Pound sterling, Wikipedia&quot;
+}]
 %&gt;</tw-passagedata><tw-passagedata pid="2" name="Raise interest rates to cool demand" tags="" position="675,625" size="100,100">You’ve fallen into the traditional economics trap 🙅🏻‍♀️ 
 
 Raising interest rates is supposed to help with inflation by making unemployment go up because businesses can’t afford to borrow money to hire more people any more. The idea is that this would weaken wages and worker power, because there would be fewer jobs to go around.
@@ -617,24 +634,26 @@ So let&#39;s find out more about the source of the inflation!
 	[[Source of the inflation]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="4" name="Tackling Inflation" tags="" position="450,625" size="100,100">People are struggling to afford what they need because inflation is high and their wages are not keeping up. What do you do?
 
-Tell your economists to find out more about where the inflation is coming from before taking action
+Either: Tell your economists to find out more about where the inflation is coming from before taking action
 
-Raise interest rates to cool demand and therefore reduce the rate of price increase
+Or: Raise interest rates to cool demand and therefore reduce the rate of price increase
 
 &lt;div.button-wrapper&gt;
   [[Find out more about where the inflation is coming from]]
   [[Raise interest rates to cool demand]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="Source of the inflation" tags="" position="450,875" size="100,100">The economist team tells you that the biggest contributor to inflation right now is coming from high energy prices. How will you respond?
 
-Launch a national energy guarantee, providing everyone’s essential energy needs for free and ramping up costs for any excessive usage over that.
+Either: Launch a national energy guarantee, providing everyone’s essential energy needs for free and ramping up costs for any excessive usage over that.
 
-Implement a windfall tax on the energy providers.
+Or: Implement a windfall tax on the energy providers.
 
 
 &lt;div.button-wrapper&gt;
   [[National energy guarantee]]
   [[Windfall tax on the energy providers]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="6" name="Find whatever money you need" tags="correct-answer" position="450,175" size="100,100">Yes! and honestly it’s refreshing to see politicians who aren’t being held back by outdated ways of thinking.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="6" name="Government Investment Programme" tags="correct-answer" position="450,175" size="100,100">Yes! and honestly it’s refreshing to see politicians who aren’t being held back by outdated ways of thinking.
+
+We don&#39;t need economic growth to spend what&#39;s required on public services and moving the economy towards industries that enable people and the planet to thrive. We need to train workers and build infrastructure to make these things possible, and for that the UK government is not constrained by finding money to pay for it.
 
 If you picked this option because it felt right, but you need an explainer on why, click on the little icon in the top right to learn more about Modern Monetary Theory. The explainer will be there for the whole game in case you need a refresher at any point.
 
@@ -656,38 +675,51 @@ If the state spends more than it taxes back (what’s known as a deficit — the
 
 In other words, a state deficit is a good thing for us. The only risk comes if the state puts too much money into an area where there’s already a lot of competition for resources - this is what might lead to inflation (which you’ll learn more about in the game).
 
-One other important thing is that this only works if you have monetary sovereignty - that is you don’t have a fixed exchange rate to any other currency or commodity, and you have little to no debt in foreign currencies. This is not the case for many Global South countries, so we should be fighting to cancel their foreign debts and help them achieve this.
+One other important thing is that this only works if you have monetary sovereignty - that is you don’t have a fixed exchange rate to any other currency or commodity, and you have little to no debt in foreign currencies. 
+
+This is not the case for many Global South countries, so we should be fighting to cancel their foreign debts and help them achieve this. There&#39;s more information on this &lt;a href=&quot;https://www.rosalux.de/en/news/id/41681/modern-monetary-theory-in-the-periphery&quot; target=&quot;_blank&quot;&gt;via the Rosa Luxemburg Foundation here&lt;/a&gt;
 
 This is definitely not the only way to run an economy - perhaps in an ideal world, we wouldn’t need money at all. But for now it’s what we have, so it’s important to know the rules and make sure everyone can thrive in this system.</tw-passagedata><tw-passagedata pid="8" name="Decide what to do first" tags="" position="450,325" size="100,100">So now that it’s clear that money isn’t the main obstacle here, how do you decide what to do first?
 
-Set up Citizen’s Assembly networks to ensure that communities who are currently bearing the brunt of the crisis are key stakeholders in how to solve them.
+Either: Set up Community Assembly networks to ensure that communities who are currently bearing the brunt of the crisis are key stakeholders in how to solve them.
 
-Start with the biggest issue that the tabloid newspapers have been writing about.
+Or: The biggest newspapers and broadcast news channels have been featuring reports on a number of issues extremely prominently over the past few years - you put together a task force to look into and resolve those issues.
 
 &lt;div.button-wrapper&gt;
-    [[Set up Citizen’s Assembly networks]]
-    [[Issues from tabloid newspapers]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="9" name="Set up Citizen’s Assembly networks" tags="correct-answer" position="450,475" size="100,100">You have the right instincts - our current system of representative politics doesn&#39;t result in popular policies (such as the re-nationalisation of our public services) becoming reality. 
+    [[Community Assembly networks]]
+    [[Task force to address media issues]]
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="9" name="Community Assembly networks" tags="correct-answer" position="450,475" size="100,100">You have the right instincts - our current system of representative politics doesn&#39;t result in popular policies (such as the re-nationalisation of our public services) becoming reality. 
 
 By making our democracy more participatory, we’ll make sure that these important policies are prioritised by government, while ensuring people feel more connected to their communities and more in control of their lives.
 
 We could set these up via sortition (so any adult in the country could be selected to be part of the assembly), setting terms for a period of several years. 
 
-It would also be important to train and pay people to participate, so any inequalities up until now are not exacerbated in this process, as well as minimising financial hardship from not working.
+It would also be important to train and pay people to participate, so any inequalities up until now are not exacerbated in this process, as well as minimising financial hardship from not working. More details on how to run these can be found at &lt;a href=&quot;https://globalassembly.org/ga-resources&quot; target=&quot;_blank&quot;&gt;Global Assembly.&lt;/a&gt;
 
 From here on in, let’s assume that the choices you’re making are on policy areas that the public are raising as those that need to be addressed, and that they’ve had a chance to input their thoughts into what the solutions should be ✨ let’s keep going!
 
 &lt;div.button-wrapper&gt;
 	[[Tackling Inflation]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="Issues from tabloid newspapers" tags="" position="750,400" size="100,100">You’ve fallen into the traditional politican&#39;s trap 🙅🏻‍♀️ 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="Task force to address media issues" tags="" position="750,400" size="100,100">This isn&#39;t necessarily the right way to make sure you&#39;re focusing on what most people truly care about.
 
 It’s important to keep an eye on, but not let yourself get swayed by billionaire-run media. Their interests align with keeping everything the way they are, and they’re going to fight tooth and nail for themselves and the rest of the 1%.
+
+Often they represent viewpoints that are very out of step with the population, like anti-migrant sentiment that is not shared by most people in the UK&lt;sup&gt;1&lt;/sup&gt;, or refusing to pressure our politicians to call for a ceasefire and end to the occupation in Palestine, when this is supported by more than 70% of us&lt;sup&gt;2&lt;/sup&gt;.
 
 By showing that you’re empowering working people and helping them make positive change (and with good social media and other coverage of that change!) you’ll be able to drown out their manipulation. Let’s go back and see what the other approach would have given us.
 
 &lt;div.button-wrapper&gt;
 	[[Decide what to do first]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="National energy guarantee" tags="footer correct-answer" position="475,1025" size="100,100">Yes! This is an exciting option already proposed by many, including the New Economics Foundation&lt;sup&gt;1&lt;/sup&gt;. The reference goes into the specifics of the scheme in much more detail, but this would treat energy provision more like the NHS, as a basic need for all. 
+&lt;/div&gt;
+
+&lt;%
+s.footnotes = [{
+text: &quot;Most British people hold positive view of immigration, survey reveals&quot;,
+href:&quot;https://www.theguardian.com/uk-news/2023/nov/03/most-british-people-hold-positive-view-of-immigration-survey-reveals&quot;
+}, {
+href:&quot;https://www.map.org.uk/news/archive/post/1548-opinion-poll-shows-overwhelming-british-public-support-for-an-immediate-ceasefire-in-gaza&quot;, text: &quot;Opinion poll shows overwhelming British public support for an immediate ceasefire in Gaza&quot;
+}]
+%&gt;</tw-passagedata><tw-passagedata pid="11" name="National energy guarantee" tags="footer correct-answer" position="475,1025" size="100,100">Yes! This is an exciting option already proposed by many, including the New Economics Foundation&lt;sup&gt;1&lt;/sup&gt;. The reference goes into the specifics of the scheme in much more detail, but this would treat energy provision more like the NHS, as a basic need for all. 
 
 By providing everyone&#39;s basic needs for free, and then increasing costs progressively as energy usage rises, it would also incentivise reductions in usage for richer households that are using more power (and should include social tariffs/subsidies for any poorer households that lose out with the higher prices).
 
@@ -786,18 +818,18 @@ Let&#39;s see what we should tackle next.
   [[Tackling the housing crisis]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="17" name="Decarbonising the grid" tags="" position="500,1425" size="100,100">So this is all great news, but we haven’t fully decarbonised our electrical grid yet, so the electricity that people are using is powered by fossil fuels and that’s where the government’s money is going. Can we do better?
 
-Build out a nationalised renewable energy provider, using government funds to build new generation and transmission infrastructure.
+Either: Build out a nationalised renewable energy provider, using government funds to build new generation and transmission infrastructure.
 
-No need, the fossil fuel companies are investing in renewables so our money helps them to help us decarbonise.
+Or: No need, the fossil fuel companies are investing in renewables so our money helps them to help us decarbonise.
 
 &lt;div.button-wrapper&gt;
   [[Nationalised renewable energy provider]]
   [[Fossil fuel companies will decarbonise]] 
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="18" name="Overall energy needs" tags="" position="500,1700" size="100,100">So now that people can afford their energy needs, aggregate energy demand in the UK has gone up. What should you do?
 
-Reduce demand by making local public transportation free, and by massively upgrading the network all across the UK.
+Either: Reduce demand by making local public transportation free, and by massively upgrading the network all across the UK.
 
-Build more renewable energy capacity to meet whatever need arises.
+Or: Build more renewable energy capacity to meet whatever need arises.
 
 
 &lt;div.button-wrapper&gt;
@@ -815,9 +847,9 @@ Go back to explore a fairer approach.
 	[[Overall energy needs]] 
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="20" name="Energy Efficiency" tags="" position="500,1150" size="100,100">Speaking of reductions, many UK homes leak a lot of heat, resulting in high bills that aren’t covered by the energy guarantee. What can you do to help here?
 
-Publish a list of energy saving measures.
+Either: Publish a list of energy saving measures.
 
-Massive retrofitting and heat pump rollout, with fully-paid grants to incentivise households to carry out the work, and apprenticeships/paid training programs to build up skilled workforce
+Or: Massive retrofitting and heat pump rollout, with fully-paid grants to incentivise households to carry out the work, and apprenticeships/paid training programs to build up skilled workforce
 
 &lt;div.button-wrapper&gt;
   [[List of energy saving measures]]
@@ -854,29 +886,29 @@ You&#39;ll learn about why the traditional way is causing the various crises we 
   [[Your first day in government]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="24" name="Your first day in government" tags="footer" position="425,25" size="100,100">Imagine you’re part of the government, and it’s your first day in charge of running the UK. The climate and cost-of-living crises are devastating the country and the world, and the people of your country are demanding change. What’s your first step?
 
-Express regret that your hands are tied by the last government - they borrowed too much, so you can’t spend money on anything that would help until the economy starts growing again
+Either: Start a country-wide initiative with private businesses to kick-start economic growth, so that you&#39;ll have more tax revenue to spend on public services. The resulting higher Gross Domestic Product (GDP)&lt;sup&gt;1&lt;/sup&gt; will also allow you to borrow more.
 
-Acknowledge that because all UK currency comes from the UK government&lt;sup&gt;1&lt;/sup&gt; you can always find whatever money you need - so long as the real resources (labour, materials) are there to be bought with that money
+Or: Immediately set to work planning out a programme of government investment in services, jobs and infrastructure. As long as the real resources (labour, materials) are available (or can be made available), your government shouldn&#39;t feel held back by worries of how to pay for it.
 
 &lt;div.button-wrapper&gt;
-	[[Express regret that your hands are tied]]
-	[[Find whatever money you need]]
+	[[Business Growth Programme]]
+	[[Government Investment Programme]]
 &lt;/div&gt;
 
 &lt;%
-s.footnotes = [{ text: &quot;It&#39;s true that private banks can create money too, but only as loans that have to be paid back with interest&quot;}]
-%&gt;</tw-passagedata><tw-passagedata pid="25" name="Tackling the housing crisis" tags="" position="500,2050" size="100,100">The improvements you&#39;ve made to energy costs with the energy guarantee and nationalised energy provider are a huge success; people have more disposable income to afford other essentials. 
+s.footnotes = [{text: &quot;Gross Domestic Product&quot;, href: &quot;https://en.wikipedia.org/wiki/Gross_domestic_product&quot;}]
+%&gt;</tw-passagedata><tw-passagedata pid="25" name="Tackling the housing crisis" tags="" position="500,2050" size="100,100">The improvements you&#39;ve made to energy costs with the energy guarantee and the nationalised energy provider are a huge success; people have more money left over to afford other essentials. 
 
-However, housing is still a huge part of people’s expenditure and often extremely hard to find. How can you help improve this situation?
+Either: However, housing is still a huge part of people’s expenditure and often extremely hard to find. How can you help improve this situation?
 
-Make housing a human right, not a source of wealth, with a suite of policies targeting out-of-control private rents
+Or: Make housing a human right, not a source of wealth, with a suite of policies targeting out-of-control private rents
 
 Increase housing benefit for private renters
 
 &lt;div.button-wrapper&gt;
   [[Make housing a human right]]
   [[Increase housing benefit]] 
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="Make housing a human right" tags="correct-answer" position="500,2175" size="100,100">This is exactly the right principle to be keeping in mind when designing policies for housing in the UK - housing is a human right. 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="26" name="Make housing a human right" tags="correct-answer footer" position="500,2175" size="100,100">This is exactly the right principle to be keeping in mind when designing policies for housing in the UK - housing is a human right. 
 
 There are many things that could be done here - you could cap maximum rents to a proportion of average wages in each area, cap annual rent increases and implement heavy taxes on second homes and empty homes, for example.
 
@@ -884,7 +916,7 @@ In order to combat the likely decrease in house prices, given that housing would
 
 Knowing what you do about where money comes from in the UK, you could go even further with your government&#39;s spending power to buy up existing housing stock from landlords who no longer want to rent under the new rules, and turn them into council housing.
 
-Even better, you could set up community wealth funds to purchase the housing, so that future governments without the people&#39;s interest in mind can&#39;t choose to sell the housing stock back off again.
+Even better, you could fund community land trusts&lt;sup&gt;1&lt;/sup&gt; to purchase the housing, so that future governments without the people&#39;s interest in mind can&#39;t choose to sell the housing stock back off again.
 
 Finally you can build more social housing appropriate to people’s needs, in communities where all essentials are available within 15min walk or public transport - but the priority should be to ensure that the housing we do have is being used in the most socially-benefical ways.
 
@@ -892,7 +924,12 @@ Let&#39;s see what we can do about the waves of public sector industrial action 
 
 &lt;div.button-wrapper&gt;
   [[Public Sector Industrial Action]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="27" name="Increase housing benefit" tags="" position="750,2050" size="100,100">I see that you&#39;re trying to help people here, and while this definitely would in the short term, it does nothing to address the systemic problems with how we view housing in the UK. The housing benefit would go straight to private landlords and further increase wealth inequalities in the UK. 
+&lt;/div&gt;
+
+&lt;%
+s.footnotes = [{href:&quot;https://www.communitylandtrusts.org.uk/about-clts/what-is-a-community-land-trust-clt/&quot;, text: &quot;What is a Community Land Trust?&quot;}]
+%&gt;
+</tw-passagedata><tw-passagedata pid="27" name="Increase housing benefit" tags="" position="750,2050" size="100,100">I see that you&#39;re trying to help people here, and while this definitely would in the short term, it does nothing to address the systemic problems with how we view housing in the UK. The housing benefit would go straight to private landlords and further increase wealth inequalities in the UK. 
 
 Let&#39;s think bigger.
 
@@ -900,9 +937,9 @@ Let&#39;s think bigger.
   [[Tackling the housing crisis]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="28" name="Public Sector Industrial Action" tags="" position="500,2325" size="100,100">There’s been disruption all over the UK for many years now because of strikes from public sector workers in the NHS and railways, asking for better pay and conditions to reverse years of austerity and fight cuts. What do you do?
 
-Don’t give in. If you do, it’ll create a wage-price spiral as the workers’ additional income will drive up prices, causing them to demand more money and result in out-of-control inflation.
+Either: Don’t give in. If you do, it’ll create a wage-price spiral as the workers’ additional income will drive up prices, causing them to demand more money and result in out-of-control inflation.
 
-Work with the unions to come to an agreement ensuring that their wages are keeping up with inflation.
+Or: Work with the unions to come to an agreement ensuring that their wages are keeping up with inflation.
 
 &lt;div.button-wrapper&gt;
   [[Don’t give in to a wage-price spiral]]
@@ -940,9 +977,9 @@ Let&#39;s see what&#39;s next!
   [[UK decarbonisation]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="31" name="UK decarbonisation" tags="" position="500,2600" size="100,100">The UK has been a huge net contributor to the climate crisis, as one of the first countries to industrialise. How will this influence your policies?
 
-It&#39;s a motivation to go as quickly as possible - for example we should quickly reduce high-carbon sectors like the aviation, finance and tourism sectors, to free those people up for well-paid jobs in decarbonisation and low-carbon professions like the public transport, health and care sectors. 
+Either: It&#39;s a motivation to go as quickly as possible - for example we should quickly reduce high-carbon sectors like the aviation, finance and tourism sectors, to free those people up for well-paid jobs in decarbonisation and low-carbon professions like the public transport, health and care sectors. 
 
-It&#39;s a factor, but other countries like China produce emissions that are much bigger than ours now, so while we should still decarbonise, we&#39;re not the biggest priority.
+Or: It&#39;s a factor, but other countries like China produce emissions that are much bigger than ours now, so while we should still decarbonise, we&#39;re not the biggest priority.
 
 &lt;div.button-wrapper&gt;
   [[Decarbonise as quickly as possible]]
@@ -976,9 +1013,9 @@ We need to do our part, and quickly. Go back to see how we&#39;ll do it.
 s.footnotes = [{href:&quot;https://www.sciencedirect.com/science/article/pii/S2542519620301960&quot;, text: &quot;Jason Hickel, Quantifying national responsibility for climate breakdown&quot;}, {href: &quot;https://www.carbonbrief.org/analysis-chinas-emissions-set-to-fall-in-2024-after-record-growth-in-clean-energy/&quot;, text: &quot;Analysis: China’s emissions set to fall in 2024 after record growth in clean energy, Carbon Brief&quot;}]
 %&gt;</tw-passagedata><tw-passagedata pid="34" name="Caring for our older members of society" tags="" position="500,2850" size="100,100">By making housing less profitable and taking lots of it off the private market, you’re taking away a source of wealth that many people in the UK are currently using to fund retirement. How do you address this issue?
 
-Provide more tax breaks for people to save money in their pensions.
+Either: Provide more tax breaks for people to save money in their pensions.
 
-Establish a Universal Care Service where everyone will either be able to stay in their homes with the care they need, or live in assisted housing.
+Or: Establish a Universal Care Service where everyone will either be able to stay in their homes with the care they need, or live in assisted housing.
 
 &lt;div.button-wrapper&gt;
   [[Tax breaks for people to save money in their pensions]]
@@ -1007,12 +1044,12 @@ Moving on!
 	[[What should we do about wealth?]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="37" name="What should we do about wealth?" tags="footer" position="500,3125" size="100,100">We know that the richest in our society contribute the most to carbon emissions - in Europe, the richest 10% contribute about as much as the entire poorest 50%&lt;sup&gt;1&lt;/sup&gt;. What should you do about this?
 
-Implement a suite of taxes targeting wealth and inequality. 
+Either: Implement a suite of taxes targeting wealth and inequality. This will ensure that we reduce the power of the rich over politics and curb their outsize carbon footprints due to luxury goods like private jets.
 
-We shouldn&#39;t target wealth too much - the wealthy will innovate so we can get out of this crisis
+Or: We shouldn&#39;t target wealth too much - wealthy people set up businesses and fuel innovation, which will help us to get out of this crisis
 
 &lt;div.button-wrapper&gt;
-  [[Implement a suite of taxes targeting wealth and inequality]]
+  [[Suite of taxes targeting wealth and inequality]]
   [[Don&#39;t target innovative wealthy people]] 
 &lt;/div&gt;
 
@@ -1031,8 +1068,11 @@ Go back to see some ways we can do just that.
 
 
 &lt;%
-s.footnotes = [{text: &quot;The Entreprenieurial State, Mariana Mazzucato 2013&quot;}]
-%&gt;</tw-passagedata><tw-passagedata pid="39" name="Implement a suite of taxes targeting wealth and inequality" tags="correct-answer" position="500,3275" size="100,100">Absolutely right - we can implement a wealth tax, but the rich are really good at getting around those, so we&#39;ll probably need to implement a suite of taxes that target all the ways in which the wealthy earn and hoard more than their fair share. The following are an incomplete list of ideas that we could implement:
+s.footnotes = [{
+text: &quot;The Entrepreneurial State, Mariana Mazzucato 2013&quot;,
+href: &quot;https://uk.bookshop.org/p/books/the-entrepreneurial-state-debunking-public-vs-private-sector-myths-mariana-mazzucato/1187097?ean=9780141986104&quot;
+}]
+%&gt;</tw-passagedata><tw-passagedata pid="39" name="Suite of taxes targeting wealth and inequality" tags="correct-answer" position="500,3275" size="100,100">Absolutely right - we can implement a wealth tax, but the rich are really good at getting around those, so we&#39;ll probably need to implement a suite of taxes that target all the ways in which the wealthy earn and hoard more than their fair share. The following are an incomplete list of ideas that we could implement:
 
 Reform tax laws to ensure that unearned income (dividends, capital gains, etc) is taxed at the same levels as earned income like wages
 
@@ -1052,9 +1092,9 @@ Let&#39;s think next about making sure that everyone has access to a good job.
   [[Access to a good job]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="40" name="Access to a good job" tags="" position="500,3400" size="100,100">All of these policies so far are making a huge improvement in people’s lives, but many are still struggling to find work or are stuck in low-wage jobs with poor conditions, especially outside of London and the South East. How will you help them?
 
-Cut corporation tax to encourage businesses to hire more workers with better conditions.
+Either: Cut corporation tax to encourage businesses to hire more workers with better conditions.
 
-Implement a job guarantee, providing jobs in low-carbon industries and whatever else local communities need.
+Or: Implement a job guarantee, providing jobs in low-carbon industries and whatever else local communities need.
 
 &lt;div.button-wrapper&gt;
   [[Cut corporation tax]]
@@ -1088,9 +1128,9 @@ For more details on Job Guarantees, see Pavlina Tchernova&#39;s work&lt;sup&gt;1
 s.footnotes = [{href:&quot;https://www.sciencedirect.com/science/article/pii/S2542519620301960&quot;, text: &quot;The Job Guarantee: Design, Jobs, and Implementation, Pavlina R. Tcherneva: Levy Economics Institute of Bard College, April 2018&quot;}]
 %&gt;</tw-passagedata><tw-passagedata pid="43" name="Carbon emissions from flying" tags="" position="500,3750" size="100,100">The UK is one of the worst-offending countries in the world for carbon emissions from flying. On average, we each emit more than 800kg per year, but it’s very unequal - 15% of people in the UK take 70% of all flights, while half of us don&#39;t fly at all in any given year. How should we address this?
 
-Stop subsidising air travel, implement a Frequent Flyer Levy, and make up for this with significantly cheaper long-distance train services.
+Either: Stop subsidising air travel, implement a Frequent Flyer Levy, and make up for this with significantly cheaper long-distance train services.
 
-Nothing, we&#39;ll rely on new technologies (like Sustainable Aviation Fuel) to ensure flying doesn&#39;t add to emissions in the future
+Or: Nothing, we&#39;ll rely on new technologies (like Sustainable Aviation Fuel) to ensure flying doesn&#39;t add to emissions in the future
 
 
 &lt;div.button-wrapper&gt;
