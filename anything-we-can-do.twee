@@ -53,7 +53,7 @@ This is what most of our politicians would say, but it creates all kinds of prob
 
 For starters, when you prioritise growth without regulating what kinds of activities it should come from, then that is how you get massively bloated, non-productive sectors like the housing market (housing makes up over 12% of UK GDP<sup>1</sup>).
 
-It also environmentally damaging sectors like the finance industry or in areas like consulting, which keep the government dependent on skills from the private sector when it should receive the investment it needs to hire its own top talent<sup>2</sup>.
+It also environmentally damaging sectors like the finance industry<sup>2</sup> or in areas like consulting, which keep the government dependent on skills from the private sector when it should receive the investment it needs to hire its own top talent<sup>3</sup>.
 
 On top of all that, the idea that you can't fund public services without taxpayer money, or money that you've borrowed is completely backwards. 
 
@@ -61,7 +61,7 @@ Back when you used to be able to exchange UK pounds for gold (what's commonly kn
 
 Otherwise you would run the risk of people wanting to convert those new pounds you created into gold at the agreed exchange rate, and you wouldn't have enough to pay them all.
 
-But since the 1970s we’ve had a fiat currency<sup>3</sup>, which means that the currency isn’t convertible at a fixed rate to gold or anything else, and the government has more flexibility over how much money is available to our economy. 
+But since the 1970s we’ve had a fiat currency<sup>4</sup>, which means that the currency isn’t convertible at a fixed rate to gold or anything else, and the government has more flexibility over how much money is available to our economy. 
 
 This means that like Keynes said: "Anything we can actually do, we can afford". For more information, click the icon in the top right to learn all about Modern Monetary Theory at any point in the game.
 
@@ -74,6 +74,8 @@ Go back and let's see how we can use this insight to build a better economy.
 <%
 s.footnotes = [{
 text:"GDP boosted by £158bn of ‘phantom rent’, New Economics Foundation", href:"https://web.archive.org/web/20160420012102/http://www.neweconomics.org/press/entry/gdp-boosted-by-158bn-of-phantom-rent-nef-research-reveals"
+},{
+text:"UK banks and investors responsible for nearly double the UK’s annual carbon emissions, report finds", href:"https://www.greenpeace.org.uk/news/uk-banks-and-investors-responsible-for-nearly-double-the-uks-annual-carbon-emissions-report-finds/"
 },{
 href:"https://www.theguardian.com/books/2023/feb/16/the-big-con-by-mariana-mazzucato-and-rosie-collington-review-how-consultancy-firms-cash-in",
 text:"The Big Con by Mariana Mazzucato and Rosie Collington review – how consultancy firms cash in, The Guardian"
@@ -256,7 +258,7 @@ Or: Massive retrofitting and heat pump rollout, with fully-paid grants to incent
 </div>
 
 
-:: Find out more about where the inflation is coming from [correct-answer] {"position":"450,750","size":"100,100"}
+:: Find out more about where the inflation is coming from [correct-answer footer] {"position":"450,750","size":"100,100"}
 This is the right call! There’s two main kinds of inflation - cost push and demand pull. The methods to fight these are different.
 
 For demand pull, this is the traditional "too much money chasing too few goods and services" situation that economists often try to cool with interest rate hikes. 
@@ -267,13 +269,17 @@ For cost push, interest rate hikes don't work at all. You have to target the act
 
 An example of this is when the economy picked up again a few months into the Covid pandemic, there were bottlenecks in the supply chain where ports weren't processing containers quickly enough because they were making so much money having increased prices for each container so much. 
 
-The US imposed a tax for containers sitting empty on the docks, which caused them to increase the rate of processing again, and improved supply of goods to the economy.
+The US imposed a tax for containers sitting empty on the docks<sup>1</sup>, which caused them to increase the rate of processing again, and improved supply of goods to the economy.
 
 So let's find out more about the source of the inflation!
 
 <div.button-wrapper>
 	[[Source of the inflation]]
 </div>
+
+<%
+s.footnotes = [{href:"https://www.cnbc.com/2021/10/26/biden-hopes-fines-on-lingering-cargo-ships-ease-congestion-at-major-us-ports.html", text: "Biden hopes fines on lingering cargo containers ease congestion at major U.S. ports, CNBC"}]
+%>
 
 
 :: Fossil fuel companies will decarbonise [footer] {"position":"750,1425","size":"100,100"}
@@ -300,7 +306,9 @@ s.footnotes = [{href: "https://www.ft.com/content/86d71297-3f34-48f3-8f3f-28b7e8
 :: Government Investment Programme [correct-answer] {"position":"450,175","size":"100,100"}
 Yes! and honestly it’s refreshing to see politicians who aren’t being held back by outdated ways of thinking.
 
-We don't need economic growth to spend what's required on public services and moving the economy towards industries that enable people and the planet to thrive. We need to train workers and build infrastructure to make these things possible, and for that the UK government is not constrained by finding money to pay for it.
+We don't need economic growth to spend what's required on public services and moving the economy towards industries that enable people and the planet to thrive. 
+
+We need to train workers and build infrastructure to make these things possible, and for that the UK government is not constrained by finding money to pay for it.
 
 If you picked this option because it felt right, but you need an explainer on why, click on the little icon in the top right to learn more about Modern Monetary Theory. The explainer will be there for the whole game in case you need a refresher at any point.
 
