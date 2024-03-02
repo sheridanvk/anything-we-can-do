@@ -262,9 +262,9 @@ For demand pull, this is the traditional "too much money chasing too few goods a
 
 Demand pull inflation rarely happens, but if it does, then a more targeted approach would be to try to reduce demand on the specific sector causing the increase (e.g. if it's petrol prices, make public transport free or low cost). 
 
-For cost push, interest rate hikes don't work at all. You have to target the actual issues causing the costs to increase. 
+Cost push inflation is when higher costs of production or higher costs of raw materials cause prices to increase. In this situation, putting the interest rate up doesn't work at all. You have to target the actual issues causing the costs to increase. 
 
-An example of this is when the economy picked up again a few months into the Covid pandemic, there were bottlenecks in the supply chain where ports weren't processing containers quickly enough because they were making so much money having increased prices for each container so much. 
+An example of this is when the economy picked up again a few months into the Covid pandemic. Ports weren't processing containers quickly enough, causing delays in getting goods where they needed to be. They had learned they could ask for very high prices during the pandemic, and were refusing to accept less. 
 
 The US imposed a tax for containers sitting empty on the docks<sup>1</sup>, which caused them to increase the rate of processing again, and improved supply of goods to the economy.
 
@@ -385,19 +385,21 @@ s.footnotes = [{href:"https://www.communitylandtrusts.org.uk/about-clts/what-is-
 
 
 :: Modern Monetary Theory Side Quest {"position":"950,100","size":"100,100"}
-Money's origin isn't rooted in widespread barter as commonly believed. <a href="https://newrepublic.com/article/159227/david-graeber-changed-way-see-money" target="_blank">Societies operated in a myriad of ways</a> before money, from Native American societies which had <a href="https://en.wikipedia.org/wiki/Potlatch" target="_blank">elaborate gift-giving economies</a>, to societies operating on credit that was settled after harvests.
+Money's origin isn't rooted in widespread barter as commonly believed. <a href="https://newrepublic.com/article/159227/david-graeber-changed-way-see-money" target="_blank">Societies operated in many different ways</a> before money, from Native American societies based on <a href="https://en.wikipedia.org/wiki/Potlatch" target="_blank">large-scale gift-giving</a>, to societies operating on credit that was settled after crops were harvested.
 
-Money emerged to incentivise larger and less well-acquainted groups of people to do things - for example, when rulers sent their armies on long campaigns, rather than having to bring all their supplies with them, they imposed taxes on the people living on the land through which they passed. 
+Money emerged to encourage larger and less well-acquainted groups of people to do things - for example, when rulers sent their armies on long campaigns, rather than having to bring all their supplies with them, they imposed taxes on the people living on the land through which they passed. 
 
-To earn the money to pay those taxes, people had to carry out activities that were useful to the king, such as giving some of their food to the passing armies, or providing accommodation for the night. The alternative was the risk of violence or even death.
+To earn the money to pay those taxes, people had to carry out activities that were useful to the king, such as selling some of their food to the passing armies, or providing accommodation for the night. The alternative was the risk of violence or even death.
 
 In other words, the state used its power to impose a tax on the people living in it, essentially creating unemployment and requiring people to work to pay that tax.
 
-And in order for the people to be able to earn the currency, you'll notice that the state had to create it in the first place - it had to spend money into the economy (i.e. by supplying the money to its armies to give to the people who provide them with food and shelter) before it can collect it back later in tax.
+And in order for the people to be able to earn the currency, you'll notice that the state had to create it in the first place - it had to spend money into the economy (i.e. by supplying the money to its armies to give to the people who provide them with food and shelter) before it could collect it back later in tax.
 
-When the state spends more than it taxes back (what’s known as a deficit — the opposite would be a surplus), this allows people to save, or to exchange that money with other people for goods and services. 
+When the state spends more than it taxes back (what’s known as a deficit — the opposite would be a surplus), this allows people to save or to exchange that money with other people for goods and services. Over time, each deficit adds to what's called the national debt.
 
-In other words, a state deficit is a good thing for us. The only risk comes if the state puts too much money into an area where there’s already a lot of competition for resources - this is what might lead to inflation (which you’ll learn more about in the game).
+In other words, the national debt is a good thing for us - it's the money that enables our economy to run. And this is getting into the weeds (you should look into the resources at the end of the game if you're interested in more details), but it's actually <a href="https://stephaniekelton.substack.com/p/it-turns-out-that-no-one-wants-to" target="_blank">not required for the government to pay any interest on this "debt"</a>.
+
+The only risk comes if the state puts too much money into an area where there’s already a lot of competition for resources - this is what might lead to inflation (which you’ll learn more about in the game).
 
 One other important thing is that everything stated in this explainer only works if you have monetary sovereignty - that is, you don’t have a fixed exchange rate to any other currency or commodity (an example of a fixed exchange rate is the <a href="https://en.wikipedia.org/wiki/CFA_franc#:~:text=Both%20CFA%20francs%20have%20a,reserves%20with%20the%20French%20Treasury." target="_blank">CFA Franc to the Euro</a>), and you have little to no debt in foreign currencies. 
 
@@ -477,7 +479,7 @@ Or: Work with the unions to come to an agreement ensuring that their wages are k
 </div>
 
 
-:: Raise interest rates to cool demand {"position":"675,625","size":"100,100"}
+:: Raise interest rates to reduce demand {"position":"675,625","size":"100,100"}
 You’ve fallen into the traditional economics trap 🙅🏻‍♀️ 
 
 Raising interest rates is supposed to help with inflation by making unemployment go up because businesses can’t afford to borrow money to hire more people any more. The idea is that this would weaken wages and worker power, because there would be fewer jobs to go around.
@@ -559,7 +561,7 @@ We have to decarbonise as fast as we can in order to give space for poorer count
 
 But that expense shouldn’t fall on individuals, which is why we must provide grants to make this happen (and as you now know, this is something the government can absolutely afford). 
 
-It’s true that we’ll be giving grants to the wealthy here too, but we have other plans to address their wealth (and these grants are a drop in the ocean for them).
+It’s true that we’ll be giving grants to the wealthy here too, but we have other plans to address their wealth. so everything will balance out in the end.
 
 Finally to keep an eye on inflation, we’ll need to make sure we have enough labour for this project, and that we can produce enough of the heat pumps and retrofitting materials (or import them). 
 
@@ -639,13 +641,13 @@ Let's think next about making sure that everyone has access to a good job.
 :: Tackling Inflation {"position":"450,625","size":"100,100"}
 People are struggling to afford what they need because inflation (i.e. the rate at which prices are increasing) is high and their wages are not keeping up. What do you do?
 
-Either: Tell your economists to find out more about where the inflation is coming from before taking action
+Either: Tell your economists to find out more about where the inflation is coming from before taking action.
 
-Or: Raise interest rates to cool demand and therefore reduce the rate of price increase
+Or: Raise interest rates - that will reduce demand and therefore reduce the rate of price increase.
 
 <div.button-wrapper>
   [[Find out more about where the inflation is coming from]]
-  [[Raise interest rates to cool demand]]
+  [[Raise interest rates to reduce demand]]
 </div>
 
 
