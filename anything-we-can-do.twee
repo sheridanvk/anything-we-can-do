@@ -1076,7 +1076,7 @@ $(window).on("sm.story.started", () => {
   const appElement = $("#app");
   // Insert menu/title
   appElement.prepend(
-    '<div id="menu"><h3 id="title">Anything we can actually do, we can afford</h3><a href="javascript:void(0)" class="mmt-footnote"><img src="./icons/chat-bubble-question.svg" /></a></div>'
+    '<div id="menu"><h3 id="title">Anything we can actually do, we can afford</h3><a href="javascript:void(0)" class="mmt-footnote"><img src="./icons/chat-bubble-question.svg" alt="Chat bubble icon with a question mark in it. Clicking this link leads to an explanation of Modern Monetary Theory"/></a></div>'
   );
   const mmtContent = window.story.passages.find(
     (passage) => passage?.name === "Modern Monetary Theory Side Quest"
@@ -1085,6 +1085,14 @@ $(window).on("sm.story.started", () => {
     const mmtFootnoteContent = window.passage.render(mmtContent.source);
     await showFootnote(fixParsingError(mmtFootnoteContent));
   });
+  // set page language to english
+  $("html").attr("lang", "en");
+  // add meta description
+  $("<meta/>", {
+    name: "description",
+    content:
+      "A game to teach you how the UK economy actually works, and how we might use that knowledge to build a better future for its people and the planet",
+  }).appendTo("head");
 });
 
 $(window).on("sm.passage.showing", (_, data) => {
