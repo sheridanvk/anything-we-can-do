@@ -1196,6 +1196,7 @@ body {
   	align-items: center;
   	font-size: 1.17em; /* h3 size*/
   	gap: 16px;
+  	container-type: inline-size;
 }
 
 #title {
@@ -1204,6 +1205,7 @@ body {
 	margin-bottom: unset;
   	font-family: 'Lato';
   	line-height: normal;
+  	font-size: 3.5cqh;
 }
 
 .mmt-explainer {
