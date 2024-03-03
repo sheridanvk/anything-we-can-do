@@ -202,9 +202,11 @@ a:hover {
   #app {
     height: 100%;
   	grid-gap: 8px;
+	grid-template-rows: 10vh auto;
   } 
   #menu {
   	align-items: flex-start;
+  	container-type: inline-size;
   }
   tw-story {
   	height: 100%;
@@ -213,7 +215,8 @@ a:hover {
 	flex-direction: column;
   }
   #title {
-  	text-align: center
+  	text-align: center;
+    font-size:4cqh;
   }
   .passage > p {
   	text-align: center
@@ -596,12 +599,12 @@ Go back and let&#39;s see how we can use this insight to build a better economy.
 s.footnotes = [{
 text:&quot;GDP boosted by £158bn of ‘phantom rent’, New Economics Foundation&quot;, href:&quot;https://web.archive.org/web/20160420012102/http://www.neweconomics.org/press/entry/gdp-boosted-by-158bn-of-phantom-rent-nef-research-reveals&quot;
 },{
-text:&quot;UK banks and investors responsible for nearly double the UK’s annual carbon emissions, report finds&quot;, href:&quot;https://www.greenpeace.org.uk/news/uk-banks-and-investors-responsible-for-nearly-double-the-uks-annual-carbon-emissions-report-finds/&quot;
+text:&quot;UK banks and investors responsible for nearly double the UK’s annual carbon emissions, report finds, Greenpeace&quot;, href:&quot;https://www.greenpeace.org.uk/news/uk-banks-and-investors-responsible-for-nearly-double-the-uks-annual-carbon-emissions-report-finds/&quot;
 },{
 href:&quot;https://en.wikipedia.org/wiki/Pound_sterling#Free-floating_pound&quot;, 
 text: &quot;Pound sterling, Wikipedia&quot;
 }]
-%&gt;</tw-passagedata><tw-passagedata pid="2" name="Raise interest rates to cool demand" tags="" position="675,625" size="100,100">You’ve fallen into the traditional economics trap 🙅🏻‍♀️ 
+%&gt;</tw-passagedata><tw-passagedata pid="2" name="Raise interest rates to reduce demand" tags="" position="675,625" size="100,100">You’ve fallen into the traditional economics trap 🙅🏻‍♀️ 
 
 Raising interest rates is supposed to help with inflation by making unemployment go up because businesses can’t afford to borrow money to hire more people any more. The idea is that this would weaken wages and worker power, because there would be fewer jobs to go around.
 
@@ -621,9 +624,9 @@ For demand pull, this is the traditional &quot;too much money chasing too few go
 
 Demand pull inflation rarely happens, but if it does, then a more targeted approach would be to try to reduce demand on the specific sector causing the increase (e.g. if it&#39;s petrol prices, make public transport free or low cost). 
 
-For cost push, interest rate hikes don&#39;t work at all. You have to target the actual issues causing the costs to increase. 
+Cost push inflation is when higher costs of production or of raw materials cause prices to increase. In this situation, putting the interest rate up doesn&#39;t work at all. You have to target the actual issues causing the costs to increase. 
 
-An example of this is when the economy picked up again a few months into the Covid pandemic, there were bottlenecks in the supply chain where ports weren&#39;t processing containers quickly enough because they were making so much money having increased prices for each container so much. 
+An example of this is when the economy picked up again a few months into the Covid pandemic. Ports weren&#39;t processing containers quickly enough, causing delays in getting goods where they needed to be. They had learned they could ask for very high prices during the pandemic, and were refusing to accept less. 
 
 The US imposed a tax for containers sitting empty on the docks&lt;sup&gt;1&lt;/sup&gt;, which caused them to increase the rate of processing again, and improved supply of goods to the economy.
 
@@ -637,13 +640,13 @@ So let&#39;s find out more about the source of the inflation!
 s.footnotes = [{href:&quot;https://www.cnbc.com/2021/10/26/biden-hopes-fines-on-lingering-cargo-ships-ease-congestion-at-major-us-ports.html&quot;, text: &quot;Biden hopes fines on lingering cargo containers ease congestion at major U.S. ports, CNBC&quot;}]
 %&gt;</tw-passagedata><tw-passagedata pid="4" name="Tackling Inflation" tags="" position="450,625" size="100,100">People are struggling to afford what they need because inflation (i.e. the rate at which prices are increasing) is high and their wages are not keeping up. What do you do?
 
-Either: Tell your economists to find out more about where the inflation is coming from before taking action
+Either: Tell your economists to find out more about where the inflation is coming from before taking action.
 
-Or: Raise interest rates to cool demand and therefore reduce the rate of price increase
+Or: Raise interest rates - that will reduce demand and therefore reduce the rate of price increase.
 
 &lt;div.button-wrapper&gt;
   [[Find out more about where the inflation is coming from]]
-  [[Raise interest rates to cool demand]]
+  [[Raise interest rates to reduce demand]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="5" name="Source of the inflation" tags="" position="450,875" size="100,100">The economist team tells you that the biggest contributor to inflation right now is coming from high energy prices. How will you respond?
 
 Either: Launch a national energy guarantee, providing everyone’s essential energy needs for free and ramping up costs for any excessive usage over that.
@@ -666,19 +669,21 @@ Otherwise if you’re all up to speed on that, let’s start using this insight 
 
 &lt;div.button-wrapper&gt;
 [[Decide what to do first]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="Modern Monetary Theory Side Quest" tags="" position="950,100" size="100,100">Money&#39;s origin isn&#39;t rooted in widespread barter as commonly believed. &lt;a href=&quot;https://newrepublic.com/article/159227/david-graeber-changed-way-see-money&quot; target=&quot;_blank&quot;&gt;Societies operated in a myriad of ways&lt;/a&gt; before money, from Native American societies which had &lt;a href=&quot;https://en.wikipedia.org/wiki/Potlatch&quot; target=&quot;_blank&quot;&gt;elaborate gift-giving economies&lt;/a&gt;, to societies operating on credit that was settled after harvests.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="7" name="Modern Monetary Theory Side Quest" tags="" position="950,100" size="100,100">Money&#39;s origin isn&#39;t rooted in widespread barter as commonly believed. &lt;a href=&quot;https://newrepublic.com/article/159227/david-graeber-changed-way-see-money&quot; target=&quot;_blank&quot;&gt;Societies operated in many different ways&lt;/a&gt; before money, from Native American societies based on &lt;a href=&quot;https://en.wikipedia.org/wiki/Potlatch&quot; target=&quot;_blank&quot;&gt;large-scale gift-giving&lt;/a&gt;, to societies operating on credit that was settled after crops were harvested.
 
-Money emerged to incentivise larger and less well-acquainted groups of people to do things - for example, when rulers sent their armies on long campaigns, rather than having to bring all their supplies with them, they imposed taxes on the people living on the land through which they passed. 
+Money emerged to encourage larger and less well-acquainted groups of people to do things - for example, when rulers sent their armies on long campaigns, rather than having to bring all their supplies with them, they imposed taxes on the people living on the land through which they passed. 
 
-To earn the money to pay those taxes, people had to carry out activities that were useful to the king, such as giving some of their food to the passing armies, or providing accommodation for the night. The alternative was the risk of violence or even death.
+To earn the money to pay those taxes, people had to carry out activities that were useful to the king, such as selling some of their food to the passing armies, or providing accommodation for the night. The alternative was the risk of violence or even death.
 
 In other words, the state used its power to impose a tax on the people living in it, essentially creating unemployment and requiring people to work to pay that tax.
 
-And in order for the people to be able to earn the currency, you&#39;ll notice that the state had to create it in the first place - it had to spend money into the economy (i.e. by supplying the money to its armies to give to the people who provide them with food and shelter) before it can collect it back later in tax.
+And in order for the people to be able to earn the currency, you&#39;ll notice that the state had to create it in the first place - it had to spend money into the economy (i.e. by supplying the money to its armies to give to the people who provide them with food and shelter) before it could collect it back later in tax.
 
-When the state spends more than it taxes back (what’s known as a deficit — the opposite would be a surplus), this allows people to save, or to exchange that money with other people for goods and services. 
+When the state spends more than it taxes back (what’s known as a deficit — the opposite would be a surplus), this allows people to save or to exchange that money with other people for goods and services. Over time, each deficit adds to what&#39;s called the national debt.
 
-In other words, a state deficit is a good thing for us. The only risk comes if the state puts too much money into an area where there’s already a lot of competition for resources - this is what might lead to inflation (which you’ll learn more about in the game).
+In other words, the national debt is a good thing for us - it&#39;s the money that enables our economy to run. And this is getting into the weeds (you should look into the resources at the end of the game if you&#39;re interested in more details), but it&#39;s actually &lt;a href=&quot;https://stephaniekelton.substack.com/p/it-turns-out-that-no-one-wants-to&quot; target=&quot;_blank&quot;&gt;not required for the government to pay any interest on this &quot;debt&quot;&lt;/a&gt;.
+
+The only risk comes if the state puts too much money into an area where there’s already a lot of competition for resources - this is what might lead to inflation (which you’ll learn more about in the game).
 
 One other important thing is that everything stated in this explainer only works if you have monetary sovereignty - that is, you don’t have a fixed exchange rate to any other currency or commodity (an example of a fixed exchange rate is the &lt;a href=&quot;https://en.wikipedia.org/wiki/CFA_franc#:~:text=Both%20CFA%20francs%20have%20a,reserves%20with%20the%20French%20Treasury.&quot; target=&quot;_blank&quot;&gt;CFA Franc to the Euro&lt;/a&gt;), and you have little to no debt in foreign currencies. 
 
@@ -688,14 +693,14 @@ This is definitely not the only way to run an economy - perhaps in an ideal worl
 
 Either: Set up Community Assembly networks to ensure that communities who are currently bearing the brunt of multiple ongoing crises are key stakeholders in how to solve them.
 
-Or: The biggest newspapers and broadcast news channels have been featuring reports on a number of issues extremely prominently over the past few years - you put together a task force to look into and resolve those issues.
+Or: The biggest newspapers and broadcast news channels have been featuring reports on a number of issues extremely prominently over the past few years. Put together a task force to look into and resolve those issues.
 
 &lt;div.button-wrapper&gt;
     [[Community Assembly networks]]
     [[Task force to address media issues]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="9" name="Community Assembly networks" tags="correct-answer" position="450,475" size="100,100">This would be a game-changing approach - our current system of representative politics doesn&#39;t result in popular policies (such as the re-nationalisation of our public services) becoming reality, and we urgently need to improve it. 
 
-By making our democracy more participatory, we’ll make sure that these important policies are prioritised by government, while ensuring people feel more connected to their communities and more in control of their lives.
+By making our democracy more participatory, we’ll make sure that these important policies are prioritised by the government, while ensuring people feel more connected to their communities and more in control of their lives.
 
 We could set these up via sortition (so any adult in the country could be selected to be part of the assembly), setting terms for a period of several years. 
 
@@ -705,7 +710,7 @@ From here on in, let’s assume that the choices you’re making are on policy a
 
 &lt;div.button-wrapper&gt;
 	[[Tackling Inflation]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="Task force to address media issues" tags="" position="750,400" size="100,100">This isn&#39;t necessarily the right way to make sure you&#39;re focusing on what most people truly care about.
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="10" name="Task force to address media issues" tags="footer" position="750,400" size="100,100">This isn&#39;t necessarily the right way to make sure you&#39;re focusing on what most people truly care about.
 
 It’s important to keep an eye on, but not let yourself get swayed by billionaire-run media. Their interests align with keeping everything the way they are, and they’re going to fight tooth and nail for themselves and the rest of the 1%.
 
@@ -719,10 +724,10 @@ By showing that you’re empowering working people and helping them make positiv
 
 &lt;%
 s.footnotes = [{
-text: &quot;Most British people hold positive view of immigration, survey reveals&quot;,
+text: &quot;Most British people hold positive view of immigration, Guardian&quot;,
 href:&quot;https://www.theguardian.com/uk-news/2023/nov/03/most-british-people-hold-positive-view-of-immigration-survey-reveals&quot;
 }, {
-href:&quot;https://www.map.org.uk/news/archive/post/1548-opinion-poll-shows-overwhelming-british-public-support-for-an-immediate-ceasefire-in-gaza&quot;, text: &quot;Opinion poll shows overwhelming British public support for an immediate ceasefire in Gaza&quot;
+href:&quot;https://www.map.org.uk/news/archive/post/1548-opinion-poll-shows-overwhelming-british-public-support-for-an-immediate-ceasefire-in-gaza&quot;, text: &quot;Opinion poll shows overwhelming British public support for an immediate ceasefire in Gaza, Medical Aid for Palestinians&quot;
 }]
 %&gt;</tw-passagedata><tw-passagedata pid="11" name="National energy guarantee" tags="footer correct-answer" position="475,1025" size="100,100">Yes! This is an exciting option already proposed by many, including the New Economics Foundation&lt;sup&gt;1&lt;/sup&gt;. The reference goes into the specifics of the scheme in much more detail, but this would treat energy provision more like the NHS, as a basic need for all. 
 
@@ -752,14 +757,14 @@ Go back and try something more adventurous!
 &lt;/div&gt;
 
 &lt;%
-s.footnotes = [{href:&quot;https://www.britannica.com/money/propensity-to-consume&quot;, text: &quot;Propensity to consume, in economics, the proportion of total income or of an increase in income that consumers tend to spend on goods and services rather than to save&quot;}]
+s.footnotes = [{href:&quot;https://www.britannica.com/money/propensity-to-consume&quot;, text: &quot;Propensity to consume, in economics, the proportion of total income or of an increase in income that consumers tend to spend on goods and services rather than to save, Britannica.com&quot;}]
 %&gt;</tw-passagedata><tw-passagedata pid="13" name="Retrofitting and heat pump rollout" tags="footer correct-answer" position="500,1300" size="100,100">This is exactly the kind of ambition we need in the UK. Our historical responsibility for climate change over our “fair share” (based on our population size) is 7%, the 4th largest in the world&lt;sup&gt;1&lt;/sup&gt;. 
 
 We have to decarbonise as fast as we can in order to give space for poorer countries, who have historically contributed very little to the climate crisis and may need to grow their emissions before they can decarbonise.
 
 But that expense shouldn’t fall on individuals, which is why we must provide grants to make this happen (and as you now know, this is something the government can absolutely afford). 
 
-It’s true that we’ll be giving grants to the wealthy here too, but we have other plans to address their wealth (and these grants are a drop in the ocean for them).
+It’s true that we’ll be giving grants to the wealthy here too, but we have other plans to address their wealth. so everything will balance out in the end.
 
 Finally to keep an eye on inflation, we’ll need to make sure we have enough labour for this project, and that we can produce enough of the heat pumps and retrofitting materials (or import them). 
 
@@ -774,10 +779,10 @@ Let&#39;s keep going!
 &lt;/div&gt;
 
 &lt;%
-s.footnotes = [{href:&quot;https://www.sciencedirect.com/science/article/pii/S2542519620301960&quot;, text: &quot;Jason Hickel, Quantifying national responsibility for climate breakdown&quot;}]
+s.footnotes = [{href:&quot;https://www.sciencedirect.com/science/article/pii/S2542519620301960&quot;, text: &quot;Quantifying national responsibility for climate breakdown, Jason Hickel&quot;}]
 %&gt;</tw-passagedata><tw-passagedata pid="14" name="Nationalised renewable energy provider" tags="footer correct-answer" position="500,1550" size="100,100">Excellent choice! If the state owns the generation capability, it doesn’t need to pay shareholders and therefore doesn&#39;t need to make a profit - it can invest what’s needed in this essential productive capacity, and then the UK population gets the benefit of the cheaper energy&lt;sup&gt;1&lt;/sup&gt;.
 
-That said, the cost of raw materials for renewables has skyrocketed recently, so the government should also explore ways to get alternative, post-growth supply chains for what it needs.
+That said, the cost of raw materials for renewables has skyrocketed recently, so the government should also explore ways to get alternative, sustainable supply chains for what it needs.
 
 The 2024 example of Tata Steel pulling out of Port Talbot in Wales&lt;sup&gt;2&lt;/sup&gt; is a prime example of how the government could pivot ventures that private companies think are unprofitable into nationalised companies that care about more than just profits.
 
@@ -800,9 +805,9 @@ text: &quot;Unite statement Port Talbot - Tata Steel&quot;
 }]
 %&gt;</tw-passagedata><tw-passagedata pid="15" name="Fossil fuel companies will decarbonise" tags="footer" position="750,1425" size="100,100">It would be nice if this were really true, but we cannot rely on the private sector to decarbonise at the rate we need - even the Financial Times says that &quot;Capitalism won’t deliver the energy transition fast enough&quot;&lt;sup&gt;1&lt;/sup&gt;. 
 
-The financial returns from renewables are so much lower than fossil fuels, because once you’ve set up the site, then the fuel that powers the generation (wind and sun) is literally free. Fossil fuels (and nuclear/hydrogen) cost far more to run because you’re constantly paying for more fuel.
+The financial returns from renewables are so much lower than fossil fuels, around 5-8% as opposed to more than 15% for fossil fuel generation&lt;sup&gt;2&lt;/sup&gt;
 
-Governments literally have to guarantee prices far higher for renewables than they would actually cost to run, to make it worth the while for private companies to decide to bid for renewable energy contracts (and if set the maximum bids too low, this has resulted in no private companies wanting to make offers&lt;sup&gt;2&lt;/sup&gt;). 
+Governments currently have to guarantee prices far higher for renewables than they would actually cost to run, to make it worth the while for private companies to decide to bid for renewable energy contracts (and if set the maximum bids too low, this has resulted in no private companies wanting to make offers&lt;sup&gt;3&lt;/sup&gt;). 
 
 A public energy provider would not have to make a profit - its only goal would be to make sure the UK meets its decarbonisation goals and provides cheaper energy.
 
@@ -814,7 +819,15 @@ Let&#39;s try something different.
 &lt;/div&gt;
 
 &lt;%
-s.footnotes = [{href: &quot;https://www.ft.com/content/86d71297-3f34-48f3-8f3f-28b7e8be03c6&quot;, text: &quot;The energy transition will be volatile, Financial Times&quot;}, {href:&quot;https://www.theguardian.com/environment/2023/sep/08/what-went-wrong-at-uk-governments-offshore-wind-auction&quot;, text: &quot;Guardian, What went wrong at UK government’s offshore wind auction?&quot;}]
+s.footnotes = [{
+href: &quot;https://www.ft.com/content/86d71297-3f34-48f3-8f3f-28b7e8be03c6&quot;, 
+text: &quot;The energy transition will be volatile, Financial Times&quot;
+},{
+href: &quot;https://www.ft.com/content/0b8a1c88-c670-4166-823c-7999f3f032bc&quot;, 
+text: &quot;The Price Is Wrong — Brett Christophers on saving the planet, Financial Times&quot;
+}, {
+href:&quot;https://www.theguardian.com/environment/2023/sep/08/what-went-wrong-at-uk-governments-offshore-wind-auction&quot;, 
+text: &quot;What went wrong at UK government’s offshore wind auction?, Guardian&quot;}]
 %&gt;</tw-passagedata><tw-passagedata pid="16" name="Reduce demand by making local public transportation free" tags="correct-answer" position="500,1900" size="100,100">This is a fantastic policy - it will put more money back into people&#39;s pockets, and will help better connect rural communities and cities outside of London alike. 
 
 The UK public transport network has been extensively privatised and is run in the interests of profit, not service. So rather than giving subsidies to private companies, the government can re-nationalise these services, improving wages and increasing the desirability of these jobs in the local communities.
@@ -849,7 +862,7 @@ Or: Build more renewable energy capacity to meet whatever need arises.
   [[Build more renewable energy capacity]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="Build more renewable energy capacity" tags="" position="775,1700" size="100,100">While it&#39;s tempting to think that there&#39;s no downside to keep building more renewable energy because it doesn&#39;t emit carbon, that&#39;s not the whole story. 
 
-It still takes materials to build those windmills, solar panels and batteries, and those materials usually come from the Global South. Those communities are battling the negative consquences of mass extractivism, from biodiversity loss to poisoning of water supplies and air.
+It still takes materials to build those windmills, solar panels and batteries, and those materials usually come from the Global South. Those communities are battling the negative consequences of mass extractivism, from biodiversity loss to poisoning of water supplies and air.
 
 We must consider the impact of our energy needs on the whole world, and make sure we only build for what we truly need, especially as that will then ensure that other countries will also be able to cover their needs without overwhelming the Earth&#39;s supplies.
 
@@ -884,9 +897,9 @@ With this better understanding of how money works, we most importantly understan
 
 There’s no real end to this game, because we’ll keep facing new challenges, but the democratic foundations and better understanding of the economy you’ve put in place here should help the people and wider natural world of the UK overcome whatever comes their way in the future.
 
-For more reading and background on Modern Monetary Theory, see this &lt;a href=&quot;https://github.com/sheridanvk/anything-we-can-do/discussions/28&quot;&gt;list of resources&lt;/a&gt;. 
+For more reading and background on Modern Monetary Theory, see this &lt;a href=&quot;https://github.com/sheridanvk/anything-we-can-do/discussions/28&quot; target=&quot;_blank&quot;&gt;list of resources&lt;/a&gt;. 
 
-Or &lt;a href=&quot;https://github.com/sheridanvk/anything-we-can-do/discussions/5&quot;&gt;join the conversation on Github&lt;/a&gt; if you think anything in here needs tweaking or enhancing! We’d love to get your feedback :)</tw-passagedata><tw-passagedata pid="23" name="Welcome to the Story" tags="" position="75,50" size="100,100">Welcome! Have you ever found yourself frustrated with the constant political narratives insisting that there&#39;s no money left to fund essential services like the NHS or build much-needed social housing?
+Or &lt;a href=&quot;https://github.com/sheridanvk/anything-we-can-do/discussions/5&quot; target=&quot;_blank&quot;&gt;join the conversation on Github&lt;/a&gt; if you think anything in here needs tweaking or enhancing! We’d love to get your feedback :)</tw-passagedata><tw-passagedata pid="23" name="Welcome to the Story" tags="" position="75,50" size="100,100">Welcome! Have you ever found yourself frustrated with the constant political narratives insisting that there&#39;s no money left to fund essential services like the NHS or build much-needed social housing?
 
 It may surprise you to learn that the vast majority of people making decisions about our economy are operating on outdated information, and the government doesn’t have to balance its budgets in the same way that you or I need to.
 
@@ -908,7 +921,7 @@ Or: Immediately set to work planning out a programme of government investment in
 &lt;/div&gt;
 
 &lt;%
-s.footnotes = [{text: &quot;Gross Domestic Product&quot;, href: &quot;https://en.wikipedia.org/wiki/Gross_domestic_product&quot;}]
+s.footnotes = [{text: &quot;Gross Domestic Product definition, Wikipedia&quot;, href: &quot;https://en.wikipedia.org/wiki/Gross_domestic_product&quot;}]
 %&gt;</tw-passagedata><tw-passagedata pid="25" name="Tackling the housing crisis" tags="" position="500,2050" size="100,100">The improvements you&#39;ve made to energy costs with the energy guarantee and the nationalised energy provider are a huge success; people have more money left over to afford other essentials. 
 
 However, housing is still a huge part of people’s expenditure and often extremely hard to find. How can you help improve this situation?
@@ -930,7 +943,7 @@ Knowing what you do about where money comes from in the UK, you could go even fu
 
 Even better, you could fund community land trusts&lt;sup&gt;1&lt;/sup&gt; to purchase the housing, so that future governments without the people&#39;s interest in mind can&#39;t choose to sell the housing stock back off again.
 
-Finally you can build more social housing appropriate to people’s needs, in communities where all essentials are available within 15min walk or public transport - but the priority should be to ensure that the housing we do have is being used in the most socially-benefical ways.
+Finally you can build more social housing appropriate to people’s needs, in communities where all essentials are available within 15 min walk or public transport - but the priority should be to ensure that the housing we do have is being used in the most socially-beneficial ways.
 
 Let&#39;s see what we can do about the waves of public sector industrial action across the UK next
 
@@ -939,7 +952,7 @@ Let&#39;s see what we can do about the waves of public sector industrial action 
 &lt;/div&gt;
 
 &lt;%
-s.footnotes = [{href:&quot;https://www.communitylandtrusts.org.uk/about-clts/what-is-a-community-land-trust-clt/&quot;, text: &quot;What is a Community Land Trust?&quot;}]
+s.footnotes = [{href:&quot;https://www.communitylandtrusts.org.uk/about-clts/what-is-a-community-land-trust-clt/&quot;, text: &quot;What is a Community Land Trust?, communitylandtrusts.org.uk&quot;}]
 %&gt;
 </tw-passagedata><tw-passagedata pid="27" name="Increase housing benefit" tags="" position="750,2050" size="100,100">I see that you&#39;re trying to help people here, and while this definitely would in the short term, it does nothing to address the systemic problems with how we view housing in the UK. The housing benefit would go straight to private landlords and further increase wealth inequalities in the UK. 
 
@@ -960,7 +973,7 @@ Or: Work with the unions to come to an agreement ensuring that their wages are k
 
 This is one of the most harmful beliefs of traditional economic thinking - that if wages keep up with inflation, that will then push prices even higher, causing firms and workers to fight against each other and making the inflation even worse than it would otherwise have been.
 
-There is very little evidence that this has ever happened in history - even the IMF found that the inflation of the 1970s was found to be primarily driven by skyrocketing oil prices (due to limited supply) and not further excerbated by the union-negotiated wage increases that came after that inflation&lt;sup&gt;1&lt;/sup&gt;. 
+There is very little evidence that this has ever happened in history - even the IMF found that the inflation of the 1970s was found to be primarily driven by skyrocketing oil prices (due to limited supply) and not further exacerbated by the union-negotiated wage increases that came after that inflation&lt;sup&gt;1&lt;/sup&gt;. 
 
 The inflation was eased due to increased oil supply in the 1980s, and not because of the heavy-handed union busting tactics of conservative leaders like Margaret Thatcher.
 
@@ -1009,7 +1022,7 @@ Let&#39;s move onto caring for our older members of society next.
 &lt;/div&gt;
 
 &lt;%
-s.footnotes = [{href: &quot;https://taxjustice.net/press/press-release-city-of-london-costs-uk-4-5tn-in-lost-economic-growth/#&quot;, text:&quot;City of London costs UK £4.5tn in lost economic growth&quot;}]
+s.footnotes = [{href: &quot;https://taxjustice.net/press/press-release-city-of-london-costs-uk-4-5tn-in-lost-economic-growth/#&quot;, text:&quot;City of London costs UK £4.5tn in lost economic growth, taxjustice.net&quot;}]
 %&gt;</tw-passagedata><tw-passagedata pid="33" name="Decarbonise, but it&#39;s not so important for us" tags="footer" position="750,2600" size="100,100">While we might be emitting less overall as a country now, our historical responsibility for climate change over our “fair share” (based on our population size) is 7%, the 4th largest in the world&lt;sup&gt;1&lt;/sup&gt;.
 
 China just recently reached its fair share, but it is already one of the world leaders in decarbonisation, with its emissions set to peak in 2024&lt;sup&gt;2&lt;/sup&gt; due to rapid rollouts of renewable energy sources, and its per-capita emissions are still far below ours. 
@@ -1022,7 +1035,7 @@ We need to do our part, and quickly. Go back to see how we&#39;ll do it.
 &lt;/div&gt;
 
 &lt;%
-s.footnotes = [{href:&quot;https://www.sciencedirect.com/science/article/pii/S2542519620301960&quot;, text: &quot;Jason Hickel, Quantifying national responsibility for climate breakdown&quot;}, {href: &quot;https://www.carbonbrief.org/analysis-chinas-emissions-set-to-fall-in-2024-after-record-growth-in-clean-energy/&quot;, text: &quot;Analysis: China’s emissions set to fall in 2024 after record growth in clean energy, Carbon Brief&quot;}]
+s.footnotes = [{href:&quot;https://www.sciencedirect.com/science/article/pii/S2542519620301960&quot;, text: &quot;Quantifying national responsibility for climate breakdown, Jason Hickel&quot;}, {href: &quot;https://www.carbonbrief.org/analysis-chinas-emissions-set-to-fall-in-2024-after-record-growth-in-clean-energy/&quot;, text: &quot;Analysis: China’s emissions set to fall in 2024 after record growth in clean energy, Carbon Brief&quot;}]
 %&gt;</tw-passagedata><tw-passagedata pid="34" name="Caring for our older members of society" tags="" position="500,2850" size="100,100">By making housing less profitable and taking lots of it off the private market, you’re taking away a source of wealth that many people in the UK are currently using to fund retirement. How do you address this issue?
 
 Either: Provide more tax breaks for people to save money in their pensions.
@@ -1067,7 +1080,7 @@ Or: We shouldn&#39;t target wealth too much - wealthy people set up businesses a
 
 &lt;%
 s.footnotes = [{href:&quot;https://www.cambridge.org/core/journals/global-sustainability/article/unequal-distribution-of-household-carbon-footprints-in-europe-and-its-link-to-sustainability/F1ED4F705AF1C6C1FCAD477398353DC2&quot;, text: &quot;Ivanova D, Wood R. The unequal distribution of household carbon footprints in Europe and its link to sustainability. Global Sustainability. 2020.&quot;}]
-%&gt;</tw-passagedata><tw-passagedata pid="38" name="Don&#39;t target innovative wealthy people" tags="" position="775,3125" size="100,100">It&#39;s a common misconception, but most innovation doesn’t come from private individuals or businesses. There are countless studies that show us how most innovation is de-risked by government funding and then private companies/wealthy individuals get to cream off all the benefit&lt;sup&gt;1&lt;/sup&gt;. 
+%&gt;</tw-passagedata><tw-passagedata pid="38" name="Don&#39;t target innovative wealthy people" tags="footer" position="775,3125" size="100,100">It&#39;s a common misconception, but most innovation doesn’t come from private individuals or businesses. There are countless studies that show us how most innovation is de-risked by government funding and then private companies/wealthy individuals get to cream off all the benefit&lt;sup&gt;1&lt;/sup&gt;. 
 
 So we don&#39;t need these wealthy people, and we most certainly don&#39;t need their tax money to run our public services, but if they&#39;re going to stay here in the UK then we want to make sure we massively reduce their outsize impact on the climate and on the power their money gives them in our political system.
 
@@ -1148,9 +1161,9 @@ Or: Nothing, we&#39;ll rely on new technologies (like Sustainable Aviation Fuel)
 &lt;div.button-wrapper&gt;
   [[Stop subsidising air travel]]
   [[Rely on new technologies]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="44" name="Rely on new technologies" tags="footer" position="775,3750" size="100,100">You’ve fallen into the traditional politician&#39;s trap 🙅🏻‍♀️ 
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="44" name="Rely on new technologies" tags="footer" position="775,3750" size="100,100">This is a common answer from our leaders, but we’re a long way away from any feasible technology that will significantly reduce airline emissions as much as we need 
 
-We’re a long way away from any feasible technology that will significantly reduce airline emissions as much as we need - there&#39;s no evidence that the airline industry will be able to create biofuels like Sustainable Aviation Fuel (SAF) at even the scale currently needed, and the demand for airline travel is increasing all the time. 
+There&#39;s no evidence that the airline industry will be able to create biofuels like Sustainable Aviation Fuel (SAF) at even the scale currently needed, and the demand for airline travel is increasing all the time. 
 
 Unproven technologies like this can&#39;t be our solution for the biggest crisis facing our planet - we need to cut our emissions by about half between here and 2030&lt;sup&gt;1&lt;/sup&gt;, so there&#39;s no time. And SAF doesn&#39;t even completely cut emissions; it reduces them to about 80% of what they are now.
 
@@ -1166,14 +1179,25 @@ Go back and let&#39;s see what kind of action is needed instead.
 &lt;/div&gt;
 
 &lt;%
-s.footnotes = [{href: &quot;https://www.ipcc.ch/2022/04/04/ipcc-ar6-wgiii-pressrelease/&quot;, text:&quot;Release of the IPCC’s Working Group III, Sixth Assessment Report (AR6)&quot;}, {href: &quot;https://en.wikipedia.org/wiki/Jevons_paradox#:~:text=The%20Jevons%20paradox%20indicates%20that,of%20government%20interventions%20as%20well.&quot;, text:&quot;Jevons Paradox, Wikipedia&quot;}, {href:&quot;https://stay-grounded.org/greenwashing/&quot;, text: &quot;Stay Grounded, Greenwashing factsheets&quot;}]
-%&gt;</tw-passagedata><tw-passagedata pid="45" name="Stop subsidising air travel" tags="correct-answer" position="500,3925" size="100,100">Exactly right - while the aviation industry isn&#39;t the most polluting one overall (causing &quot;only&quot; 5.9% of human contributions to global heating up until now&lt;sup&gt;1&lt;/sup&gt;), it&#39;s both one of the fastest-growing ones and one of the hardest to decarbonise.
+s.footnotes = [{
+href: &quot;https://www.ipcc.ch/2022/04/04/ipcc-ar6-wgiii-pressrelease/&quot;,
+text:&quot;Release of the IPCC’s Working Group III, Sixth Assessment Report (AR6)&quot;
+}, {
+href: &quot;https://en.wikipedia.org/wiki/Jevons_paradox#:~:text=The%20Jevons%20paradox%20indicates%20that,of%20government%20interventions%20as%20well.&quot;, 
+text:&quot;Jevons Paradox definition, Wikipedia&quot;}, {
+href:&quot;https://stay-grounded.org/greenwashing/&quot;, text: &quot;Stay Grounded, Greenwashing factsheets&quot;
+}]
+%&gt;</tw-passagedata><tw-passagedata pid="45" name="Stop subsidising air travel" tags="correct-answer footer" position="500,3925" size="100,100">Exactly right - while the aviation industry isn&#39;t the most polluting one overall (causing &quot;only&quot; 5.9% of human contributions to global heating up until now&lt;sup&gt;1&lt;/sup&gt;), it&#39;s both one of the fastest-growing ones and one of the hardest to decarbonise.
 
-Airline travel is so mind-bogglingly cheap right now due to the subsidies and tax relief it receives from governments around the world. We could end all this in the UK by properly taxing airline fuel, and adding a carbon tax on top of that of at least £100/tonne (so a return flight London to NYC would have about £100 added)&lt;sup&gt;2&lt;/sup&gt;.
+Airline travel is so mind-bogglingly cheap right now due to the subsidies and tax relief it receives from governments around the world. 
 
-Additionally to make sure that the richest travel less without too-heavily penalising lower-income people, we should implement a Frequent Flyer levy - the first flight per person per year would not have a charge, but after that a charge would be applied, doubling for each additional flight&lt;sup&gt;3&lt;/sup&gt;.
+We could end all this in the UK by properly taxing airline fuel, and adding a carbon tax on top of that of at least £100/tonne (so a return flight from London to NYC would have about £100 added)&lt;sup&gt;2&lt;/sup&gt;.
 
-Alongside that, we should heavily subsidise long-distance train travel, re-nationalising the whole service and improving the infrastructure (e.g. completing the new HS2 rail project to free up capacity for services to the North, better service that doesn&#39;t require connections through London, increasing the number of cross-Channel trains, etc). 
+Additionally, to make sure that the richest travel less without penalising lower-income people too heavily, we should implement a Frequent Flyer levy - the first flight per person per year would not have a charge, but after that a charge would be applied, doubling for each additional flight&lt;sup&gt;3&lt;/sup&gt;.
+
+Alongside that, we should heavily subsidise long-distance train travel, re-nationalising the whole service and improving the infrastructure.
+
+Examples would be completing the new HS2 rail project to free up capacity for services to the North, adding better service that doesn&#39;t require connections through London, increasing the number of cross-Channel trains, etc. 
 
 It&#39;s understandable that people fly instead of taking the train right now, due to how much cheaper it is, so we have to make the choice to take the train much easier.
 
@@ -1184,7 +1208,15 @@ Well done, let&#39;s keep going.
 &lt;/div&gt;
 
 &lt;%
-s.footnotes = [{href: &quot;https://stay-grounded.org/wp-content/uploads/2020/10/SG_Factsheet_Non-CO2_2020.pdf&quot;, text:&quot;It&#39;s about more than just CO2, Stay Grounded Factsheet (pdf)&quot;}, {href: &quot;https://stay-grounded.org/eliminating-tax-exemptions/&quot;, text:&quot;Stay Grounded, Eliminating Tax Exemptions&quot;}, {href:&quot;https://stay-grounded.org/wp-content/uploads/2019/12/Degrowth-Of-Aviation_2019.pdf&quot;, text: &quot;The Degrowth of Aviation (pdf)&quot;}]
+s.footnotes = [{
+href: &quot;https://stay-grounded.org/wp-content/uploads/2020/10/SG_Factsheet_Non-CO2_2020.pdf&quot;, 
+text:&quot;It&#39;s about more than just CO2, Stay Grounded Factsheet (pdf)&quot;
+}, {
+href: &quot;https://stay-grounded.org/eliminating-tax-exemptions/&quot;,
+text:&quot;Eliminating Tax Exemptions, Stay Grounded&quot;
+}, {
+href:&quot;https://stay-grounded.org/wp-content/uploads/2019/12/Degrowth-Of-Aviation_2019.pdf&quot;, 
+text: &quot;The Degrowth of Aviation, Stay Grounded (pdf)&quot;}]
 %&gt;</tw-passagedata></tw-storydata>
 		<script>
 		(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
