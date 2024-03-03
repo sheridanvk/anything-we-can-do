@@ -473,6 +473,18 @@ $(window).on("sm.story.started", () => {
     content:
       "A game to teach you how the UK economy actually works, and how we might use that knowledge to build a better future for its people and the planet",
   }).appendTo("head");
+
+  // add favicon links
+  $("<link/>", {
+    rel: "icon",
+    sizes: "any",
+    href: "./favicon.ico",
+  }).appendTo("head");
+  $("<link/>", {
+    rel: "icon",
+    type: "image/svg+xml",
+    href: "./favicon.svg",
+  }).appendTo("head");
 });
 
 $(window).on("sm.passage.showing", (_, data) => {
