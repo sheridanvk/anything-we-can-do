@@ -37,7 +37,6 @@
   	align-items: center;
   	font-size: 1.17em; /* h3 size*/
   	gap: 16px;
-  	container-type: inline-size;
 }
 
 #title {
@@ -46,7 +45,6 @@
 	margin-bottom: unset;
   	font-family: 'Lato';
   	line-height: normal;
-  	font-size: 3.5cqh;
 }
 
 .mmt-explainer {
@@ -204,9 +202,11 @@ a:hover {
   #app {
     height: 100%;
   	grid-gap: 8px;
+	grid-template-rows: 10vh auto;
   } 
   #menu {
   	align-items: flex-start;
+  	container-type: inline-size;
   }
   tw-story {
   	height: 100%;
@@ -215,7 +215,8 @@ a:hover {
 	flex-direction: column;
   }
   #title {
-  	text-align: center
+  	text-align: center;
+    font-size:4cqh;
   }
   .passage > p {
   	text-align: center
