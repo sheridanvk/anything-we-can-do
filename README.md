@@ -1,4 +1,4 @@
-This project holds the source code for the game "Anything we can actually do, we can afford", avaolable at https://youreconomy.uk
+This project holds the source code for the game "Anything we can actually do, we can afford", available at https://youreconomy.uk
 
 Thanks to the following open source projects used in this game:
 - [Twine open-source software package](https://github.com/klembot/twinejs), developed by Chris Klimas (@klembot).
